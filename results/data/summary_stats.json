@@ -1,0 +1,84 @@
+{
+  "experiment_1": {
+    "total_queries": 2400,
+    "total_intent_shifts": 206,
+    "overall_shift_rate": 0.08583333333333333,
+    "by_model_prompt": {
+      "gpt-4.1/fix_errors": {
+        "shift_rate": 0.015,
+        "shift_ci": [
+          0.005,
+          0.0275
+        ],
+        "edit_ratio": 0.1281301822430886,
+        "semantic_similarity": 0.9754398838430643
+      },
+      "gpt-4.1/rewrite_clearly": {
+        "shift_rate": 0.0925,
+        "shift_ci": [
+          0.0625,
+          0.1225
+        ],
+        "edit_ratio": 0.9531369025330906,
+        "semantic_similarity": 0.8215402146801353
+      },
+      "gpt-4.1/improve": {
+        "shift_rate": 0.1,
+        "shift_ci": [
+          0.0725,
+          0.13
+        ],
+        "edit_ratio": 1.0403099488924759,
+        "semantic_similarity": 0.8043048250488937
+      },
+      "claude-sonnet-4.5/fix_errors": {
+        "shift_rate": 0.015,
+        "shift_ci": [
+          0.005,
+          0.0275
+        ],
+        "edit_ratio": 0.08306390291877908,
+        "semantic_similarity": 0.9842561251670122
+      },
+      "claude-sonnet-4.5/rewrite_clearly": {
+        "shift_rate": 0.15,
+        "shift_ci": [
+          0.115,
+          0.1875
+        ],
+        "edit_ratio": 1.57013010948663,
+        "semantic_similarity": 0.7393514626845717
+      },
+      "claude-sonnet-4.5/improve": {
+        "shift_rate": 0.1425,
+        "shift_ci": [
+          0.11,
+          0.18
+        ],
+        "edit_ratio": 1.9618245894327553,
+        "semantic_similarity": 0.7461961217038333
+      }
+    },
+    "by_dataset": {
+      "banking77": {
+        "shift_rate": 0.08166666666666667,
+        "n": 1200
+      },
+      "clinc150": {
+        "shift_rate": 0.09,
+        "n": 1200
+      }
+    }
+  },
+  "experiment_2": {
+    "total_judged": 100,
+    "valid_judgments": 100
+  },
+  "experiment_3": {
+    "confidence_distribution": {
+      "high": 136,
+      "medium": 14,
+      "low": 0
+    }
+  }
+}

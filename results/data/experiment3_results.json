@@ -1,0 +1,4113 @@
+{
+  "confidence_aware": [
+    {
+      "dataset": "banking77",
+      "index": 281,
+      "original": "my card was not in the mail again can you advise?",
+      "gt_intent": "card_delivery_estimate",
+      "gt_intent_id": 12,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "My card was not in the mail again. Can you advise?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9864603281021118,
+        "nli_forward": 0.0022975627798587084,
+        "nli_backward": 0.002009636489674449,
+        "nli_bidirectional": 0.002009636489674449
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_arrival"
+    },
+    {
+      "dataset": "banking77",
+      "index": 562,
+      "original": "what is required documents for new card process ?",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "What are the required documents for the new card process?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.5555555555555556,
+        "semantic_similarity": 0.9754025340080261,
+        "nli_forward": 0.0019662445411086082,
+        "nli_backward": 0.0020513483323156834,
+        "nli_bidirectional": 0.0019662445411086082
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "order_physical_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2128,
+      "original": "I want to set a new PIN",
+      "gt_intent": "change_pin",
+      "gt_intent_id": 21,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I want to set a new PIN",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0017049451125785708,
+        "nli_backward": 0.0017049451125785708,
+        "nli_bidirectional": 0.0017049451125785708
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "change_pin"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1995,
+      "original": "I recently got charged twice from a restaurant that I was at this week and I would like for one of those payments to be removed from my account.",
+      "gt_intent": "transaction_charged_twice",
+      "gt_intent_id": 63,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I was recently charged twice by a restaurant I visited this week, and I would like one of those payments to be removed from my account.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.27586206896551724,
+        "semantic_similarity": 0.989759624004364,
+        "nli_forward": 0.0016194484196603298,
+        "nli_backward": 0.00175353919621557,
+        "nli_bidirectional": 0.0016194484196603298
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transaction_charged_twice"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1966,
+      "original": "Why is there more then one charge on my card I only paid for one not twice how can I fix this?",
+      "gt_intent": "transaction_charged_twice",
+      "gt_intent_id": 63,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why are there more than one charge on my card? I only paid once, not twice. How can I fix this?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2727272727272727,
+        "semantic_similarity": 0.9798300266265869,
+        "nli_forward": 0.0014536338858306408,
+        "nli_backward": 0.002810610458254814,
+        "nli_bidirectional": 0.0014536338858306408
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transaction_charged_twice"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2438,
+      "original": "My child needs a card, how can I add them to the account I currently have?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My child needs a card. How can I add them to the account I currently have?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0625,
+        "semantic_similarity": 0.9990502595901489,
+        "nli_forward": 0.0031311819329857826,
+        "nli_backward": 0.0027676462195813656,
+        "nli_bidirectional": 0.0027676462195813656
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_spare_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 3036,
+      "original": "Is there any documentation needed for the identity check?",
+      "gt_intent": "verify_my_identity",
+      "gt_intent_id": 69,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Is any documentation needed for the identity check?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.9913269281387329,
+        "nli_forward": 0.0023703835904598236,
+        "nli_backward": 0.0019449582323431969,
+        "nli_bidirectional": 0.0019449582323431969
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_my_identity"
+    },
+    {
+      "dataset": "banking77",
+      "index": 205,
+      "original": "Why is it taking so long for my cash withdrawal to no longer show as pending?",
+      "gt_intent": "pending_cash_withdrawal",
+      "gt_intent_id": 46,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why is it taking so long for my cash withdrawal to stop showing as pending?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1875,
+        "semantic_similarity": 0.990835964679718,
+        "nli_forward": 0.0023675933480262756,
+        "nli_backward": 0.002048781141638756,
+        "nli_bidirectional": 0.002048781141638756
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pending_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 844,
+      "original": "I tried to send someone money but they haven't received it.",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I tried to send someone money, but they haven't received it.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.994700014591217,
+        "nli_forward": 0.002188900951296091,
+        "nli_backward": 0.0023368217516690493,
+        "nli_bidirectional": 0.002188900951296091
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_not_received_by_recipient"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1096,
+      "original": "Can you freeze my account?  I just saw there are transactions on my account that I don't recognize.  How can I fix this?",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Are you referring to your bank account, credit card, or another type of account?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 41,
+      "original": "I would like to reactivate my card.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I would like to reactivate my card.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.002112003043293953,
+        "nli_backward": 0.002112003043293953,
+        "nli_bidirectional": 0.002112003043293953
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_linking"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1106,
+      "original": "I'm not familiar with a card payment.",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I'm not familiar with card payments.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2857142857142857,
+        "semantic_similarity": 0.9609636664390564,
+        "nli_forward": 0.0016280940035358071,
+        "nli_backward": 0.0020469592418521643,
+        "nli_bidirectional": 0.0016280940035358071
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_payment_not_recognised"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1885,
+      "original": "I'm tired of all the problems I've had. I want to quit this account!",
+      "gt_intent": "terminate_account",
+      "gt_intent_id": 55,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I'm tired of all the problems I've had. I want to delete this account!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07142857142857142,
+        "semantic_similarity": 0.8310222625732422,
+        "nli_forward": 0.003869816428050399,
+        "nli_backward": 0.003116842359304428,
+        "nli_bidirectional": 0.003116842359304428
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "terminate_account"
+    },
+    {
+      "dataset": "banking77",
+      "index": 24,
+      "original": "My card has not arrived yet, where is it?",
+      "gt_intent": "card_arrival",
+      "gt_intent_id": 11,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My card has not arrived yet. Where is it?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.997651219367981,
+        "nli_forward": 0.0023026205599308014,
+        "nli_backward": 0.0020863101817667484,
+        "nli_bidirectional": 0.0020863101817667484
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_arrival"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1451,
+      "original": "What ATMs is the card okay to use at?",
+      "gt_intent": "atm_support",
+      "gt_intent_id": 3,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What ATMs is the card okay to use?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2222222222222222,
+        "semantic_similarity": 0.9401731491088867,
+        "nli_forward": 0.0037194613832980394,
+        "nli_backward": 0.009258544072508812,
+        "nli_bidirectional": 0.0037194613832980394
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "atm_support"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1642,
+      "original": "If my phone is missing, can I block someone from using the app?",
+      "gt_intent": "lost_or_stolen_phone",
+      "gt_intent_id": 42,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "If my phone is missing, can I prevent someone from using the app?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9435418844223022,
+        "nli_forward": 0.0023705046623945236,
+        "nli_backward": 0.002808337565511465,
+        "nli_bidirectional": 0.0023705046623945236
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "lost_or_stolen_phone"
+    },
+    {
+      "dataset": "banking77",
+      "index": 591,
+      "original": "I am not able to do contactless.",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I am not able to use contactless.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9154335260391235,
+        "nli_forward": 0.0015114905545488,
+        "nli_backward": 0.0014933255733922124,
+        "nli_bidirectional": 0.0014933255733922124
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "contactless_not_working"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2807,
+      "original": "What are the charges for US cards with top up.",
+      "gt_intent": "top_up_by_card_charge",
+      "gt_intent_id": 57,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What are the charges for US cards with top-up?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9886123538017273,
+        "nli_forward": 0.015669263899326324,
+        "nli_backward": 0.011210175231099129,
+        "nli_bidirectional": 0.011210175231099129
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_by_card_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 798,
+      "original": "did not receive correct cash upon withdrawal",
+      "gt_intent": "wrong_amount_of_cash_received",
+      "gt_intent_id": 75,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Did you receive less cash than expected, or was there an issue with the denominations?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1507,
+      "original": "I have a direct debit charge that I do not recognize",
+      "gt_intent": "direct_debit_payment_not_recognised",
+      "gt_intent_id": 28,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I have a direct debit charge that I do not recognize.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9870648980140686,
+        "nli_forward": 0.0022453959099948406,
+        "nli_backward": 0.0023575187660753727,
+        "nli_bidirectional": 0.0022453959099948406
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "direct_debit_payment_not_recognised"
+    },
+    {
+      "dataset": "banking77",
+      "index": 892,
+      "original": "What is accepted in regards to cards and currencies?",
+      "gt_intent": "supported_cards_and_currencies",
+      "gt_intent_id": 54,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What is accepted regarding cards and currencies?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.3333333333333333,
+        "semantic_similarity": 0.991161584854126,
+        "nli_forward": 0.0029233628883957863,
+        "nli_backward": 0.001589088817127049,
+        "nli_bidirectional": 0.001589088817127049
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "supported_cards_and_currencies"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1046,
+      "original": "How can I get the cash deposit to show up on my account?",
+      "gt_intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "gt_intent_id": 6,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How can I get the cash deposit to show up in my account?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9966168403625488,
+        "nli_forward": 0.0036532250232994556,
+        "nli_backward": 0.0036410053726285696,
+        "nli_bidirectional": 0.0036410053726285696
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "balance_not_updated_after_cheque_or_cash_deposit"
+    },
+    {
+      "dataset": "banking77",
+      "index": 784,
+      "original": "Something went wrong with my withdrawal. The amount of money isn't right.",
+      "gt_intent": "wrong_amount_of_cash_received",
+      "gt_intent_id": 75,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Can you specify whether the amount you received was more or less than expected?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1362,
+      "original": "I need to use my disposable card multiple times a day, is there a cutoff limit?",
+      "gt_intent": "disposable_card_limits",
+      "gt_intent_id": 29,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I need to use my disposable card multiple times a day. Is there a cutoff limit?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0625,
+        "semantic_similarity": 0.9992558360099792,
+        "nli_forward": 0.003214510390534997,
+        "nli_backward": 0.002543991431593895,
+        "nli_bidirectional": 0.002543991431593895
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "disposable_card_limits"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1694,
+      "original": "Can I have an item refunded?",
+      "gt_intent": "request_refund",
+      "gt_intent_id": 52,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can I have an item refunded?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.004318317398428917,
+        "nli_backward": 0.004318317398428917,
+        "nli_bidirectional": 0.004318317398428917
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "request_refund"
+    },
+    {
+      "dataset": "banking77",
+      "index": 674,
+      "original": "Hi. I'm a new customer to your system and I think something isn't working right - or maybe it is. Maybe you can confirm. I tried to top up today (my first time ever) and it's been stuck at \"pending\" for over an hour now. Is it supposed to do this or is there something wrong in the system?",
+      "gt_intent": "pending_top_up",
+      "gt_intent_id": 47,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Hi. I'm a new customer to your system, and I think something isn't working right\u2014or maybe it is. Maybe you can confirm. I tried to top up today (my first time ever), and it's been stuck at \"pending\" for over an hour now. Is it supposed to do this, or is there something wrong with the system?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.11864406779661017,
+        "semantic_similarity": 0.9972431063652039,
+        "nli_forward": 0.002814136678352952,
+        "nli_backward": 0.0028779483400285244,
+        "nli_bidirectional": 0.002814136678352952
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pending_top_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2848,
+      "original": "Is there a way my new card can be renewed?",
+      "gt_intent": "activate_my_card",
+      "gt_intent_id": 0,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Are you asking about renewing a credit/debit card that was just issued, or do you mean something else by \"new card\"?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 636,
+      "original": "What us the fee to transfer money from my bank?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Are you asking about transferring money domestically or internationally?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1952,
+      "original": "My card has been swallowed by an ATM",
+      "gt_intent": "card_swallowed",
+      "gt_intent_id": 18,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My card has been swallowed by an ATM.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9845080971717834,
+        "nli_forward": 0.003973751328885555,
+        "nli_backward": 0.0036814608611166477,
+        "nli_bidirectional": 0.0036814608611166477
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_swallowed"
+    },
+    {
+      "dataset": "banking77",
+      "index": 114,
+      "original": "Can you tell me the foreign exchange rate?",
+      "gt_intent": "exchange_rate",
+      "gt_intent_id": 32,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can you tell me the foreign exchange rates?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.984967827796936,
+        "nli_forward": 0.019870100542902946,
+        "nli_backward": 0.005759858060628176,
+        "nli_bidirectional": 0.005759858060628176
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "exchange_rate"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2019,
+      "original": "What is the source of my money?",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What is the source of my money?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.010770066641271114,
+        "nli_backward": 0.010770066641271114,
+        "nli_bidirectional": 0.010770066641271114
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_source_of_funds"
+    },
+    {
+      "dataset": "banking77",
+      "index": 423,
+      "original": "I might need AUD instead of GBP, how to change?",
+      "gt_intent": "exchange_via_app",
+      "gt_intent_id": 33,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I might need AUD instead of GBP. How do I change it?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.5,
+        "semantic_similarity": 0.981736421585083,
+        "nli_forward": 0.0026677586138248444,
+        "nli_backward": 0.0024731301236897707,
+        "nli_bidirectional": 0.0024731301236897707
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "exchange_via_app"
+    },
+    {
+      "dataset": "banking77",
+      "index": 369,
+      "original": "My card does not work",
+      "gt_intent": "card_not_working",
+      "gt_intent_id": 14,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My card does not work.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9723660945892334,
+        "nli_forward": 0.0017613224918022752,
+        "nli_backward": 0.002440772484987974,
+        "nli_bidirectional": 0.0017613224918022752
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_not_working"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1744,
+      "original": "My transfer got declined.",
+      "gt_intent": "declined_transfer",
+      "gt_intent_id": 27,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My transfer was declined.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.25,
+        "semantic_similarity": 0.9835878610610962,
+        "nli_forward": 0.0014882618561387062,
+        "nli_backward": 0.0014290130930021405,
+        "nli_bidirectional": 0.0014290130930021405
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2771,
+      "original": "Is there a fee to exchange foreign money?",
+      "gt_intent": "exchange_charge",
+      "gt_intent_id": 31,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Is there a fee to exchange foreign currency?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9450231790542603,
+        "nli_forward": 0.002927022520452738,
+        "nli_backward": 0.0020880887750536203,
+        "nli_bidirectional": 0.0020880887750536203
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "exchange_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 971,
+      "original": "Do you know where my card will be accepted?",
+      "gt_intent": "card_acceptance",
+      "gt_intent_id": 10,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do you know where my card is accepted?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2222222222222222,
+        "semantic_similarity": 0.9676830172538757,
+        "nli_forward": 0.019010359421372414,
+        "nli_backward": 0.0899408608675003,
+        "nli_bidirectional": 0.019010359421372414
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_acceptance"
+    },
+    {
+      "dataset": "banking77",
+      "index": 381,
+      "original": "Is my card broken?",
+      "gt_intent": "card_not_working",
+      "gt_intent_id": 14,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Is my card broken?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.0038552526384592056,
+        "nli_backward": 0.0038552526384592056,
+        "nli_bidirectional": 0.0038552526384592056
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_not_working"
+    },
+    {
+      "dataset": "banking77",
+      "index": 805,
+      "original": "I used my card for a purchase and was charged a fee",
+      "gt_intent": "card_payment_fee_charged",
+      "gt_intent_id": 15,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I used my card for a purchase and was charged a fee.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9932776093482971,
+        "nli_forward": 0.003394925966858864,
+        "nli_backward": 0.003165599424391985,
+        "nli_bidirectional": 0.003165599424391985
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_payment_fee_charged"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2222,
+      "original": "I was charged a fee when making this transfer, and I don't think I should have been!",
+      "gt_intent": "transfer_fee_charged",
+      "gt_intent_id": 64,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I was charged a fee when making this transfer, and I don't think I should have been!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.0023712676484137774,
+        "nli_backward": 0.0023712676484137774,
+        "nli_bidirectional": 0.0023712676484137774
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_fee_charged"
+    },
+    {
+      "dataset": "banking77",
+      "index": 443,
+      "original": "I cant find my card, it's gone.",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I can't find my card; it's gone.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2857142857142857,
+        "semantic_similarity": 0.9805013537406921,
+        "nli_forward": 0.0020126455929130316,
+        "nli_backward": 0.002132972702383995,
+        "nli_bidirectional": 0.0020126455929130316
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "lost_or_stolen_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2378,
+      "original": "Where's the verification code for the top-up card?",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Where is the verification code for the top-up card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.25,
+        "semantic_similarity": 0.9973917007446289,
+        "nli_forward": 0.011333621107041836,
+        "nli_backward": 0.01156240701675415,
+        "nli_bidirectional": 0.011333621107041836
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_top_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 3054,
+      "original": "Please help me get a new card, I reside in the United States.",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Please help me get a new card. I reside in the United States.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9954010844230652,
+        "nli_forward": 0.008794331923127174,
+        "nli_backward": 0.005307731684297323,
+        "nli_bidirectional": 0.005307731684297323
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "country_support"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2390,
+      "original": "I don't understand why it says I have to verify the top-up.",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I don't understand why it says I have to verify the top up.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.16666666666666666,
+        "semantic_similarity": 0.975394606590271,
+        "nli_forward": 0.0017385976389050484,
+        "nli_backward": 0.0017879209481179714,
+        "nli_bidirectional": 0.0017385976389050484
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_top_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1453,
+      "original": "What kind of ATM's can I use?",
+      "gt_intent": "atm_support",
+      "gt_intent_id": 3,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What kind of ATMs can I use?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9921342134475708,
+        "nli_forward": 0.0029277110006660223,
+        "nli_backward": 0.002453749068081379,
+        "nli_bidirectional": 0.002453749068081379
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "atm_support"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2679,
+      "original": "Can you tell me why my top up didn't work?",
+      "gt_intent": "top_up_failed",
+      "gt_intent_id": 59,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "Can you tell me why my top-up didn't work?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9720312356948853,
+        "nli_forward": 0.004338550381362438,
+        "nli_backward": 0.004247872158885002,
+        "nli_bidirectional": 0.004247872158885002
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_failed"
+    },
+    {
+      "dataset": "banking77",
+      "index": 309,
+      "original": "How long until my card is delivered?",
+      "gt_intent": "card_delivery_estimate",
+      "gt_intent_id": 12,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How long will it take for my card to be delivered?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.8571428571428571,
+        "semantic_similarity": 0.9551855325698853,
+        "nli_forward": 0.0021558552980422974,
+        "nli_backward": 0.002385141095146537,
+        "nli_bidirectional": 0.0021558552980422974
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_delivery_estimate"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2175,
+      "original": "Can I transfer money to a beneficiery?",
+      "gt_intent": "beneficiary_not_allowed",
+      "gt_intent_id": 7,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can I transfer money to a beneficiary?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.8412023782730103,
+        "nli_forward": 0.0023785715457051992,
+        "nli_backward": 0.0018164723878726363,
+        "nli_bidirectional": 0.0018164723878726363
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "beneficiary_not_allowed"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1821,
+      "original": "My card payment did not work.",
+      "gt_intent": "declined_card_payment",
+      "gt_intent_id": 25,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "My card payment did not work.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0017896333010867238,
+        "nli_backward": 0.0017896333010867238,
+        "nli_bidirectional": 0.0017896333010867238
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_card_payment"
+    },
+    {
+      "dataset": "banking77",
+      "index": 3002,
+      "original": "I need to verify my identity, but how do I do that?",
+      "gt_intent": "verify_my_identity",
+      "gt_intent_id": 69,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I need to verify my identity. How do I do that?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.16666666666666666,
+        "semantic_similarity": 0.9949953556060791,
+        "nli_forward": 0.005217473488301039,
+        "nli_backward": 0.004059175960719585,
+        "nli_bidirectional": 0.004059175960719585
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_my_identity"
+    },
+    {
+      "dataset": "banking77",
+      "index": 184,
+      "original": "Something went wrong, I was charged an extra pound?",
+      "gt_intent": "extra_charge_on_statement",
+      "gt_intent_id": 34,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Something went wrong; I was charged an extra pound.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2222222222222222,
+        "semantic_similarity": 0.9245360493659973,
+        "nli_forward": 0.002894899807870388,
+        "nli_backward": 0.011913460679352283,
+        "nli_bidirectional": 0.002894899807870388
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "extra_charge_on_statement"
+    },
+    {
+      "dataset": "banking77",
+      "index": 736,
+      "original": "Tell me if there are any top-up limits?",
+      "gt_intent": "top_up_limits",
+      "gt_intent_id": 60,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Tell me if there are any top-up limits.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9862818121910095,
+        "nli_forward": 0.0037764175795018673,
+        "nli_backward": 0.0036712270230054855,
+        "nli_bidirectional": 0.0036712270230054855
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_limits"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2023,
+      "original": "I have to verify the source of my funds",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I have to verify the source of my funds.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.964000940322876,
+        "nli_forward": 0.0021957128774374723,
+        "nli_backward": 0.00222692359238863,
+        "nli_bidirectional": 0.0021957128774374723
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_source_of_funds"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1866,
+      "original": "I would like to know why my payment is still pending, can you help?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "I would like to know why my payment is still pending. Can you help?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07142857142857142,
+        "semantic_similarity": 0.9976031184196472,
+        "nli_forward": 0.005476843565702438,
+        "nli_backward": 0.004398331046104431,
+        "nli_bidirectional": 0.004398331046104431
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pending_card_payment"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1779,
+      "original": "i was supposed to get a refund but my balance hasn't changed, why not?",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "I was supposed to get a refund, but my balance hasn't changed. Why not?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.996369481086731,
+        "nli_forward": 0.0017426734557375312,
+        "nli_backward": 0.0016063987277448177,
+        "nli_bidirectional": 0.0016063987277448177
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "Refund_not_showing_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2441,
+      "original": "How do I top-up using cash?",
+      "gt_intent": "top_up_by_cash_or_cheque",
+      "gt_intent_id": 58,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How do I top up using cash?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.3333333333333333,
+        "semantic_similarity": 0.9936785697937012,
+        "nli_forward": 0.006841763854026794,
+        "nli_backward": 0.007086850702762604,
+        "nli_bidirectional": 0.006841763854026794
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_by_cash_or_cheque"
+    },
+    {
+      "dataset": "banking77",
+      "index": 3065,
+      "original": "Can you tell me what countries you operate in?",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can you tell me in which countries you operate?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.4444444444444444,
+        "semantic_similarity": 0.9499382972717285,
+        "nli_forward": 0.00203327857889235,
+        "nli_backward": 0.002140986965969205,
+        "nli_bidirectional": 0.00203327857889235
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "country_support"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1184,
+      "original": "Why do I have to give you all of my identification details?",
+      "gt_intent": "why_verify_identity",
+      "gt_intent_id": 74,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why do I have to give you all my identification details?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9965529441833496,
+        "nli_forward": 0.004458385519683361,
+        "nli_backward": 0.0026652019005268812,
+        "nli_bidirectional": 0.0026652019005268812
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "why_verify_identity"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1019,
+      "original": "I went to top up and it is no longer there.  Was it sent back?",
+      "gt_intent": "top_up_reverted",
+      "gt_intent_id": 61,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Can you clarify what you were trying to top up\u2014was it a mobile account, a wallet, or something else?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 2085,
+      "original": "I made a payment but the app reverted the payment.",
+      "gt_intent": "reverted_card_payment?",
+      "gt_intent_id": 53,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I made a payment, but the app reversed the payment.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9493383169174194,
+        "nli_forward": 0.0020829937420785427,
+        "nli_backward": 0.0022997099440544844,
+        "nli_bidirectional": 0.0020829937420785427
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "reverted_card_payment?"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1594,
+      "original": "Oh my goodness, my card has been declined twice at ATM! I tried two different ATM, but each one declined my card! Can you tell me what's going on with my account?",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Oh my goodness, my card has been declined twice at ATMs! I tried two different ATMs, but each one declined my card! Can you tell me what's going on with my account?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0625,
+        "semantic_similarity": 0.9933889508247375,
+        "nli_forward": 0.0030939297284930944,
+        "nli_backward": 0.003258240409195423,
+        "nli_bidirectional": 0.0030939297284930944
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1012,
+      "original": "I got topped up but the application reverted it.",
+      "gt_intent": "top_up_reverted",
+      "gt_intent_id": 61,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "I got topped up, but the application reversed it.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2222222222222222,
+        "semantic_similarity": 0.8610649108886719,
+        "nli_forward": 0.0024152714759111404,
+        "nli_backward": 0.0025189719162881374,
+        "nli_bidirectional": 0.0024152714759111404
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_reverted"
+    },
+    {
+      "dataset": "banking77",
+      "index": 167,
+      "original": "What is this $1 charge on my statement?",
+      "gt_intent": "extra_charge_on_statement",
+      "gt_intent_id": 34,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What is this $1 charge on my statement?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.018207095563411713,
+        "nli_backward": 0.018207095563411713,
+        "nli_bidirectional": 0.018207095563411713
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "extra_charge_on_statement"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2042,
+      "original": "I need a fast transfer from China?  How fast will it be?",
+      "gt_intent": "transfer_timing",
+      "gt_intent_id": 67,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I need a fast transfer from China. How fast will it be?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9957317113876343,
+        "nli_forward": 0.004291631747037172,
+        "nli_backward": 0.0040191286243498325,
+        "nli_bidirectional": 0.0040191286243498325
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_timing"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1294,
+      "original": "I would prefer a visa card",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I would prefer a Visa card.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.16666666666666666,
+        "semantic_similarity": 0.9880897998809814,
+        "nli_forward": 0.0016963162925094366,
+        "nli_backward": 0.0018627452664077282,
+        "nli_bidirectional": 0.0016963162925094366
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "visa_or_mastercard"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1786,
+      "original": "I am missing a refund.",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I am missing a refund.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.002401223173364997,
+        "nli_backward": 0.002401223173364997,
+        "nli_bidirectional": 0.002401223173364997
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "Refund_not_showing_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1864,
+      "original": "When will the transfer be completed?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Could you specify which transfer you are referring to?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1909,
+      "original": "I want my account deleted!",
+      "gt_intent": "terminate_account",
+      "gt_intent_id": 55,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I want my account deleted!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.0018400707049295306,
+        "nli_backward": 0.0018400707049295306,
+        "nli_bidirectional": 0.0018400707049295306
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "terminate_account"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2614,
+      "original": "What do I do to get a disposable virtual card?",
+      "gt_intent": "get_disposable_virtual_card",
+      "gt_intent_id": 37,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What should I do to get a disposable virtual card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1,
+        "semantic_similarity": 0.9867834448814392,
+        "nli_forward": 0.0024674953892827034,
+        "nli_backward": 0.004771017003804445,
+        "nli_bidirectional": 0.0024674953892827034
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "get_disposable_virtual_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2392,
+      "original": "Where do I go to get the code to verify the top up card?",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Where do I go to get the code to verify the top-up card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9946165084838867,
+        "nli_forward": 0.00917328242212534,
+        "nli_backward": 0.007407400291413069,
+        "nli_bidirectional": 0.007407400291413069
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_top_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2431,
+      "original": "How can I get a second card for my daughter?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How can I get a second card for my daughter?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.004488262347877026,
+        "nli_backward": 0.004488262347877026,
+        "nli_bidirectional": 0.004488262347877026
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_spare_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 649,
+      "original": "I  do not see a top-up processed.",
+      "gt_intent": "pending_top_up",
+      "gt_intent_id": 47,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Could you specify which account or service you were expecting the top-up for?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 838,
+      "original": "Why was a charged a fee for using the card?",
+      "gt_intent": "card_payment_fee_charged",
+      "gt_intent_id": 15,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why was I charged a fee for using the card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1,
+        "semantic_similarity": 0.9625757336616516,
+        "nli_forward": 0.021758537739515305,
+        "nli_backward": 0.005359448026865721,
+        "nli_bidirectional": 0.005359448026865721
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_payment_fee_charged"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1426,
+      "original": "I'm not certain, but someone may be using my card.",
+      "gt_intent": "compromised_card",
+      "gt_intent_id": 22,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I'm not certain, but someone may be using my card.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0057361978106200695,
+        "nli_backward": 0.0057361978106200695,
+        "nli_bidirectional": 0.0057361978106200695
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "compromised_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 467,
+      "original": "My card was taken from me",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Are you referring to a bank card, credit card, or another type of card?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 523,
+      "original": "I accidentally blocked my PIN. How do I reset it?",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "I accidentally blocked my PIN. How do I reset it?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0034874367993324995,
+        "nli_backward": 0.0034874367993324995,
+        "nli_bidirectional": 0.0034874367993324995
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pin_blocked"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2720,
+      "original": "Think someone has took money out with my card. What shall I do?",
+      "gt_intent": "cash_withdrawal_not_recognised",
+      "gt_intent_id": 20,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Did you notice any unauthorized transactions on your bank statement?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1255,
+      "original": "And what about the Card's PIN?",
+      "gt_intent": "get_physical_card",
+      "gt_intent_id": 38,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "And what about the card's PIN?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.004167552106082439,
+        "nli_backward": 0.005949320271611214,
+        "nli_bidirectional": 0.004167552106082439
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "get_physical_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 76,
+      "original": "Could you help me reactivate my card? It was previously lost, but I found it this morning in my jacket.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Could you help me reactivate my card? It was previously lost, but I found it this morning in my jacket.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.006807269994169474,
+        "nli_backward": 0.006807269994169474,
+        "nli_bidirectional": 0.006807269994169474
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_linking"
+    },
+    {
+      "dataset": "banking77",
+      "index": 469,
+      "original": "Some idiot stole my card.",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Are you referring to a credit/debit card or a different type of card?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1582,
+      "original": "I tried to withdraw money but I was declined!",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I tried to withdraw money, but I was declined!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.9929038882255554,
+        "nli_forward": 0.0027585800271481276,
+        "nli_backward": 0.0030003872234374285,
+        "nli_bidirectional": 0.0027585800271481276
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 61,
+      "original": "I've received my card so now I need to know how to sync it to the app.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I've received my card, so now I need to know how to sync it with the app.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.11764705882352941,
+        "semantic_similarity": 0.9950975179672241,
+        "nli_forward": 0.0016893811989575624,
+        "nli_backward": 0.0017311498522758484,
+        "nli_bidirectional": 0.0016893811989575624
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_linking"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1127,
+      "original": "I want to change my personal details.",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I want to change my personal details.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.002287869108840823,
+        "nli_backward": 0.002287869108840823,
+        "nli_bidirectional": 0.002287869108840823
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "edit_personal_details"
+    },
+    {
+      "dataset": "banking77",
+      "index": 938,
+      "original": "Where is the virtual card located?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Where is the virtual card located?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.015658969059586525,
+        "nli_backward": 0.015658969059586525,
+        "nli_bidirectional": 0.015658969059586525
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_virtual_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1621,
+      "original": "I made a purchase and it says it's pending. What does that mean?",
+      "gt_intent": "pending_card_payment",
+      "gt_intent_id": 45,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I made a purchase, and it says it's pending. What does that mean?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9977931976318359,
+        "nli_forward": 0.004218594636768103,
+        "nli_backward": 0.004352110903710127,
+        "nli_bidirectional": 0.004218594636768103
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pending_card_payment"
+    },
+    {
+      "dataset": "banking77",
+      "index": 487,
+      "original": "What is the youngest age in order to have an account?",
+      "gt_intent": "age_limit",
+      "gt_intent_id": 1,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What is the youngest age required to have an account?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.18181818181818182,
+        "semantic_similarity": 0.9854550361633301,
+        "nli_forward": 0.0043424018658697605,
+        "nli_backward": 0.0025546401739120483,
+        "nli_bidirectional": 0.0025546401739120483
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "age_limit"
+    },
+    {
+      "dataset": "banking77",
+      "index": 854,
+      "original": "I completed a money transaction but the recipient hasn't received it",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I completed a money transaction, but the recipient hasn't received it.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.18181818181818182,
+        "semantic_similarity": 0.9782031178474426,
+        "nli_forward": 0.0026668966747820377,
+        "nli_backward": 0.0032230073120445013,
+        "nli_bidirectional": 0.0026668966747820377
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_not_received_by_recipient"
+    },
+    {
+      "dataset": "banking77",
+      "index": 871,
+      "original": "I sent my friend some money a few hours ago but she has not received it yet. She really needs it. How long does this take?",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I sent my friend some money a few hours ago, but she has not received it yet. She really needs it. How long does this take?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.038461538461538464,
+        "semantic_similarity": 0.998479425907135,
+        "nli_forward": 0.002010913100093603,
+        "nli_backward": 0.002034291625022888,
+        "nli_bidirectional": 0.002010913100093603
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_not_received_by_recipient"
+    },
+    {
+      "dataset": "banking77",
+      "index": 546,
+      "original": "I entered the wrong pin too many times and now I am blocked.  Help me unblock!",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I entered the wrong PIN too many times and now I am blocked. Help me unblock it!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9954365491867065,
+        "nli_forward": 0.0026254465337842703,
+        "nli_backward": 0.002301429631188512,
+        "nli_bidirectional": 0.002301429631188512
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pin_blocked"
+    },
+    {
+      "dataset": "banking77",
+      "index": 455,
+      "original": "How do I deal with a stolen card?",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How do I deal with a stolen card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.003689948469400406,
+        "nli_backward": 0.003689948469400406,
+        "nli_bidirectional": 0.003689948469400406
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "lost_or_stolen_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2046,
+      "original": "Do transfers from Europe take longer?",
+      "gt_intent": "transfer_timing",
+      "gt_intent_id": 67,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do transfers from Europe take longer?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.0037449360825121403,
+        "nli_backward": 0.0037449360825121403,
+        "nli_bidirectional": 0.0037449360825121403
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_timing"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1344,
+      "original": "I tried to use my card to top up but all of the money has disappeared.",
+      "gt_intent": "topping_up_by_card",
+      "gt_intent_id": 62,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I tried to use my card to top up, but all of the money has disappeared.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0625,
+        "semantic_similarity": 0.9968520402908325,
+        "nli_forward": 0.002797044115141034,
+        "nli_backward": 0.0028082921635359526,
+        "nli_bidirectional": 0.002797044115141034
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "topping_up_by_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2306,
+      "original": "Hi, I'm buying a flat and I'm trying to get my mortgage to go though. Every time I check I simply get an error message. Is there any way you can help me get this money transferred over. Thanks!",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Hi, I'm buying a flat and I'm trying to get my mortgage to go through. Every time I check, I simply get an error message. Is there any way you can help me get this money transferred over? Thanks!",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9912655353546143,
+        "nli_forward": 0.0028458761516958475,
+        "nli_backward": 0.003361066337674856,
+        "nli_bidirectional": 0.0028458761516958475
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "failed_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2317,
+      "original": "I've attempted to do a very standard transfer and have tried 5 times at this point. Can you tell me what the issue is? Is the system down?",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I've attempted to do a very standard transfer and have tried five times at this point. Can you tell me what the issue is? Is the system down?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.03571428571428571,
+        "semantic_similarity": 0.9994992613792419,
+        "nli_forward": 0.0030803934205323458,
+        "nli_backward": 0.0032669780775904655,
+        "nli_bidirectional": 0.0030803934205323458
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "failed_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2690,
+      "original": "I transferred some money but I think it has gotten lost somewhere.",
+      "gt_intent": "balance_not_updated_after_bank_transfer",
+      "gt_intent_id": 5,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "I transferred some money, but I think it has gotten lost somewhere.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9948214888572693,
+        "nli_forward": 0.0037394387181848288,
+        "nli_backward": 0.004138548392802477,
+        "nli_bidirectional": 0.0037394387181848288
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_not_received_by_recipient"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1313,
+      "original": "Please give me both a visa and a master card.",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Please give me both a Visa and a MasterCard.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9373013973236084,
+        "nli_forward": 0.002263226080685854,
+        "nli_backward": 0.002209155121818185,
+        "nli_bidirectional": 0.002209155121818185
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "visa_or_mastercard"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2260,
+      "original": "Can I directly transfer my salary onto here?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can I directly transfer my salary here?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9790289402008057,
+        "nli_forward": 0.004216734319925308,
+        "nli_backward": 0.02363697811961174,
+        "nli_bidirectional": 0.004216734319925308
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "receiving_money"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2562,
+      "original": "I made a withdraw from the ATM this past holiday and it seems like a was charged too much. If I would have   known about these charges I wouldn't have made a withdraw.",
+      "gt_intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "gt_intent_id": 76,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I made a withdrawal from the ATM this past holiday and it seems like I was charged too much. If I had known about these charges, I wouldn't have made a withdrawal.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.18181818181818182,
+        "semantic_similarity": 0.94466632604599,
+        "nli_forward": 0.0018053913954645395,
+        "nli_backward": 0.002049348084256053,
+        "nli_bidirectional": 0.0018053913954645395
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "wrong_exchange_rate_for_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 922,
+      "original": "Where can I find a virtual card?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Where can I get a virtual card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9794209599494934,
+        "nli_forward": 0.003943732473999262,
+        "nli_backward": 0.002752763219177723,
+        "nli_bidirectional": 0.002752763219177723
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_virtual_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2352,
+      "original": "I would like use the bank transfer, but I don't understand the process, can you please explain, topping up?",
+      "gt_intent": "transfer_into_account",
+      "gt_intent_id": 65,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I would like to use the bank transfer, but I don't understand the process. Can you please explain topping up?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.15789473684210525,
+        "semantic_similarity": 0.959518313407898,
+        "nli_forward": 0.002089476678520441,
+        "nli_backward": 0.002659647725522518,
+        "nli_bidirectional": 0.002089476678520441
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "transfer_into_account"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2485,
+      "original": "Please, how do I order a card?",
+      "gt_intent": "order_physical_card",
+      "gt_intent_id": 43,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Please, how do I order a card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.007995294407010078,
+        "nli_backward": 0.007995294407010078,
+        "nli_bidirectional": 0.007995294407010078
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "order_physical_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 272,
+      "original": "Do you work with all fiat currencies?",
+      "gt_intent": "fiat_currency_support",
+      "gt_intent_id": 36,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do you work with all fiat currencies?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0049093435518443584,
+        "nli_backward": 0.0049093435518443584,
+        "nli_bidirectional": 0.0049093435518443584
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "fiat_currency_support"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2417,
+      "original": "My daughter would like a card as well, how can we make this happen?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My daughter would like a card as well. How can we make this happen?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07142857142857142,
+        "semantic_similarity": 0.9992376565933228,
+        "nli_forward": 0.0023303134366869926,
+        "nli_backward": 0.0022081255447119474,
+        "nli_bidirectional": 0.0022081255447119474
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_spare_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2923,
+      "original": "What do I do when my card expires?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What should I do when my card expires?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.125,
+        "semantic_similarity": 0.9825722575187683,
+        "nli_forward": 0.002172824926674366,
+        "nli_backward": 0.0033539843279868364,
+        "nli_bidirectional": 0.002172824926674366
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_about_to_expire"
+    },
+    {
+      "dataset": "banking77",
+      "index": 933,
+      "original": "Can you tell me where I can order a virtual card?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can you tell me where I can order a virtual card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.01269680354744196,
+        "nli_backward": 0.01269680354744196,
+        "nli_bidirectional": 0.01269680354744196
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "getting_virtual_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1260,
+      "original": "Does my PIN come with my card?",
+      "gt_intent": "get_physical_card",
+      "gt_intent_id": 38,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Does my PIN come with my card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.005558573640882969,
+        "nli_backward": 0.005558573640882969,
+        "nli_bidirectional": 0.005558573640882969
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "get_physical_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1526,
+      "original": "Something is wrong with my password.",
+      "gt_intent": "passcode_forgotten",
+      "gt_intent_id": 44,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Something is wrong with my password.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0028969096019864082,
+        "nli_backward": 0.0028969096019864082,
+        "nli_bidirectional": 0.0028969096019864082
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "passcode_forgotten"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2303,
+      "original": "Why couldn't I complete a transfer?",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why couldn't I complete a transfer?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0038852097932249308,
+        "nli_backward": 0.0038852097932249308,
+        "nli_bidirectional": 0.0038852097932249308
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "failed_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2909,
+      "original": "I thought cash withdrawals were free? Why have I been charged a fee? Also, how much is this fee?",
+      "gt_intent": "cash_withdrawal_charge",
+      "gt_intent_id": 19,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I thought cash withdrawals were free. Why have I been charged a fee? Also, how much is this fee?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.05263157894736842,
+        "semantic_similarity": 0.995460569858551,
+        "nli_forward": 0.002636082237586379,
+        "nli_backward": 0.002315816469490528,
+        "nli_bidirectional": 0.002315816469490528
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "cash_withdrawal_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1751,
+      "original": "Double check your funds may be declined",
+      "gt_intent": "declined_transfer",
+      "gt_intent_id": 27,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Are you asking how to check if your payment method has enough funds to avoid a declined transaction?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1121,
+      "original": "How to change my address.",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How do I change my address?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.6,
+        "semantic_similarity": 0.9807003736495972,
+        "nli_forward": 0.0018354329513385892,
+        "nli_backward": 0.0021572308614850044,
+        "nli_bidirectional": 0.0018354329513385892
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "edit_personal_details"
+    },
+    {
+      "dataset": "banking77",
+      "index": 489,
+      "original": "Can my daughter open an account?",
+      "gt_intent": "age_limit",
+      "gt_intent_id": 1,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can my daughter open an account?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0031849388033151627,
+        "nli_backward": 0.0031849388033151627,
+        "nli_bidirectional": 0.0031849388033151627
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "age_limit"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1201,
+      "original": "I do not have what is required to prove my identity",
+      "gt_intent": "unable_to_verify_identity",
+      "gt_intent_id": 68,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I do not have what is required to prove my identity.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9608901739120483,
+        "nli_forward": 0.0017798768822103739,
+        "nli_backward": 0.001851011998951435,
+        "nli_bidirectional": 0.0017798768822103739
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "unable_to_verify_identity"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1797,
+      "original": "I would like some help getting a refund back from a seller. It still isn't showing up on my statement and I requested this a long time ago. I'm not sure why it's not returned yet. Can you assist me in getting this money back?",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I would like some help getting a refund from a seller. It still isn't showing up on my statement, and I requested this a long time ago. I'm not sure why it hasn't been returned yet. Can you assist me in getting this money back?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.9911032915115356,
+        "nli_forward": 0.0021859549451619387,
+        "nli_backward": 0.002292429096996784,
+        "nli_bidirectional": 0.0021859549451619387
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "Refund_not_showing_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2954,
+      "original": "My card is expiring shortly.  How much will it cost for a replacement, and how soon can I get it?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My card is expiring soon. How much will it cost for a replacement, and how soon can I get it?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.05,
+        "semantic_similarity": 0.9979698657989502,
+        "nli_forward": 0.002570508513599634,
+        "nli_backward": 0.004468994215130806,
+        "nli_bidirectional": 0.002570508513599634
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_about_to_expire"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2179,
+      "original": "The money would not transfer to a beneficiary.",
+      "gt_intent": "beneficiary_not_allowed",
+      "gt_intent_id": 7,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "The money would not be transferred to a beneficiary.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.25,
+        "semantic_similarity": 0.9833793640136719,
+        "nli_forward": 0.0014923053095117211,
+        "nli_backward": 0.0017916386714205146,
+        "nli_bidirectional": 0.0014923053095117211
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "beneficiary_not_allowed"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2938,
+      "original": "What do I do when my card is about to expire?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What should I do when my card is about to expire?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.986461341381073,
+        "nli_forward": 0.002526857890188694,
+        "nli_backward": 0.003809199435636401,
+        "nli_bidirectional": 0.002526857890188694
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_about_to_expire"
+    },
+    {
+      "dataset": "banking77",
+      "index": 542,
+      "original": "My account is blocked, how do I log in now",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "confidence": 0.6,
+      "action": "clarify",
+      "response": "Can you tell me if you received any specific error message when trying to log in?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 1579,
+      "original": "Why did the ATM machine fail to give me a cash withdrawal?",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Why did the ATM fail to give me a cash withdrawal?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9683758020401001,
+        "nli_forward": 0.0035100700333714485,
+        "nli_backward": 0.014373468235135078,
+        "nli_bidirectional": 0.0035100700333714485
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1649,
+      "original": "My phone was stolen, what do I do?",
+      "gt_intent": "lost_or_stolen_phone",
+      "gt_intent_id": 42,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My phone was stolen. What should I do?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.25,
+        "semantic_similarity": 0.9841593503952026,
+        "nli_forward": 0.0025916623417288065,
+        "nli_backward": 0.0029467116110026836,
+        "nli_bidirectional": 0.0025916623417288065
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "lost_or_stolen_phone"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2026,
+      "original": "I need to validate the source of my funds.",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I need to validate the source of my funds.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.0035231055226176977,
+        "nli_backward": 0.0035231055226176977,
+        "nli_bidirectional": 0.0035231055226176977
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_source_of_funds"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1865,
+      "original": "Pending transfer?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Pending transfer?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.017709294334053993,
+        "nli_backward": 0.017709294334053993,
+        "nli_bidirectional": 0.017709294334053993
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "pending_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 157,
+      "original": "Your exchange rate is totally wrong for my card payment",
+      "gt_intent": "card_payment_wrong_exchange_rate",
+      "gt_intent_id": 17,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Your exchange rate is completely wrong for my card payment.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9783850908279419,
+        "nli_forward": 0.0022916793823242188,
+        "nli_backward": 0.002887510694563389,
+        "nli_bidirectional": 0.0022916793823242188
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_payment_wrong_exchange_rate"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2596,
+      "original": "how do you determine your exchange rates because one of yours was off when i got cash",
+      "gt_intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "gt_intent_id": 76,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How do you determine your exchange rates? One of yours was off when I got cash.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.17647058823529413,
+        "semantic_similarity": 0.9638992547988892,
+        "nli_forward": 0.002703229896724224,
+        "nli_backward": 0.010453909635543823,
+        "nli_bidirectional": 0.002703229896724224
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "wrong_exchange_rate_for_cash_withdrawal"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1380,
+      "original": "I would like to know any restrictions for the disposable cards.",
+      "gt_intent": "disposable_card_limits",
+      "gt_intent_id": 29,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I would like to know if there are any restrictions for the disposable cards.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2727272727272727,
+        "semantic_similarity": 0.9830715656280518,
+        "nli_forward": 0.0015835072845220566,
+        "nli_backward": 0.0019774059765040874,
+        "nli_bidirectional": 0.0015835072845220566
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "disposable_card_limits"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1219,
+      "original": "I can not get the app to know it is me.",
+      "gt_intent": "unable_to_verify_identity",
+      "gt_intent_id": 68,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I cannot get the app to recognize me.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.45454545454545453,
+        "semantic_similarity": 0.8445006608963013,
+        "nli_forward": 0.0019319610437378287,
+        "nli_backward": 0.002028706483542919,
+        "nli_bidirectional": 0.0019319610437378287
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "unable_to_verify_identity"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1107,
+      "original": "I have an unauthorized transaction on my statement",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "confidence": 0.4,
+      "action": "clarify",
+      "response": "Can you tell me if you recognize the merchant or if this is a completely unfamiliar charge?",
+      "model": "gpt-4.1",
+      "intent_shifted": false,
+      "metrics": {}
+    },
+    {
+      "dataset": "banking77",
+      "index": 2264,
+      "original": "How can my friend transfer money to me?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "How can my friend transfer money to me?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.008777939714491367,
+        "nli_backward": 0.008777939714491367,
+        "nli_bidirectional": 0.008777939714491367
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "receiving_money"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2963,
+      "original": "Can I add money with Apple Pay?",
+      "gt_intent": "apple_pay_or_google_pay",
+      "gt_intent_id": 2,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can I add money using Apple Pay?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9926974773406982,
+        "nli_forward": 0.0018692041048780084,
+        "nli_backward": 0.002027662703767419,
+        "nli_bidirectional": 0.0018692041048780084
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "apple_pay_or_google_pay"
+    },
+    {
+      "dataset": "banking77",
+      "index": 993,
+      "original": "What places will accept my card?",
+      "gt_intent": "card_acceptance",
+      "gt_intent_id": 10,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What places will accept my card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0072508822195231915,
+        "nli_backward": 0.0072508822195231915,
+        "nli_bidirectional": 0.0072508822195231915
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_acceptance"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2011,
+      "original": "What is the source of my available funds?",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "What is the source of my available funds?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.014577571302652359,
+        "nli_backward": 0.014577571302652359,
+        "nli_bidirectional": 0.014577571302652359
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "verify_source_of_funds"
+    },
+    {
+      "dataset": "banking77",
+      "index": 26,
+      "original": "I think something went wrong with my card delivery as I haven't received it yet.",
+      "gt_intent": "card_arrival",
+      "gt_intent_id": 11,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I think something went wrong with my card delivery, as I haven't received it yet.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.06666666666666667,
+        "semantic_similarity": 0.9957593679428101,
+        "nli_forward": 0.0020107910968363285,
+        "nli_backward": 0.001972401747480035,
+        "nli_bidirectional": 0.001972401747480035
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_arrival"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1834,
+      "original": "My card payment did not complete.",
+      "gt_intent": "declined_card_payment",
+      "gt_intent_id": 25,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My card payment did not complete.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0016708408948034048,
+        "nli_backward": 0.0016708408948034048,
+        "nli_bidirectional": 0.0016708408948034048
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "declined_card_payment"
+    },
+    {
+      "dataset": "banking77",
+      "index": 352,
+      "original": "Will it automatically top-up if there isn't much money left?",
+      "gt_intent": "automatic_top_up",
+      "gt_intent_id": 4,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Will it automatically top up if there isn't much money left?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2,
+        "semantic_similarity": 0.9934831261634827,
+        "nli_forward": 0.0026496120262891054,
+        "nli_backward": 0.0027733617462217808,
+        "nli_bidirectional": 0.0026496120262891054
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "automatic_top_up"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2272,
+      "original": "Do you know if I can use this for my salary?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do you know whether I can use this for my salary?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9932239651679993,
+        "nli_forward": 0.001786956563591957,
+        "nli_backward": 0.0016941376961767673,
+        "nli_bidirectional": 0.0016941376961767673
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "receiving_money"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1148,
+      "original": "I need to change my name since I got married",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I need to change my name because I got married",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1,
+        "semantic_similarity": 0.9826149940490723,
+        "nli_forward": 0.002614153316244483,
+        "nli_backward": 0.002597872167825699,
+        "nli_bidirectional": 0.002597872167825699
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "edit_personal_details"
+    },
+    {
+      "dataset": "banking77",
+      "index": 597,
+      "original": "Do I need to make a regular payment before a contactless one?",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do I need to make a regular payment before making a contactless one?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.08333333333333333,
+        "semantic_similarity": 0.9850495457649231,
+        "nli_forward": 0.004067921545356512,
+        "nli_backward": 0.0043022059835493565,
+        "nli_bidirectional": 0.004067921545356512
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "contactless_not_working"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1336,
+      "original": "Can I give my friends access to my account so they can top it up for me?",
+      "gt_intent": "topping_up_by_card",
+      "gt_intent_id": 62,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Can I give my friends access to my account so they can top it up for me?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0000001192092896,
+        "nli_forward": 0.004685030318796635,
+        "nli_backward": 0.004685030318796635,
+        "nli_bidirectional": 0.004685030318796635
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "topping_up_by_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2523,
+      "original": "My non-physical card will not work",
+      "gt_intent": "virtual_card_not_working",
+      "gt_intent_id": 72,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "My non-physical card does not work",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.16666666666666666,
+        "semantic_similarity": 0.987548828125,
+        "nli_forward": 0.01325930841267109,
+        "nli_backward": 0.08274787664413452,
+        "nli_bidirectional": 0.01325930841267109
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "card_not_working"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2686,
+      "original": "The amount of time that transfers usually take from a UK account is what?I just completed a transfer and it is not showing up at all. I'm wondering at this point if everything is actually okay.",
+      "gt_intent": "balance_not_updated_after_bank_transfer",
+      "gt_intent_id": 5,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "The amount of time that transfers usually take from a UK account is what? I just completed a transfer and it is not showing up at all. I'm wondering at this point if everything is actually okay.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.05555555555555555,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.0028722884599119425,
+        "nli_backward": 0.002617922844365239,
+        "nli_bidirectional": 0.002617922844365239
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "balance_not_updated_after_bank_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 631,
+      "original": "Is there a fee for transfer top-up?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Is there a fee for transferring a top-up?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.2857142857142857,
+        "semantic_similarity": 0.9750118255615234,
+        "nli_forward": 0.002239739056676626,
+        "nli_backward": 0.003580575343221426,
+        "nli_bidirectional": 0.002239739056676626
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_by_bank_transfer_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 683,
+      "original": "I made a transaction but did it to the wrong account.",
+      "gt_intent": "cancel_transfer",
+      "gt_intent_id": 8,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I made a transaction but sent it to the wrong account.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9652420282363892,
+        "nli_forward": 0.006068745627999306,
+        "nli_backward": 0.004371664021164179,
+        "nli_bidirectional": 0.004371664021164179
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "cancel_transfer"
+    },
+    {
+      "dataset": "banking77",
+      "index": 625,
+      "original": "Is there a charge for topping up by transfer?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Is there a charge for topping up via transfer?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.9904412031173706,
+        "nli_forward": 0.0019537450280040503,
+        "nli_backward": 0.0019253933569416404,
+        "nli_bidirectional": 0.0019253933569416404
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_by_bank_transfer_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1062,
+      "original": "My cash deposit from a week ago hasn't shown up. I need the money - how quickly can you sort this out?",
+      "gt_intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "gt_intent_id": 6,
+      "confidence": 0.8,
+      "action": "auto_correct",
+      "response": "My cash deposit from a week ago hasn't shown up. I need the money\u2014how quickly can you sort this out?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.13636363636363635,
+        "semantic_similarity": 0.99793940782547,
+        "nli_forward": 0.0026155193336308002,
+        "nli_backward": 0.0026743938215076923,
+        "nli_bidirectional": 0.0026155193336308002
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "balance_not_updated_after_cheque_or_cash_deposit"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2880,
+      "original": "I see some fees for cash withdraw.",
+      "gt_intent": "cash_withdrawal_charge",
+      "gt_intent_id": 19,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I see some fees for cash withdrawal.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.14285714285714285,
+        "semantic_similarity": 0.9658967852592468,
+        "nli_forward": 0.003184378845617175,
+        "nli_backward": 0.003966819029301405,
+        "nli_bidirectional": 0.003184378845617175
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "cash_withdrawal_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2741,
+      "original": "Some cash is showing up in my app that I did not get.",
+      "gt_intent": "cash_withdrawal_not_recognised",
+      "gt_intent_id": 20,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Some cash is showing up in my app that I did not receive.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.07692307692307693,
+        "semantic_similarity": 0.9856536388397217,
+        "nli_forward": 0.0024248112458735704,
+        "nli_backward": 0.0023899006191641092,
+        "nli_bidirectional": 0.0023899006191641092
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "cash_withdrawal_not_recognised"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2826,
+      "original": "Are there fees for adding money using an international card",
+      "gt_intent": "top_up_by_card_charge",
+      "gt_intent_id": 57,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Are there fees for adding money using an international card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1,
+        "semantic_similarity": 0.9970648288726807,
+        "nli_forward": 0.005905823316425085,
+        "nli_backward": 0.003675019834190607,
+        "nli_bidirectional": 0.003675019834190607
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "top_up_by_card_charge"
+    },
+    {
+      "dataset": "banking77",
+      "index": 2625,
+      "original": "When can I order a disposable virtual card?",
+      "gt_intent": "get_disposable_virtual_card",
+      "gt_intent_id": 37,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "When can I order a disposable virtual card?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.0,
+        "semantic_similarity": 1.0,
+        "nli_forward": 0.007915659807622433,
+        "nli_backward": 0.007915659807622433,
+        "nli_bidirectional": 0.007915659807622433
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "get_disposable_virtual_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1292,
+      "original": "Do I get a choice between Visa and Mastercard?",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "Do I have a choice between Visa and Mastercard?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.1111111111111111,
+        "semantic_similarity": 0.9944410920143127,
+        "nli_forward": 0.0020784311927855015,
+        "nli_backward": 0.0019722150173038244,
+        "nli_bidirectional": 0.0019722150173038244
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "visa_or_mastercard"
+    },
+    {
+      "dataset": "banking77",
+      "index": 1428,
+      "original": "I think someone got my card details and used it because there are transactions i don't recognize. What do I do now?",
+      "gt_intent": "compromised_card",
+      "gt_intent_id": 22,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I think someone got my card details and used them because there are transactions I don't recognize. What do I do now?",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.045454545454545456,
+        "semantic_similarity": 0.9902733564376831,
+        "nli_forward": 0.00663105258718133,
+        "nli_backward": 0.005774543154984713,
+        "nli_bidirectional": 0.005774543154984713
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "compromised_card"
+    },
+    {
+      "dataset": "banking77",
+      "index": 3040,
+      "original": "I live in the US but want to get a card",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "confidence": 1.0,
+      "action": "auto_correct",
+      "response": "I live in the US but want to get a card.",
+      "model": "gpt-4.1",
+      "metrics": {
+        "edit_ratio": 0.09090909090909091,
+        "semantic_similarity": 0.9944165349006653,
+        "nli_forward": 0.002837455365806818,
+        "nli_backward": 0.003118437249213457,
+        "nli_bidirectional": 0.002837455365806818
+      },
+      "intent_shifted": false,
+      "rewrite_intent": "country_support"
+    }
+  ],
+  "always_correct": [
+    {
+      "original": "my card was not in the mail again can you advise?",
+      "response": "My card was not in the mail again. Can you advise?",
+      "gt_intent": "card_delivery_estimate",
+      "gt_intent_id": 12,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "what is required documents for new card process ?",
+      "response": "What documents are required for the new card process?",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I want to set a new PIN",
+      "response": "I want to set a new PIN",
+      "gt_intent": "change_pin",
+      "gt_intent_id": 21,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I recently got charged twice from a restaurant that I was at this week and I would like for one of those payments to be removed from my account.",
+      "response": "I was recently charged twice by a restaurant I visited this week, and I would like one of those payments to be removed from my account.",
+      "gt_intent": "transaction_charged_twice",
+      "gt_intent_id": 63,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why is there more then one charge on my card I only paid for one not twice how can I fix this?",
+      "response": "Why are there more than one charge on my card? I only paid once, not twice. How can I fix this?",
+      "gt_intent": "transaction_charged_twice",
+      "gt_intent_id": 63,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My child needs a card, how can I add them to the account I currently have?",
+      "response": "My child needs a card. How can I add them to the account I currently have?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is there any documentation needed for the identity check?",
+      "response": "Is any documentation needed for the identity check?",
+      "gt_intent": "verify_my_identity",
+      "gt_intent_id": 69,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why is it taking so long for my cash withdrawal to no longer show as pending?",
+      "response": "Why is it taking so long for my cash withdrawal to stop showing as pending?",
+      "gt_intent": "pending_cash_withdrawal",
+      "gt_intent_id": 46,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I tried to send someone money but they haven't received it.",
+      "response": "I tried to send someone money, but they haven't received it.",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can you freeze my account?  I just saw there are transactions on my account that I don't recognize.  How can I fix this?",
+      "response": "Can you freeze my account? I just saw that there are transactions on my account that I don't recognize. How can I fix this?",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would like to reactivate my card.",
+      "response": "I would like to reactivate my card.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I'm not familiar with a card payment.",
+      "response": "I'm not familiar with card payments.",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I'm tired of all the problems I've had. I want to quit this account!",
+      "response": "I'm tired of all the problems I've had. I want to delete this account!",
+      "gt_intent": "terminate_account",
+      "gt_intent_id": 55,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card has not arrived yet, where is it?",
+      "response": "My card has not arrived yet. Where is it?",
+      "gt_intent": "card_arrival",
+      "gt_intent_id": 11,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What ATMs is the card okay to use at?",
+      "response": "What ATMs is the card okay to use?",
+      "gt_intent": "atm_support",
+      "gt_intent_id": 3,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "If my phone is missing, can I block someone from using the app?",
+      "response": "If my phone is missing, can I prevent someone from using the app?",
+      "gt_intent": "lost_or_stolen_phone",
+      "gt_intent_id": 42,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I am not able to do contactless.",
+      "response": "I am not able to use contactless.",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What are the charges for US cards with top up.",
+      "response": "What are the charges for US cards with top-up?",
+      "gt_intent": "top_up_by_card_charge",
+      "gt_intent_id": 57,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "did not receive correct cash upon withdrawal",
+      "response": "did not receive correct amount of cash upon withdrawal",
+      "gt_intent": "wrong_amount_of_cash_received",
+      "gt_intent_id": 75,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I have a direct debit charge that I do not recognize",
+      "response": "I have a direct debit charge that I do not recognize.",
+      "gt_intent": "direct_debit_payment_not_recognised",
+      "gt_intent_id": 28,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What is accepted in regards to cards and currencies?",
+      "response": "What is accepted regarding cards and currencies?",
+      "gt_intent": "supported_cards_and_currencies",
+      "gt_intent_id": 54,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How can I get the cash deposit to show up on my account?",
+      "response": "How can I get the cash deposit to show up in my account?",
+      "gt_intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "gt_intent_id": 6,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Something went wrong with my withdrawal. The amount of money isn't right.",
+      "response": "Something went wrong with my withdrawal. The amount of money isn't correct.",
+      "gt_intent": "wrong_amount_of_cash_received",
+      "gt_intent_id": 75,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I need to use my disposable card multiple times a day, is there a cutoff limit?",
+      "response": "I need to use my disposable card multiple times a day. Is there a cutoff limit?",
+      "gt_intent": "disposable_card_limits",
+      "gt_intent_id": 29,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can I have an item refunded?",
+      "response": "Can I have an item refunded?",
+      "gt_intent": "request_refund",
+      "gt_intent_id": 52,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Hi. I'm a new customer to your system and I think something isn't working right - or maybe it is. Maybe you can confirm. I tried to top up today (my first time ever) and it's been stuck at \"pending\" for over an hour now. Is it supposed to do this or is there something wrong in the system?",
+      "response": "Hi. I'm a new customer to your system, and I think something isn't working right\u2014or maybe it is. Maybe you can confirm. I tried to top up today (my first time ever), and it's been stuck at \"pending\" for over an hour now. Is it supposed to do this, or is there something wrong with the system?",
+      "gt_intent": "pending_top_up",
+      "gt_intent_id": 47,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is there a way my new card can be renewed?",
+      "response": "Is there a way my new card can be replaced?",
+      "gt_intent": "activate_my_card",
+      "gt_intent_id": 0,
+      "action": "auto_correct",
+      "intent_shifted": true
+    },
+    {
+      "original": "What us the fee to transfer money from my bank?",
+      "response": "What is the fee to transfer money from my bank?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card has been swallowed by an ATM",
+      "response": "My card has been swallowed by an ATM.",
+      "gt_intent": "card_swallowed",
+      "gt_intent_id": 18,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can you tell me the foreign exchange rate?",
+      "response": "Can you tell me the foreign exchange rates?",
+      "gt_intent": "exchange_rate",
+      "gt_intent_id": 32,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What is the source of my money?",
+      "response": "What is the source of my money?",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I might need AUD instead of GBP, how to change?",
+      "response": "I might need AUD instead of GBP. How do I change it?",
+      "gt_intent": "exchange_via_app",
+      "gt_intent_id": 33,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card does not work",
+      "response": "My card does not work.",
+      "gt_intent": "card_not_working",
+      "gt_intent_id": 14,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My transfer got declined.",
+      "response": "My transfer was declined.",
+      "gt_intent": "declined_transfer",
+      "gt_intent_id": 27,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is there a fee to exchange foreign money?",
+      "response": "Is there a fee to exchange foreign currency?",
+      "gt_intent": "exchange_charge",
+      "gt_intent_id": 31,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do you know where my card will be accepted?",
+      "response": "Do you know where my card is accepted?",
+      "gt_intent": "card_acceptance",
+      "gt_intent_id": 10,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is my card broken?",
+      "response": "Is my card broken?",
+      "gt_intent": "card_not_working",
+      "gt_intent_id": 14,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I used my card for a purchase and was charged a fee",
+      "response": "I used my card for a purchase and was charged a fee.",
+      "gt_intent": "card_payment_fee_charged",
+      "gt_intent_id": 15,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I was charged a fee when making this transfer, and I don't think I should have been!",
+      "response": "I was charged a fee when making this transfer, and I don't think I should have been.",
+      "gt_intent": "transfer_fee_charged",
+      "gt_intent_id": 64,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I cant find my card, it's gone.",
+      "response": "I can't find my card; it's gone.",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Where's the verification code for the top-up card?",
+      "response": "Where is the verification code for the top-up card?",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Please help me get a new card, I reside in the United States.",
+      "response": "Please help me get a new card. I reside in the United States.",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I don't understand why it says I have to verify the top-up.",
+      "response": "I don't understand why it says I have to verify the top-up.",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What kind of ATM's can I use?",
+      "response": "What kind of ATMs can I use?",
+      "gt_intent": "atm_support",
+      "gt_intent_id": 3,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can you tell me why my top up didn't work?",
+      "response": "Can you tell me why my top-up didn't work?",
+      "gt_intent": "top_up_failed",
+      "gt_intent_id": 59,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How long until my card is delivered?",
+      "response": "How long until my card is delivered?",
+      "gt_intent": "card_delivery_estimate",
+      "gt_intent_id": 12,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can I transfer money to a beneficiery?",
+      "response": "Can I transfer money to a beneficiary?",
+      "gt_intent": "beneficiary_not_allowed",
+      "gt_intent_id": 7,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card payment did not work.",
+      "response": "My card payment did not work.",
+      "gt_intent": "declined_card_payment",
+      "gt_intent_id": 25,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I need to verify my identity, but how do I do that?",
+      "response": "I need to verify my identity. How do I do that?",
+      "gt_intent": "verify_my_identity",
+      "gt_intent_id": 69,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Something went wrong, I was charged an extra pound?",
+      "response": "Something went wrong; I was charged an extra pound.",
+      "gt_intent": "extra_charge_on_statement",
+      "gt_intent_id": 34,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Tell me if there are any top-up limits?",
+      "response": "Tell me if there are any top-up limits.",
+      "gt_intent": "top_up_limits",
+      "gt_intent_id": 60,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I have to verify the source of my funds",
+      "response": "I have to verify the source of my funds.",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would like to know why my payment is still pending, can you help?",
+      "response": "I would like to know why my payment is still pending. Can you help?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "i was supposed to get a refund but my balance hasn't changed, why not?",
+      "response": "I was supposed to get a refund, but my balance hasn't changed. Why not?",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How do I top-up using cash?",
+      "response": "How do I top up using cash?",
+      "gt_intent": "top_up_by_cash_or_cheque",
+      "gt_intent_id": 58,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can you tell me what countries you operate in?",
+      "response": "Can you tell me in which countries you operate?",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why do I have to give you all of my identification details?",
+      "response": "Why do I have to give you all my identification details?",
+      "gt_intent": "why_verify_identity",
+      "gt_intent_id": 74,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I went to top up and it is no longer there.  Was it sent back?",
+      "response": "I went to top up, and it is no longer there. Was it sent back?",
+      "gt_intent": "top_up_reverted",
+      "gt_intent_id": 61,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I made a payment but the app reverted the payment.",
+      "response": "I made a payment, but the app reversed the payment.",
+      "gt_intent": "reverted_card_payment?",
+      "gt_intent_id": 53,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Oh my goodness, my card has been declined twice at ATM! I tried two different ATM, but each one declined my card! Can you tell me what's going on with my account?",
+      "response": "Oh my goodness, my card has been declined twice at ATMs! I tried two different ATMs, but each one declined my card! Can you tell me what's going on with my account?",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I got topped up but the application reverted it.",
+      "response": "I got topped up, but the application reverted it.",
+      "gt_intent": "top_up_reverted",
+      "gt_intent_id": 61,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What is this $1 charge on my statement?",
+      "response": "What is this $1 charge on my statement?",
+      "gt_intent": "extra_charge_on_statement",
+      "gt_intent_id": 34,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I need a fast transfer from China?  How fast will it be?",
+      "response": "I need a fast transfer from China. How fast will it be?",
+      "gt_intent": "transfer_timing",
+      "gt_intent_id": 67,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would prefer a visa card",
+      "response": "I would prefer a Visa card.",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I am missing a refund.",
+      "response": "I am missing a refund.",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "When will the transfer be completed?",
+      "response": "When will the transfer be completed?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I want my account deleted!",
+      "response": "I want my account deleted!",
+      "gt_intent": "terminate_account",
+      "gt_intent_id": 55,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What do I do to get a disposable virtual card?",
+      "response": "What should I do to get a disposable virtual card?",
+      "gt_intent": "get_disposable_virtual_card",
+      "gt_intent_id": 37,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Where do I go to get the code to verify the top up card?",
+      "response": "Where do I go to get the code to verify the top-up card?",
+      "gt_intent": "verify_top_up",
+      "gt_intent_id": 71,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How can I get a second card for my daughter?",
+      "response": "How can I get a second card for my daughter?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I  do not see a top-up processed.",
+      "response": "I do not see a top-up processed.",
+      "gt_intent": "pending_top_up",
+      "gt_intent_id": 47,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why was a charged a fee for using the card?",
+      "response": "Why was I charged a fee for using the card?",
+      "gt_intent": "card_payment_fee_charged",
+      "gt_intent_id": 15,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I'm not certain, but someone may be using my card.",
+      "response": "I'm not certain, but someone may be using my card.",
+      "gt_intent": "compromised_card",
+      "gt_intent_id": 22,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card was taken from me",
+      "response": "My card was taken from me.",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I accidentally blocked my PIN. How do I reset it?",
+      "response": "I accidentally blocked my PIN. How do I reset it?",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Think someone has took money out with my card. What shall I do?",
+      "response": "Think someone has taken money out with my card. What should I do?",
+      "gt_intent": "cash_withdrawal_not_recognised",
+      "gt_intent_id": 20,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "And what about the Card's PIN?",
+      "response": "And what about the card's PIN?",
+      "gt_intent": "get_physical_card",
+      "gt_intent_id": 38,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Could you help me reactivate my card? It was previously lost, but I found it this morning in my jacket.",
+      "response": "Could you help me reactivate my card? It was previously lost, but I found it this morning in my jacket.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Some idiot stole my card.",
+      "response": "Somebody stole my card.",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I tried to withdraw money but I was declined!",
+      "response": "I tried to withdraw money, but I was declined!",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I've received my card so now I need to know how to sync it to the app.",
+      "response": "I've received my card, so now I need to know how to sync it with the app.",
+      "gt_intent": "card_linking",
+      "gt_intent_id": 13,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I want to change my personal details.",
+      "response": "I want to change my personal details.",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Where is the virtual card located?",
+      "response": "Where is the virtual card located?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I made a purchase and it says it's pending. What does that mean?",
+      "response": "I made a purchase, and it says it's pending. What does that mean?",
+      "gt_intent": "pending_card_payment",
+      "gt_intent_id": 45,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What is the youngest age in order to have an account?",
+      "response": "What is the youngest age required to have an account?",
+      "gt_intent": "age_limit",
+      "gt_intent_id": 1,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I completed a money transaction but the recipient hasn't received it",
+      "response": "I completed a money transaction, but the recipient hasn't received it.",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I sent my friend some money a few hours ago but she has not received it yet. She really needs it. How long does this take?",
+      "response": "I sent my friend some money a few hours ago, but she has not received it yet. She really needs it. How long does this take?",
+      "gt_intent": "transfer_not_received_by_recipient",
+      "gt_intent_id": 66,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I entered the wrong pin too many times and now I am blocked.  Help me unblock!",
+      "response": "I entered the wrong PIN too many times and now I am blocked. Help me unblock!",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How do I deal with a stolen card?",
+      "response": "How do I deal with a stolen card?",
+      "gt_intent": "lost_or_stolen_card",
+      "gt_intent_id": 41,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do transfers from Europe take longer?",
+      "response": "Do transfers from Europe take longer?",
+      "gt_intent": "transfer_timing",
+      "gt_intent_id": 67,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I tried to use my card to top up but all of the money has disappeared.",
+      "response": "I tried to use my card to top up, but all of the money has disappeared.",
+      "gt_intent": "topping_up_by_card",
+      "gt_intent_id": 62,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Hi, I'm buying a flat and I'm trying to get my mortgage to go though. Every time I check I simply get an error message. Is there any way you can help me get this money transferred over. Thanks!",
+      "response": "Hi, I'm buying a flat and I'm trying to get my mortgage to go through. Every time I check, I simply get an error message. Is there any way you can help me get this money transferred over? Thanks!",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I've attempted to do a very standard transfer and have tried 5 times at this point. Can you tell me what the issue is? Is the system down?",
+      "response": "I've attempted to do a very standard transfer and have tried five times at this point. Can you tell me what the issue is? Is the system down?",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I transferred some money but I think it has gotten lost somewhere.",
+      "response": "I transferred some money, but I think it has gotten lost somewhere.",
+      "gt_intent": "balance_not_updated_after_bank_transfer",
+      "gt_intent_id": 5,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Please give me both a visa and a master card.",
+      "response": "Please give me both a Visa and a MasterCard.",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can I directly transfer my salary onto here?",
+      "response": "Can I directly transfer my salary here?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I made a withdraw from the ATM this past holiday and it seems like a was charged too much. If I would have   known about these charges I wouldn't have made a withdraw.",
+      "response": "I made a withdrawal from the ATM this past holiday and it seems like I was charged too much. If I had known about these charges, I wouldn't have made a withdrawal.",
+      "gt_intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "gt_intent_id": 76,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Where can I find a virtual card?",
+      "response": "Where can I get a virtual card?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would like use the bank transfer, but I don't understand the process, can you please explain, topping up?",
+      "response": "I would like to use the bank transfer, but I don't understand the process. Can you please explain topping up?",
+      "gt_intent": "transfer_into_account",
+      "gt_intent_id": 65,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Please, how do I order a card?",
+      "response": "Please, how do I order a card?",
+      "gt_intent": "order_physical_card",
+      "gt_intent_id": 43,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do you work with all fiat currencies?",
+      "response": "Do you work with all fiat currencies?",
+      "gt_intent": "fiat_currency_support",
+      "gt_intent_id": 36,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My daughter would like a card as well, how can we make this happen?",
+      "response": "My daughter would like a card as well. How can we make this happen?",
+      "gt_intent": "getting_spare_card",
+      "gt_intent_id": 39,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What do I do when my card expires?",
+      "response": "What should I do when my card expires?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can you tell me where I can order a virtual card?",
+      "response": "Can you tell me where I can order a virtual card?",
+      "gt_intent": "getting_virtual_card",
+      "gt_intent_id": 40,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Does my PIN come with my card?",
+      "response": "Does my PIN come with my card?",
+      "gt_intent": "get_physical_card",
+      "gt_intent_id": 38,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Something is wrong with my password.",
+      "response": "Something is wrong with my password.",
+      "gt_intent": "passcode_forgotten",
+      "gt_intent_id": 44,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why couldn't I complete a transfer?",
+      "response": "Why couldn't I complete a transfer?",
+      "gt_intent": "failed_transfer",
+      "gt_intent_id": 35,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I thought cash withdrawals were free? Why have I been charged a fee? Also, how much is this fee?",
+      "response": "I thought cash withdrawals were free. Why have I been charged a fee? Also, how much is this fee?",
+      "gt_intent": "cash_withdrawal_charge",
+      "gt_intent_id": 19,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Double check your funds may be declined",
+      "response": "Double-check your funds; they may be declined.",
+      "gt_intent": "declined_transfer",
+      "gt_intent_id": 27,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How to change my address.",
+      "response": "How do I change my address?",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can my daughter open an account?",
+      "response": "Can my daughter open an account?",
+      "gt_intent": "age_limit",
+      "gt_intent_id": 1,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I do not have what is required to prove my identity",
+      "response": "I do not have what is required to prove my identity.",
+      "gt_intent": "unable_to_verify_identity",
+      "gt_intent_id": 68,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would like some help getting a refund back from a seller. It still isn't showing up on my statement and I requested this a long time ago. I'm not sure why it's not returned yet. Can you assist me in getting this money back?",
+      "response": "I would like some help getting a refund from a seller. It still isn't showing up on my statement, and I requested this a long time ago. I'm not sure why it hasn't been returned yet. Can you assist me in getting this money back?",
+      "gt_intent": "Refund_not_showing_up",
+      "gt_intent_id": 51,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card is expiring shortly.  How much will it cost for a replacement, and how soon can I get it?",
+      "response": "My card is expiring soon. How much will it cost for a replacement, and how soon can I get it?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "The money would not transfer to a beneficiary.",
+      "response": "The money would not be transferred to a beneficiary.",
+      "gt_intent": "beneficiary_not_allowed",
+      "gt_intent_id": 7,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What do I do when my card is about to expire?",
+      "response": "What should I do when my card is about to expire?",
+      "gt_intent": "card_about_to_expire",
+      "gt_intent_id": 9,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My account is blocked, how do I log in now",
+      "response": "My account is blocked. How do I log in now?",
+      "gt_intent": "pin_blocked",
+      "gt_intent_id": 49,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Why did the ATM machine fail to give me a cash withdrawal?",
+      "response": "Why did the ATM fail to give me a cash withdrawal?",
+      "gt_intent": "declined_cash_withdrawal",
+      "gt_intent_id": 26,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My phone was stolen, what do I do?",
+      "response": "My phone was stolen. What should I do?",
+      "gt_intent": "lost_or_stolen_phone",
+      "gt_intent_id": 42,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I need to validate the source of my funds.",
+      "response": "I need to validate the source of my funds.",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Pending transfer?",
+      "response": "Pending transfer?",
+      "gt_intent": "pending_transfer",
+      "gt_intent_id": 48,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Your exchange rate is totally wrong for my card payment",
+      "response": "Your exchange rate is completely wrong for my card payment.",
+      "gt_intent": "card_payment_wrong_exchange_rate",
+      "gt_intent_id": 17,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "how do you determine your exchange rates because one of yours was off when i got cash",
+      "response": "How do you determine your exchange rates? One of yours was off when I got cash.",
+      "gt_intent": "wrong_exchange_rate_for_cash_withdrawal",
+      "gt_intent_id": 76,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I would like to know any restrictions for the disposable cards.",
+      "response": "I would like to know if there are any restrictions for the disposable cards.",
+      "gt_intent": "disposable_card_limits",
+      "gt_intent_id": 29,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I can not get the app to know it is me.",
+      "response": "I cannot get the app to recognize me.",
+      "gt_intent": "unable_to_verify_identity",
+      "gt_intent_id": 68,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I have an unauthorized transaction on my statement",
+      "response": "I have an unauthorized transaction on my statement.",
+      "gt_intent": "card_payment_not_recognised",
+      "gt_intent_id": 16,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "How can my friend transfer money to me?",
+      "response": "How can my friend transfer money to me?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can I add money with Apple Pay?",
+      "response": "Can I add money using Apple Pay?",
+      "gt_intent": "apple_pay_or_google_pay",
+      "gt_intent_id": 2,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What places will accept my card?",
+      "response": "What places will accept my card?",
+      "gt_intent": "card_acceptance",
+      "gt_intent_id": 10,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "What is the source of my available funds?",
+      "response": "What is the source of my available funds?",
+      "gt_intent": "verify_source_of_funds",
+      "gt_intent_id": 70,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I think something went wrong with my card delivery as I haven't received it yet.",
+      "response": "I think something went wrong with my card delivery, as I haven't received it yet.",
+      "gt_intent": "card_arrival",
+      "gt_intent_id": 11,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My card payment did not complete.",
+      "response": "My card payment did not complete.",
+      "gt_intent": "declined_card_payment",
+      "gt_intent_id": 25,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Will it automatically top-up if there isn't much money left?",
+      "response": "Will it automatically top up if there isn't much money left?",
+      "gt_intent": "automatic_top_up",
+      "gt_intent_id": 4,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do you know if I can use this for my salary?",
+      "response": "Do you know whether I can use this for my salary?",
+      "gt_intent": "receiving_money",
+      "gt_intent_id": 50,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I need to change my name since I got married",
+      "response": "I need to change my name because I got married",
+      "gt_intent": "edit_personal_details",
+      "gt_intent_id": 30,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do I need to make a regular payment before a contactless one?",
+      "response": "Do I need to make a regular payment before making a contactless one?",
+      "gt_intent": "contactless_not_working",
+      "gt_intent_id": 23,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Can I give my friends access to my account so they can top it up for me?",
+      "response": "Can I give my friends access to my account so they can top it up for me?",
+      "gt_intent": "topping_up_by_card",
+      "gt_intent_id": 62,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My non-physical card will not work",
+      "response": "My non-physical card does not work",
+      "gt_intent": "virtual_card_not_working",
+      "gt_intent_id": 72,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "The amount of time that transfers usually take from a UK account is what?I just completed a transfer and it is not showing up at all. I'm wondering at this point if everything is actually okay.",
+      "response": "The amount of time that transfers usually take from a UK account is what? I just completed a transfer and it is not showing up at all. I'm wondering at this point if everything is actually okay.",
+      "gt_intent": "balance_not_updated_after_bank_transfer",
+      "gt_intent_id": 5,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is there a fee for transfer top-up?",
+      "response": "Is there a fee for transferring top-up?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I made a transaction but did it to the wrong account.",
+      "response": "I made a transaction but sent it to the wrong account.",
+      "gt_intent": "cancel_transfer",
+      "gt_intent_id": 8,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Is there a charge for topping up by transfer?",
+      "response": "Is there a charge for topping up via transfer?",
+      "gt_intent": "top_up_by_bank_transfer_charge",
+      "gt_intent_id": 56,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "My cash deposit from a week ago hasn't shown up. I need the money - how quickly can you sort this out?",
+      "response": "My cash deposit from a week ago hasn't shown up. I need the money\u2014how quickly can you sort this out?",
+      "gt_intent": "balance_not_updated_after_cheque_or_cash_deposit",
+      "gt_intent_id": 6,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I see some fees for cash withdraw.",
+      "response": "I see some fees for cash withdrawal.",
+      "gt_intent": "cash_withdrawal_charge",
+      "gt_intent_id": 19,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Some cash is showing up in my app that I did not get.",
+      "response": "Some cash is showing up in my app that I did not receive.",
+      "gt_intent": "cash_withdrawal_not_recognised",
+      "gt_intent_id": 20,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Are there fees for adding money using an international card",
+      "response": "Are there fees for adding money using an international card?",
+      "gt_intent": "top_up_by_card_charge",
+      "gt_intent_id": 57,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "When can I order a disposable virtual card?",
+      "response": "When can I order a disposable virtual card?",
+      "gt_intent": "get_disposable_virtual_card",
+      "gt_intent_id": 37,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "Do I get a choice between Visa and Mastercard?",
+      "response": "Do I have a choice between Visa and Mastercard?",
+      "gt_intent": "visa_or_mastercard",
+      "gt_intent_id": 73,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I think someone got my card details and used it because there are transactions i don't recognize. What do I do now?",
+      "response": "I think someone got my card details and used them because there are transactions I don't recognize. What do I do now?",
+      "gt_intent": "compromised_card",
+      "gt_intent_id": 22,
+      "action": "auto_correct",
+      "intent_shifted": false
+    },
+    {
+      "original": "I live in the US but want to get a card",
+      "response": "I live in the US but want to get a card.",
+      "gt_intent": "country_support",
+      "gt_intent_id": 24,
+      "action": "auto_correct",
+      "intent_shifted": false
+    }
+  ],
+  "confidence_distribution": {
+    "high": 136,
+    "medium": 14,
+    "low": 0
+  }
+}

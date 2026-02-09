@@ -1,0 +1,72 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why Do Aggressive Strategies Fail?}
+\label{sec:why_fail}
+
+Our error analysis reveals three mechanisms by which aggressive correction shifts intent.
+
+\para{Semantic broadening.}
+The most common failure mode is generalization: the rewrite maps the query to a broader intent category.
+For example, ``Can you help with a transfer to an account'' (\emph{beneficiary\_not\_allowed}) becomes ``Can you assist me with transferring funds to another account?'' (\emph{transfer\_into\_account}).
+The rewrite is fluent and semantically related, but the specific intent---that the beneficiary is not allowed---is lost.
+
+\para{Context injection.}
+Both models, but particularly \claude, add context not present in the original query.
+Under \improve, \claude frequently prepends ``I'd like to\ldots'' or ``Can you help me with\ldots,'' changing the pragmatic force of the utterance.
+This is reflected in \claude's much higher \editratio (1.96 under \improve vs.\ 1.04 for \gptfour).
+
+\para{Classifier noise.}
+Some detected shifts are artifacts of the intent classifier's sensitivity to surface-level word changes rather than genuine intent changes.
+This accounts for most of the 1.5\% shift rate under \fixerrors, where edits are minimal.
+
+\subsection{Practical Recommendations}
+\label{sec:recommendations}
+
+Our findings suggest three actionable guidelines for building query correction systems.
+
+\para{Default to conservative correction.}
+Use \fixerrors-style prompts as the default correction strategy.
+With a 1.5\% violation rate (most of which is classifier noise), this is safe for virtually all applications.
+Only escalate to more aggressive strategies when the user explicitly requests rewriting.
+
+\para{Monitor \editratio as a leading indicator.}
+Our metric validation shows that \editratio correlates significantly with intent change ($r = 0.379$, $p = 0.0001$).
+In production, an \editratio above 1.0 should trigger a review: the system is changing more words than the original query contains, which is a strong signal of potential intent drift.
+
+\para{Use NLI bidirectional entailment for automated monitoring.}
+For real-time intent preservation monitoring, bidirectional NLI entailment ($r = -0.408$) provides the strongest automated signal.
+A drop in bidirectional entailment below a threshold can trigger clarification or fallback to the original query.
+
+\subsection{Model-Specific Behavior}
+\label{sec:model_behavior}
+
+The difference between \gptfour and \claude under open-ended instructions is notable.
+\claude's more aggressive editing style---higher \editratio, lower semantic similarity, lower unchanged rate---leads to more intent violations under \rewriteclearly (15.0\% vs.\ 9.2\%).
+However, both models are equally safe under \fixerrors (1.5\% each).
+This suggests that the \fixerrors prompt effectively constrains both models, while open-ended instructions like ``rewrite'' or ``improve'' allow model-specific tendencies to emerge.
+\claude's tendency toward verbosity and elaboration, which is often helpful in other contexts, becomes a liability when the goal is minimal correction.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\para{Classifier as ground truth.}
+Our intent shift detection relies on a \knn classifier with imperfect accuracy (93\% on \banking, 83\% on \clinc).
+Some detected shifts may be classifier errors, and some real shifts may be missed.
+The metric validation experiment partially addresses this concern, but a full human annotation study would strengthen the findings.
+
+\para{Domain specificity.}
+We evaluate on banking and virtual assistant queries.
+Results may differ for domains with more ambiguous intents (\eg creative writing, open-ended information seeking) or with specialized vocabularies (\eg medical, legal).
+
+\para{Deterministic generation.}
+Using temperature $= 0$ captures each model's most likely behavior but misses the variance that would occur with non-zero temperature in production deployments.
+
+\para{English only.}
+All experiments use English queries.
+Intent preservation may be harder for morphologically rich languages or languages with more syntactic ambiguity.
+
+\para{Scale of Experiment 3.}
+The confidence-aware evaluation uses 150 queries from a single dataset.
+While the 0\% intent shift result is promising, the Wilcoxon test comparing \confcorrect to always-correct is not statistically significant ($p = 0.16$), likely due to the low base rate of violations under \fixerrors.
+A larger-scale evaluation is needed to establish statistical significance.

@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "n_samples_per_dataset": 200,
+  "models": [
+    "gpt-4.1",
+    "claude-sonnet-4.5"
+  ],
+  "correction_prompts": [
+    "fix_errors",
+    "rewrite_clearly",
+    "improve"
+  ],
+  "timestamp": "2026-02-08T23:32:25.249768",
+  "gpu": "NVIDIA GeForce RTX 3090"
+}

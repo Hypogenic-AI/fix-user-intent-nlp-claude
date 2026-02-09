@@ -1,0 +1,30 @@
+# Ignore downloaded dataset files (keep catalog and scripts)
+banking77/
+clinc150/
+paws/
+stsb/
+amazon_qac/
+clariq/
+qulac/
+
+# Keep catalog and download script
+!dataset_catalog.json
+!download_datasets.py
+!README.md
+!.gitignore
+
+# General data patterns
+*.parquet
+*.arrow
+*.bin
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.csv
+*.tsv
+*.jsonl
+__pycache__/
+.cache/

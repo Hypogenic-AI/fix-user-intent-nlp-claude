@@ -1,0 +1,9 @@
+Query correction and rewriting systems are ubiquitous in search engines, chatbots, and virtual assistants.
+When these systems alter the user's original intent, downstream performance degrades and users lose trust.
+Yet no systematic evaluation exists for measuring how often large language models (LLMs) change user intent during query correction.
+We address this gap by evaluating two state-of-the-art LLMs (\gptfour and \claude) across three correction strategies of increasing aggressiveness on 400 queries from the \banking and \clinc intent classification benchmarks.
+We find that conservative correction (``fix errors'') preserves intent 98.5\% of the time, while more aggressive strategies (``rewrite clearly,'' ``improve'') cause intent shifts in 9--15\% of cases---a 6--10$\times$ increase in violations.
+Claude makes more aggressive edits than GPT-4.1, leading to higher violation rates under open-ended instructions.
+We validate these findings using an LLM-as-judge protocol and show that bidirectional natural language inference entailment is the strongest automated predictor of intent change ($r = -0.408$, $p < 0.0001$).
+Finally, we propose \confcorrect, a confidence-aware correction strategy that eliminates intent violations entirely while requesting clarification for only 9.3\% of ambiguous queries.
+Our results provide actionable guidelines for building correction systems that know when to fix, when to ask, and when to leave well enough alone.

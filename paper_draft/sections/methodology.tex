@@ -1,0 +1,118 @@
+\section{Methodology}
+\label{sec:method}
+
+We design three experiments to measure intent preservation in LLM-based query correction, validate our automated metrics, and test a confidence-aware correction strategy.
+
+\subsection{Problem Formulation}
+\label{sec:formulation}
+
+Given a user query $q$ with ground-truth intent label $y$, a correction system $f$ produces a rewritten query $q' = f(q)$.
+We say the correction \emph{preserves intent} if and only if a classifier $g$ assigns the same intent to both the original and the rewrite: $g(q) = g(q')$.
+We define the \emph{intent preservation rate} (\ipr) as the fraction of queries for which intent is preserved:
+\begin{equation}
+    \ipr = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}[g(q_i) = g(q_i')]
+    \label{eq:ipr}
+\end{equation}
+The complementary \emph{intent shift rate} is $1 - \ipr$.
+
+\subsection{Datasets}
+\label{sec:datasets}
+
+We use two established intent classification benchmarks that provide gold-standard intent labels for every query.
+
+\para{\banking~\citep{casanueva2020banking77}} contains 3,080 test queries across 77 fine-grained banking intents (\eg ``card\_arrival,'' ``pending\_cash\_withdrawal,'' ``cancel\_transfer'').
+Queries reflect real customer service interactions and often contain informal language and typos.
+
+\para{\clinc~\citep{larson2019clinc150}} contains 5,500 test queries across 150 intents spanning 10 domains (banking, travel, kitchen, etc.), plus an out-of-scope class.
+Queries reflect multi-domain virtual assistant interactions.
+
+We stratify-sample 200 queries from each dataset to ensure diverse intent coverage, yielding 400 queries per model-prompt combination.
+Our intent classifier achieves 93\% accuracy on \banking and 83\% on \clinc using 5-nearest-neighbor (\knn) classification with \sbert embeddings~\citep{reimers2019sbert}, establishing a reliable baseline for detecting intent shifts.
+
+\subsection{Correction Strategies}
+\label{sec:strategies}
+
+We prompt each LLM with three instructions of increasing aggressiveness:
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \textbf{\fixerrors} (low aggressiveness): ``Fix any errors in the following user query. Return ONLY the corrected query, nothing else. If there are no errors, return the query unchanged.''
+    \item \textbf{\rewriteclearly} (medium aggressiveness): ``Rewrite the following user query to be clearer and more precise. Return ONLY the rewritten query, nothing else.''
+    \item \textbf{\improve} (high aggressiveness): ``Improve the following user query to better express the user's intent. Return ONLY the improved query, nothing else.''
+\end{enumerate}
+
+All prompts use temperature $= 0$ for deterministic outputs and a maximum of 256 output tokens.
+
+\subsection{Models}
+\label{sec:models}
+
+We evaluate two state-of-the-art LLMs:
+
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item \gptfour (OpenAI), accessed via the OpenAI API.
+    \item \claude (Anthropic), accessed via OpenRouter.
+\end{itemize}
+
+Both models represent the current frontier of instruction-following LLMs.
+Using two models from different providers tests the generalizability of our findings.
+
+\subsection{Evaluation Metrics}
+\label{sec:metrics}
+
+We compute five metrics for each (query, rewrite) pair:
+
+\para{Intent preservation rate (\ipr).}
+Our primary metric.
+We classify both $q$ and $q'$ using a \knn classifier ($k = 5$) with \sbert embeddings (all-MiniLM-L6-v2) trained on the full dataset.
+A shift occurs when the predicted intents differ.
+
+\para{Semantic similarity.}
+Cosine similarity between \sbert embeddings of $q$ and $q'$.
+Higher values indicate the rewrite stays closer to the original meaning.
+
+\para{Edit ratio.}
+Normalized word-level Levenshtein distance between $q$ and $q'$~\citep{li2025drgenre}.
+Lower values indicate more conservative edits.
+An \editratio of 0 means the query is unchanged; values above 1.0 indicate the rewrite changes more words than the original contains.
+
+\para{NLI entailment.}
+We compute forward ($q \rightarrow q'$) and backward ($q' \rightarrow q$) entailment probabilities using a cross-encoder NLI model (nli-deberta-v3-base~\citep{he2021deberta}).
+The bidirectional score is $\min(\text{forward}, \text{backward})$.
+High bidirectional entailment indicates that $q$ and $q'$ are mutual paraphrases.
+
+\para{Unchanged rate.}
+The fraction of queries where $q' = q$ (the model returned the input verbatim).
+This measures how often the model declines to edit.
+
+\subsection{Experiment 1: Intent Violation Measurement}
+\label{sec:exp1}
+
+We evaluate all combinations of 2 models $\times$ 3 strategies $\times$ 400 queries = 2,400 LLM API calls.
+For each (query, rewrite) pair, we compute all five metrics.
+We report intent shift rates with 95\% bootstrap confidence intervals ($n = 1{,}000$) and test pairwise strategy differences using Wilcoxon signed-rank tests.
+
+\subsection{Experiment 2: Metric Validation}
+\label{sec:exp2}
+
+To validate our automated metrics, we sample 100 (query, rewrite) pairs from Experiment~1, balanced between shifted and preserved cases.
+We use \gptfour as an LLM judge, prompting it to label each pair as \texttt{PRESERVED}, \texttt{CHANGED}, or \texttt{AMBIGUOUS}.
+We then compute Pearson correlations between each automated metric and the binary judge labels (PRESERVED = 1, CHANGED = 0).
+
+\subsection{Experiment 3: Confidence-Aware Strategy}
+\label{sec:exp3}
+
+We propose \confcorrect, which uses the intent classifier's confidence---defined as the fraction of $k$ nearest neighbors that agree on the predicted intent---to decide the correction action:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \textbf{High confidence} ($> 0.80$): Auto-correct using \fixerrors.
+    \item \textbf{Medium confidence} ($0.40$--$0.80$): Generate a clarifying question using the LLM.
+    \item \textbf{Low confidence} ($< 0.40$): Abstain (return the query unchanged).
+\end{itemize}
+
+The high-confidence threshold of 0.80 follows~\citet{denhengst2024conformal}.
+We evaluate on 150 queries from \banking and compare against three baselines: always-correct, always-clarify, and no-action.
+We define \emph{effective accuracy} as:
+\begin{equation}
+    \text{Effective Accuracy} = 1 - \text{shift\_rate} - 0.3 \times \text{clarify\_rate}
+    \label{eq:effective_acc}
+\end{equation}
+which penalizes both intent violations and unnecessary clarification questions (weighted at 0.3 to reflect that clarification is annoying but less harmful than a wrong answer).

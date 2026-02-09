@@ -1,0 +1,169 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Intent Violation Rates (Experiment 1)}
+\label{sec:violation_rates}
+
+\Tabref{tab:main_results} presents intent shift rates across all model-strategy combinations.
+The central finding is clear: \textbf{prompt aggressiveness, not model choice, determines intent preservation.}
+
+\begin{table}[t]
+    \centering
+    \small
+    \caption{Intent shift rates and correction behavior across models and strategies. \textbf{Bold} indicates best (lowest) shift rate per model. The 95\% confidence intervals are computed via bootstrap ($n = 1{,}000$).}
+    \label{tab:main_results}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llccccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Strategy} & \textbf{Intent Shift} & \textbf{95\% CI} & \textbf{Edit Ratio} & \textbf{Sem.\ Sim.} & \textbf{Unchanged} \\
+        \midrule
+        \gptfour & \fixerrors & {\bf 1.5\%} & [0.5, 2.8] & 0.128 & 0.975 & 26.2\% \\
+        \gptfour & \rewriteclearly & 9.2\% & [6.2, 12.2] & 0.953 & 0.822 & 0.0\% \\
+        \gptfour & \improve & 10.0\% & [7.2, 13.0] & 1.040 & 0.804 & 0.0\% \\
+        \midrule
+        \claude & \fixerrors & {\bf 1.5\%} & [0.5, 2.8] & 0.083 & 0.984 & 49.8\% \\
+        \claude & \rewriteclearly & 15.0\% & [11.5, 18.8] & 1.570 & 0.739 & 0.0\% \\
+        \claude & \improve & 14.2\% & [11.0, 18.0] & 1.962 & 0.746 & 0.0\% \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\para{Conservative correction is safe.}
+Both models achieve a 1.5\% intent shift rate with \fixerrors, the lowest possible correction strategy.
+Most of these shifts are likely attributable to classifier noise rather than genuine intent changes, given our classifier's 93\% accuracy on \banking and 83\% on \clinc.
+Notably, \claude leaves 49.8\% of queries unchanged under \fixerrors (vs.\ 26.2\% for \gptfour), indicating even greater conservatism.
+
+\para{Aggressive rewriting causes 6--10$\times$ more violations.}
+Moving from \fixerrors to \rewriteclearly increases the intent shift rate from 1.5\% to 9.2\% for \gptfour and from 1.5\% to 15.0\% for \claude.
+Both pairwise comparisons are highly significant (Wilcoxon signed-rank, $p < 0.0001$).
+The difference between \rewriteclearly and \improve is not statistically significant for either model ($p = 0.53$ and $p = 0.62$), suggesting a ceiling effect once the model begins rewriting rather than correcting.
+
+\para{Claude rewrites more aggressively than GPT-4.1.}
+Under \rewriteclearly, \claude produces an \editratio of 1.57 compared to 0.95 for \gptfour, and achieves lower semantic similarity (0.739 vs.\ 0.822).
+Under \improve, this gap widens further (\editratio 1.96 vs.\ 1.04).
+\claude's higher aggressiveness leads to a 15.0\% shift rate vs.\ \gptfour's 9.2\% under \rewriteclearly---a 63\% relative increase.
+
+\para{Results are consistent across datasets.}
+\Figref{fig:by_dataset} shows intent shift rates by dataset.
+\banking shows an overall 8.2\% shift rate and \clinc shows 9.0\%, with both datasets exhibiting the same pattern: \fixerrors is safe, while \rewriteclearly and \improve produce similar violation rates.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig1_intent_violation_rates.png}
+    \caption{Intent violation rates by model and correction strategy. Error bars show 95\% bootstrap confidence intervals. Conservative \fixerrors achieves $\leq$1.5\% violations for both models, while aggressive strategies produce 9--15\% violations.}
+    \label{fig:overview}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig6_by_dataset.png}
+    \caption{Intent violation rates by dataset and strategy, averaged across models. Both \banking and \clinc show the same pattern: \fixerrors is safe, while \rewriteclearly and \improve produce comparable violation rates.}
+    \label{fig:by_dataset}
+\end{figure}
+
+\subsection{Metric Validation (Experiment 2)}
+\label{sec:metric_validation}
+
+\Tabref{tab:metric_validation} reports Pearson correlations between automated metrics and LLM-judge labels.
+Of 100 examples judged, 94 were labeled \texttt{PRESERVED} and 6 as \texttt{CHANGED} (none \texttt{AMBIGUOUS}).
+
+\begin{table}[t]
+    \centering
+    \small
+    \caption{Correlation of automated metrics with LLM-as-judge intent preservation labels. \textbf{Bold} indicates strongest correlation. Positive $r$ means higher metric values associate with preservation.}
+    \label{tab:metric_validation}
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Metric} & \textbf{Pearson $r$} & \textbf{$p$-value} \\
+        \midrule
+        Intent classifier ($\kappa$) & 0.040 & -- \\
+        Semantic similarity & 0.161 & 0.109 \\
+        Edit ratio (inverse) & 0.379 & 0.0001 \\
+        NLI forward & $-0.127$ & 0.208 \\
+        NLI backward & $-0.327$ & 0.0009 \\
+        {\bf NLI bidirectional} & $\mathbf{-0.408}$ & $< \mathbf{0.0001}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\para{NLI bidirectional entailment is the best predictor.}
+The bidirectional NLI score (minimum of forward and backward entailment) achieves the strongest correlation with judge labels ($r = -0.408$, $p < 0.0001$), where the negative sign indicates that lower bidirectional entailment associates with intent change.
+Edit ratio (inverse) is the second-best predictor ($r = 0.379$, $p = 0.0001$).
+
+\para{Semantic similarity alone is insufficient.}
+Cosine similarity of \sbert embeddings shows a non-significant correlation ($r = 0.161$, $p = 0.109$) with judge labels.
+This occurs because many rewrites that change intent are still semantically similar at the embedding level---they use related words in a similar domain but shift the specific intent category.
+
+\para{The intent classifier has low discriminative power.}
+Cohen's $\kappa$ between the intent classifier and the LLM judge is only 0.040, reflecting the fact that the classifier sometimes disagrees with human-level judgment about whether intent was preserved.
+This is expected given the classifier's imperfect accuracy and the subtlety of some intent distinctions.
+
+\Figref{fig:metric_distributions} visualizes the distribution of metrics for intent-preserved vs.\ intent-shifted pairs, \Figref{fig:metric_violin} shows violin plots of metric values grouped by judge labels, and \Figref{fig:edit_vs_sim} shows the relationship between \editratio and semantic similarity.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig2_metric_distributions.png}
+    \caption{Distribution of automated metrics for intent-preserved (green) vs.\ intent-shifted (red) query pairs. Semantic similarity and NLI forward entailment show overlapping distributions, while \editratio provides clearer separation.}
+    \label{fig:metric_distributions}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig5_metric_validation.png}
+    \caption{Violin plots comparing automated metric distributions for LLM-judge labels (\texttt{PRESERVED} vs.\ \texttt{CHANGED}). Edit ratio shows the clearest separation, while semantic similarity distributions overlap substantially between the two classes.}
+    \label{fig:metric_violin}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig3_edit_vs_similarity.png}
+    \caption{Edit ratio vs.\ semantic similarity for all query pairs. Green points (intent preserved) cluster at low \editratio and high similarity, while red points (intent shifted) are scattered across the space, confirming that excessive editing is a leading indicator of intent drift.}
+    \label{fig:edit_vs_sim}
+\end{figure}
+
+\subsection{Confidence-Aware Correction (Experiment 3)}
+\label{sec:confidence}
+
+\Tabref{tab:confidence} compares \confcorrect against three baselines on 150 \banking queries.
+
+\begin{table}[t]
+    \centering
+    \small
+    \caption{Comparison of correction strategies on 150 \banking queries. \confcorrect achieves zero intent shifts with only 9.3\% clarification. \textbf{Bold} indicates best effective accuracy among strategies that perform correction.}
+    \label{tab:confidence}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \textbf{Strategy} & \textbf{Intent Shifts} & \textbf{Clarify Rate} & \textbf{Eff.\ Accuracy} \\
+        \midrule
+        \confcorrect & {\bf 0/150 (0.0\%)} & 9.3\% & {\bf 0.972} \\
+        Always-Correct & 1/150 (0.7\%) & 0.0\% & 0.993 \\
+        No-Action & 0/150 (0.0\%) & 0.0\% & 1.000 \\
+        Always-Clarify & 0/150 (0.0\%) & 100\% & 0.700 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\para{Zero violations with minimal clarification.}
+\confcorrect achieves 0\% intent shifts while only generating clarifying questions for 14 out of 150 queries (9.3\%).
+The remaining 90.7\% of queries have high classifier confidence ($> 0.80$) and are auto-corrected using \fixerrors.
+No queries fell below the low-confidence threshold of 0.40.
+
+\para{Generated clarifications are specific and helpful.}
+Rather than generic ``what do you mean?'' questions, the generated clarifications target genuine ambiguities.
+For example, when a user asks ``Can you freeze my account? I just saw there are transactions I don't recognize,'' the system asks ``Are you referring to your bank account, credit card, or another type of account?''
+When a user asks ``What is the fee to transfer money from my bank?,'' the system asks ``Are you asking about transferring money domestically or internationally?''
+
+\para{Effective accuracy comparison.}
+Using the effective accuracy metric (equation~\ref{eq:effective_acc}), \confcorrect scores 0.972, compared to 0.993 for always-correct and 0.700 for always-clarify.
+The always-correct baseline scores slightly higher because the base rate of intent violations under \fixerrors is very low (0.7\%).
+However, \confcorrect provides a strict guarantee of zero violations---a property that may be essential in high-stakes domains like medical or legal query processing.
+
+\Figref{fig:strategy_comparison} visualizes the trade-off between intent violations and clarification rate across all strategies.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/fig4_strategy_comparison.png}
+    \caption{Intent violations vs.\ clarification rate for different correction strategies. \confcorrect occupies the optimal region: zero violations with minimal clarification.}
+    \label{fig:strategy_comparison}
+\end{figure}

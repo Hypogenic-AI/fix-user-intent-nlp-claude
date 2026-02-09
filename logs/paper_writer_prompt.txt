@@ -1,0 +1,958 @@
+You are an academic paper writer. Generate a complete NEURIPS style paper
+based on the experiment results provided.
+
+════════════════════════════════════════════════════════════════════════════════
+                         IMPORTANT: BEFORE YOU START
+════════════════════════════════════════════════════════════════════════════════
+
+Before writing any content, you MUST complete these steps:
+
+1. READ THE SKILL: Review the paper-writer skill at templates/skills/paper-writer/SKILL.md
+2. READ THE STYLE GUIDE: Study templates/paper_writing/lab_style_guide.md carefully
+3. REVIEW EXAMPLES: Browse paper_examples/ for formatting and language patterns:
+   - Look at sections/1.introduction.tex for language style
+   - Look at tables/*.tex for table formatting
+   - Look at commands/*.tex for macro usage
+4. USE COMMAND TEMPLATES: Copy templates/paper_writing/commands/ to paper_draft/commands/
+
+CRITICAL: Reference example papers for FORMATTING and LANGUAGE STYLE only.
+Do NOT copy content, phrasing, or narrative structure from the example papers.
+The examples are in a different research domain - focus only on presentation style.
+
+════════════════════════════════════════════════════════════════════════════════
+                            EXPERIMENT REPORT
+════════════════════════════════════════════════════════════════════════════════
+
+# &#34;Do You Mean...?&#34;: Fixing User Intent Without Annoying Them
+
+## 1. Executive Summary
+
+**Research Question:** When LLMs rewrite or correct user queries, how often do they alter the user&#39;s original intent? Can a confidence-aware correction strategy preserve intent while minimizing unnecessary clarification?
+
+**Key Finding:** LLMs alter user intent in 1.5% to 15% of corrections depending on the aggressiveness of the rewriting strategy. Conservative correction (&#34;fix errors&#34;) preserves intent 98.5% of the time, while more aggressive strategies (&#34;rewrite clearly&#34;, &#34;improve&#34;) cause intent shifts in 9-15% of cases. Claude Sonnet 4.5 makes more aggressive edits than GPT-4.1 and consequently causes more intent shifts. A confidence-aware strategy that selectively asks clarifying questions can eliminate intent violations entirely, at the cost of requesting clarification for only 9.3% of ambiguous queries.
+
+**Practical Implications:** Systems that rewrite user queries should use the most conservative correction strategy possible and only escalate to full rewrites when explicitly requested. When the system is uncertain, asking a short clarifying question is far better than guessing wrong.
+
+---
+
+## 2. Goal
+
+### Hypothesis
+Autocomplete and intent detection systems often incorrectly correct users in ways that alter their original intent. We hypothesize that:
+1. LLMs frequently alter intent when asked to rewrite queries (&gt;15% violation rate for aggressive strategies)
+2. Intent violations are detectable using automated metrics
+3. A confidence-aware strategy reduces intent violations without excessive questioning
+
+### Why This Matters
+Query correction is ubiquitous in search engines, chatbots, and virtual assistants. When a system &#34;helpfully&#34; rewrites a user&#39;s query but changes its meaning, the user gets wrong results and loses trust. This research quantifies the problem and proposes a practical solution.
+
+### Expected Impact
+Understanding when and how LLMs change user intent enables the design of better correction systems that know when to fix, when to ask, and when to leave well enough alone.
+
+---
+
+## 3. Data Construction
+
+### Dataset Description
+We used two established intent classification benchmarks:
+
+| Dataset | Split | Size | Intents | Source |
+|---------|-------|------|---------|--------|
+| BANKING77 | test | 3,080 | 77 | Banking customer service queries |
+| CLINC150 | test | 5,500 | 150 + OOS | Multi-domain virtual assistant queries |
+
+These datasets were chosen because each query has a gold-standard intent label, allowing us to detect when a rewrite changes the underlying intent.
+
+### Example Samples
+
+**BANKING77:**
+| Query | Intent |
+|-------|--------|
+| &#34;How do I locate my card?&#34; | card_arrival |
+| &#34;Can I change the amount I made on a payment...&#34; | cancel_transfer |
+| &#34;How long with my cash withdrawal stay pending for?&#34; | pending_cash_withdrawal |
+
+**CLINC150:**
+| Query | Intent |
+|-------|--------|
+| &#34;how would you say fly in italian&#34; | translate |
+| &#34;can you let me know if my vacation was approved&#34; | pto_request_status |
+| &#34;20 yen equals how many dollars&#34; | exchange_rate |
+
+### Sampling Strategy
+We stratified sampling across intents to ensure diverse coverage:
+- 200 queries from BANKING77 (across 77 intents)
+- 200 queries from CLINC150 (across 150 intents)
+- Total: 400 queries per model-prompt combination
+
+### Data Quality
+The datasets come from established NLP benchmarks with validated annotations. We verified our intent classifier achieves 93% accuracy on BANKING77 and 83% on CLINC150 using 5-NN with sentence embeddings, establishing a reliable baseline for detecting intent shifts.
+
+---
+
+## 4. Experiment Description
+
+### Methodology
+
+#### High-Level Approach
+We prompt real state-of-the-art LLMs (GPT-4.1, Claude Sonnet 4.5) to correct/rewrite user queries under three increasingly aggressive strategies, then measure whether the rewritten query preserves the original intent. We define &#34;intent preservation&#34; operationally as: the rewritten query, when classified by an embedding-based intent classifier, maps to the same intent label as the original.
+
+#### Why This Method?
+1. Using real LLM APIs (not simulated) ensures our results reflect actual model behavior
+2. Intent classification datasets provide ground-truth labels for measuring intent shift
+3. Multiple prompting strategies test the spectrum from conservative to aggressive correction
+4. Two different LLM models test generalizability
+
+### Implementation Details
+
+#### Tools and Libraries
+| Component | Tool | Version |
+|-----------|------|---------|
+| Language Models | GPT-4.1 (OpenAI), Claude Sonnet 4.5 (OpenRouter) | 2025 |
+| Intent Classifier | all-MiniLM-L6-v2 + 5-NN | sentence-transformers 5.2.2 |
+| NLI Model | cross-encoder/nli-deberta-v3-base | sentence-transformers |
+| Semantic Similarity | all-MiniLM-L6-v2 | sentence-transformers |
+| GPU | 2x NVIDIA RTX 3090 (24GB each) | CUDA |
+
+#### Prompting Strategies
+
+| Strategy | Prompt | Aggressiveness |
+|----------|--------|---------------|
+| **fix_errors** | &#34;Fix any errors in the following user query. Return ONLY the corrected query, nothing else. If there are no errors, return the query unchanged.&#34; | Low |
+| **rewrite_clearly** | &#34;Rewrite the following user query to be clearer and more precise. Return ONLY the rewritten query, nothing else.&#34; | Medium |
+| **improve** | &#34;Improve the following user query to better express the user&#39;s intent. Return ONLY the improved query, nothing else.&#34; | High |
+
+#### Hyperparameters
+| Parameter | Value | Rationale |
+|-----------|-------|-----------|
+| Temperature | 0 | Deterministic outputs for reproducibility |
+| Max tokens | 256 | Sufficient for short query rewrites |
+| k (NN classifier) | 5 | Standard choice for k-NN classification |
+| Confidence threshold (high) | 0.80 | Based on CICC paper (den Hengst et al., 2024) |
+| Confidence threshold (low) | 0.40 | Empirically set |
+| Random seed | 42 | Standard reproducibility seed |
+
+### Experimental Protocol
+
+#### Experiment 1: Intent Violation Rate Measurement
+- 400 queries (200 per dataset) × 3 prompt strategies × 2 models = **2,400 LLM API calls**
+- For each (query, rewrite) pair: compute semantic similarity, edit ratio, NLI scores, and intent classifier predictions
+- Measure intent shift as: original_predicted_intent ≠ rewrite_predicted_intent
+
+#### Experiment 2: Metric Validation (LLM-as-Judge)
+- 100 (query, rewrite) pairs sampled from Experiment 1 (balanced between shifted/preserved)
+- GPT-4.1 judges whether intent was preserved (PRESERVED/CHANGED/AMBIGUOUS)
+- Correlate automated metrics with judge labels
+
+#### Experiment 3: Confidence-Aware Strategy
+- 150 queries from BANKING77
+- Classify each query with confidence score (fraction of k-NN agreeing)
+- Apply threshold-based strategy: high confidence → auto-correct, medium → clarify, low → abstain
+- Compare against always-correct baseline
+
+#### Reproducibility
+- Seed: 42
+- Temperature: 0 (deterministic)
+- Hardware: 2x RTX 3090 (24GB)
+- Total API calls: ~3,050 across all experiments
+- Total runtime: ~50 minutes
+
+### Evaluation Metrics
+| Metric | What it Measures | Range |
+|--------|-----------------|-------|
+| **Intent Preservation Rate** | % of rewrites maintaining same intent label | 0-100% |
+| **Semantic Similarity** | Cosine similarity of SBERT embeddings | 0-1 |
+| **Edit Ratio** | Normalized word-level Levenshtein distance | 0-∞ |
+| **NLI Entailment** | P(original entails rewrite) from cross-encoder | 0-1 |
+| **Clarification Rate** | % of queries triggering clarification | 0-100% |
+
+---
+
+## 5. Raw Results
+
+### Experiment 1: Intent Violation Rates
+
+| Model | Strategy | Intent Shift Rate | 95% CI | Edit Ratio | Semantic Sim | Unchanged % |
+|-------|----------|:-:|:-:|:-:|:-:|:-:|
+| GPT-4.1 | fix_errors | **1.5%** | [0.5%, 2.8%] | 0.128 | 0.975 | 26.2% |
+| GPT-4.1 | rewrite_clearly | **9.2%** | [6.2%, 12.2%] | 0.953 | 0.822 | 0.0% |
+| GPT-4.1 | improve | **10.0%** | [7.2%, 13.0%] | 1.040 | 0.804 | 0.0% |
+| Claude 4.5 | fix_errors | **1.5%** | [0.5%, 2.8%] | 0.083 | 0.984 | 49.8% |
+| Claude 4.5 | rewrite_clearly | **15.0%** | [11.5%, 18.8%] | 1.570 | 0.739 | 0.0% |
+| Claude 4.5 | improve | **14.2%** | [11.0%, 18.0%] | 1.962 | 0.746 | 0.0% |
+
+**Statistical Comparisons (Wilcoxon signed-rank):**
+- fix_errors vs rewrite_clearly: p &lt; 0.0001 *** (both models)
+- fix_errors vs improve: p &lt; 0.0001 *** (both models)
+- rewrite_clearly vs improve: p = 0.53/0.62 ns (no significant difference)
+
+**By Dataset:**
+- BANKING77: 8.2% overall shift rate
+- CLINC150: 9.0% overall shift rate
+
+### Experiment 2: Metric Validation
+
+LLM-as-judge (GPT-4.1) labeled 100 examples: 94 as PRESERVED, 6 as CHANGED, 0 as AMBIGUOUS.
+
+| Metric | Correlation with Judge | p-value |
+|--------|:---------------------:|:-------:|
+| Intent classifier (kappa) | 0.040 | - |
+| Semantic similarity | r = 0.161 | 0.109 |
+| **Edit ratio (inverse)** | **r = 0.379** | **0.0001** |
+| NLI forward | r = -0.127 | 0.208 |
+| **NLI backward** | **r = -0.327** | **0.0009** |
+| **NLI bidirectional** | **r = -0.408** | **&lt; 0.0001** |
+
+### Experiment 3: Confidence-Aware Strategy
+
+| Strategy | Intent Shifts | Clarification Rate | Effective Accuracy* |
+|----------|:--:|:--:|:--:|
+| **Confidence-Aware** | **0/150 (0.0%)** | **14/150 (9.3%)** | **0.972** |
+| Always-Correct | 1/150 (0.7%) | 0% | 0.993 |
+| No-Action | 0/150 (0.0%) | 0% | 1.000 |
+| Always-Clarify | 0/150 (0.0%) | 100% | 0.700 |
+
+*Effective Accuracy = 1 - shift_rate - 0.3 × clarify_rate (penalizes both errors and unnecessary questioning)
+
+**Confidence Distribution:** High (&gt;0.8): 90.7%, Medium (0.4-0.8): 9.3%, Low (&lt;0.4): 0.0%
+
+#### Example Clarifications Generated
+
+| Original Query | Clarification | Confidence |
+|---------------|---------------|:----------:|
+| &#34;Can you freeze my account? I just saw there are transactions I don&#39;t recognize...&#34; | &#34;Are you referring to your bank account, credit card, or another type of account?&#34; | 0.40 |
+| &#34;did not receive correct cash upon withdrawal&#34; | &#34;Did you receive less cash than expected, or was there an issue with the denominations?&#34; | 0.40 |
+| &#34;What us the fee to transfer money from my bank?&#34; | &#34;Are you asking about transferring money domestically or internationally?&#34; | 0.60 |
+
+---
+
+## 5. Result Analysis
+
+### Key Findings
+
+**Finding 1: Conservative correction preserves intent; aggressive rewriting does not.**
+&#34;Fix errors&#34; prompts alter intent in only 1.5% of queries (both models), while &#34;rewrite clearly&#34; and &#34;improve&#34; prompts cause 9-15% intent shifts. This is a 6-10x increase in intent violations from merely changing the prompt instruction.
+
+**Finding 2: Claude Sonnet 4.5 makes more aggressive edits than GPT-4.1.**
+Claude&#39;s &#34;rewrite_clearly&#34; strategy has a 15% intent shift rate vs GPT&#39;s 9.2%. Claude also has a much higher edit ratio (1.57 vs 0.95) and lower semantic similarity (0.739 vs 0.822). This means Claude rewrites more words and deviates further from the original meaning, especially when given open-ended instructions.
+
+**Finding 3: The &#34;fix errors&#34; strategy is remarkably safe.**
+Both models achieve near-identical 1.5% intent shift rates with fix_errors. Notably, Claude leaves 49.8% of queries unchanged (vs GPT&#39;s 26.2%), showing Claude is even more conservative when asked specifically to fix errors. Most of the 1.5% shifts are likely due to classifier noise rather than actual intent changes.
+
+**Finding 4: NLI bidirectional entailment is the best automated metric for detecting intent changes.**
+Among automated metrics, NLI bidirectional entailment (min of forward and backward) shows the strongest correlation with LLM-judge labels (r = -0.408, p &lt; 0.0001). Edit ratio inverse also correlates well (r = 0.379, p = 0.0001). Semantic similarity alone is insufficient (r = 0.161, p = 0.109).
+
+**Finding 5: A confidence-aware strategy eliminates intent violations with minimal clarification.**
+The confidence-aware approach achieves 0% intent shifts while only asking clarifying questions for 9.3% of queries (those where the classifier confidence is medium). The generated clarifications are specific and helpful, asking about genuine ambiguities rather than generic &#34;what do you mean?&#34; questions.
+
+### Hypothesis Testing Results
+
+| Hypothesis | Result | Evidence |
+|-----------|--------|----------|
+| H1: &gt;15% intent violation for aggressive correction | **Partially supported** | Claude hits 15%, GPT reaches 10%. Average: ~12% |
+| H2: Automated metrics detect intent violations | **Supported** | NLI bidirectional: r=-0.408 (p&lt;0.0001); Edit ratio: r=0.379 (p&lt;0.001) |
+| H3: Confidence-aware strategy reduces violations | **Supported** | 0% violations vs 0.7% for always-correct, with only 9.3% clarification |
+
+### Surprises and Insights
+
+1. **Claude&#39;s verbosity amplifies intent drift**: Claude&#39;s &#34;improve&#34; strategy produces rewrites that are 2-10x longer than the original, often adding context the user never mentioned. While sometimes helpful, this introduces assumptions that can shift intent.
+
+2. **The classifier catches subtle shifts**: Even when the rewrite looks semantically similar (high cosine similarity), the intent classifier sometimes detects a shift. Example: &#34;how long do money transfers take?&#34; → &#34;How long does it take for a money transfer to be completed?&#34; shifted from `transfer_not_received_by_recipient` to `pending_transfer`.
+
+3. **Most queries have high classifier confidence**: 90.7% of Banking77 queries have &gt;0.8 classifier confidence, meaning the confidence-aware strategy defaults to auto-correction for most inputs. This is actually desirable — clarification should be the exception, not the rule.
+
+### Error Analysis
+
+**Types of intent shifts observed:**
+
+1. **Semantic broadening** (most common): The rewrite generalizes the query, mapping it to a broader intent category. E.g., &#34;Can you help with a transfer to an account&#34; (beneficiary_not_allowed) → &#34;Can you assist me with transferring funds to another account?&#34; (transfer_into_account).
+
+2. **Context injection**: The model adds context not present in the original, steering toward a different intent. E.g., Claude&#39;s &#34;improve&#34; strategy often adds phrases like &#34;I&#39;d like to...&#34; or &#34;Can you help me with...&#34; that change the pragmatic meaning.
+
+3. **Classifier noise**: Some &#34;shifts&#34; are due to the classifier being sensitive to surface-level word changes while the semantic intent is preserved. This accounts for most fix_errors shifts.
+
+### Limitations
+
+1. **Classifier as ground truth**: Our intent shift detection relies on an embedding-based classifier (93% accuracy on BANKING77, 83% on CLINC150). Some detected shifts may be classifier errors rather than genuine intent changes.
+
+2. **Domain specificity**: We tested on banking and virtual assistant queries. Results may differ for other domains (medical, legal, creative writing).
+
+3. **Deterministic generation**: Using temperature=0 means we capture the model&#39;s &#34;default&#34; behavior but miss the variance that would occur with non-zero temperature.
+
+4. **English only**: All experiments use English queries. Intent preservation may be harder for languages with more grammatical ambiguity.
+
+5. **Small confidence-aware evaluation**: Experiment 3 used only 150 queries from one dataset. The 0% intent shift rate is promising but the Wilcoxon test was not statistically significant (p=0.16), likely due to the low base rate.
+
+---
+
+## 6. Conclusions
+
+### Summary
+LLMs frequently alter user intent when asked to rewrite queries, with violation rates ranging from 1.5% (conservative &#34;fix errors&#34;) to 15% (aggressive &#34;improve/rewrite&#34;) depending on the prompting strategy. Conservative correction is remarkably safe and should be the default. When uncertainty exists, a confidence-aware approach that selectively asks clarifying questions can further reduce intent violations while only requesting clarification for ~9% of ambiguous queries.
+
+### Implications
+
+**For practitioners building correction/rewriting systems:**
+- Default to the most conservative correction strategy available
+- Only rewrite aggressively when the user explicitly requests it
+- Monitor edit ratio as a leading indicator of intent drift (&gt;1.0 is a warning sign)
+- Use NLI bidirectional entailment as the most reliable automated metric for intent preservation
+
+**For researchers:**
+- Intent preservation is a measurable property that should be evaluated alongside quality metrics like fluency and clarity
+- The DR GENRE framework&#39;s insight about &#34;conciseness reward&#34; (penalizing unnecessary edits) is empirically validated — our data shows a strong correlation between edit ratio and intent shift
+
+**For users:**
+- Be specific in your requests to AI systems: &#34;fix my typos&#34; produces much better intent preservation than &#34;improve my query&#34;
+
+### Confidence in Findings
+High confidence in the main finding (conservative &gt; aggressive correction). Medium confidence in metric validation (limited to 100 judge examples). The confidence-aware strategy results are promising but would benefit from a larger-scale evaluation.
+
+---
+
+## 7. Next Steps
+
+### Immediate Follow-ups
+1. **Larger-scale Experiment 3**: Run the confidence-aware strategy on 500+ queries across both datasets with multiple models to achieve statistical significance
+2. **Human evaluation**: Replace LLM-as-judge with human annotators to validate intent preservation judgments
+3. **Temperature sweep**: Test with temperature ∈ {0.0, 0.3, 0.7, 1.0} to measure how generation variance affects intent preservation
+
+### Alternative Approaches
+- **Fine-tuned intent classifier**: Replace 5-NN with a fine-tuned BERT model for more reliable intent shift detection
+- **Conformal prediction**: Use CICC-style conformal prediction for principled confidence calibration
+- **Multi-turn evaluation**: Test whether providing conversation context reduces intent shifts
+
+### Broader Extensions
+- Apply to other domains: medical query correction, code completion, legal document rewriting
+- Test with smaller/cheaper models (GPT-4.1-mini, Haiku) for cost-effective production deployment
+- Develop a real-time intent preservation monitoring system for production use
+
+### Open Questions
+1. Can models be fine-tuned to self-detect when their rewrites shift intent?
+2. What is the optimal clarification rate that balances helpfulness with user annoyance?
+3. How do intent preservation rates change across languages?
+
+---
+
+## References
+
+1. Arora et al. &#34;Intent Detection in the Age of LLMs.&#34; 2024.
+2. Den Hengst et al. &#34;Conformal Intent Classification and Clarification (CICC).&#34; 2024.
+3. Deng et al. &#34;InteractComp: Benchmark for Ambiguous Query Understanding.&#34; 2025.
+4. Hu et al. &#34;Interactive Question Clarification in Dialogue via Reinforcement Learning.&#34; 2020.
+5. Jayanthi et al. &#34;NeuSpell: A Neural Spelling Correction Toolkit.&#34; EMNLP 2020.
+6. Li et al. &#34;DR GENRE: RL from Decoupled LLM Feedback for Generic Text Rewriting.&#34; 2025.
+7. Shen et al. &#34;On the Evaluation Metrics for Paraphrase Generation (ParaScore).&#34; 2022.
+8. Wang et al. &#34;Zero-shot Clarifying Question Generation for Conversational Search.&#34; 2023.
+9. Zhang et al. &#34;BERTScore: Evaluating Text Generation with BERT.&#34; ICLR 2020.
+10. Zhang et al. &#34;Correcting the Autocorrect: Context-Aware Typographic Error Correction.&#34; 2020.
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            RESEARCH PLAN
+════════════════════════════════════════════════════════════════════════════════
+
+# Research Plan: &#34;Do You Mean...?&#34; — Fixing User Intent Without Annoying Them
+
+## Motivation &amp; Novelty Assessment
+
+### Why This Research Matters
+Autocomplete and intent detection systems are ubiquitous (search engines, chatbots, virtual assistants), yet they frequently &#34;correct&#34; users in ways that change the user&#39;s original intent. This is both frustrating to users and harmful to downstream task performance. Despite significant work on spelling correction, query rewriting, and clarification question generation, **no unified evaluation framework exists** for measuring how well models preserve user intent during correction, and whether a confidence-aware strategy can improve clarification without overwhelming users.
+
+### Gap in Existing Work
+The literature review reveals that:
+1. Spelling correction systems optimize for correction accuracy, not intent preservation (NeuSpell, Zhang et al. 2020)
+2. Clarification systems exist (CICC, Hu et al. 2020) but haven&#39;t been evaluated on whether LLM-based rewriting preserves intent
+3. Semantic metrics (BERTScore, ParaScore) exist but haven&#39;t been applied systematically to the specific problem of **intent-altering corrections**
+4. No study has measured how often modern LLMs incorrectly &#34;correct&#34; user queries in a way that changes intent
+
+### Our Novel Contribution
+1. **Intent Preservation Benchmark**: A systematic evaluation of how often LLMs alter user intent when rewriting/correcting queries, using real LLM APIs on established intent classification datasets
+2. **Multi-metric Evaluation Framework**: Combining BERTScore, intent label shift, edit ratio, and NLI-based entailment to capture different facets of intent preservation
+3. **Confidence-Aware Clarification Strategy**: Testing whether a threshold-based approach (auto-correct vs. clarify vs. abstain) reduces intent violations without excessive questioning
+
+### Experiment Justification
+- **Experiment 1 (Intent Violation Rate)**: Measures how often LLMs change user intent when asked to &#34;fix&#34; or &#34;improve&#34; queries. This directly answers the core research question.
+- **Experiment 2 (Metric Validation)**: Validates that our automated metrics correlate with actual intent changes, ensuring the evaluation framework is trustworthy.
+- **Experiment 3 (Confidence-Aware Strategy)**: Tests whether a confidence-threshold approach can reduce intent violations while minimizing unnecessary clarification questions.
+
+---
+
+## Research Question
+When LLMs rewrite or correct user queries, how often do they alter the user&#39;s original intent? Can we design a confidence-aware correction strategy that preserves intent while minimizing unnecessary clarification questions?
+
+## Background and Motivation
+Users interact with AI systems through natural language queries that may contain typos, ambiguities, or unconventional phrasing. Systems often &#34;helpfully&#34; rewrite these queries, but in doing so may change what the user actually wanted. This research quantifies the problem and proposes a solution.
+
+## Hypothesis Decomposition
+1. **H1**: LLMs frequently alter user intent when asked to rewrite/correct queries (&gt;15% intent violation rate)
+2. **H2**: Intent violations are detectable using a combination of automated metrics (BERTScore + intent classifier agreement + NLI entailment)
+3. **H3**: A confidence-aware strategy (correct when confident, clarify when uncertain, abstain when very uncertain) reduces intent violations compared to always-correct and always-clarify baselines
+
+## Proposed Methodology
+
+### Approach
+We use intent classification datasets (BANKING77, CLINC150) as ground truth. Each example has a known intent label. We ask real LLMs to &#34;correct&#34; or &#34;rewrite&#34; these queries under several prompting strategies, then measure whether the corrected query still maps to the same intent.
+
+### Experimental Steps
+
+#### Experiment 1: Intent Violation Rate Measurement
+1. Sample 200 queries from BANKING77 and 200 from CLINC150 (stratified across intents)
+2. For each query, prompt GPT-4.1 and Claude Sonnet 4.5 to:
+   - (a) &#34;Fix any errors in this query&#34; (aggressive correction)
+   - (b) &#34;Rewrite this query more clearly&#34; (paraphrasing)
+   - (c) &#34;Improve this query&#34; (open-ended improvement)
+3. Measure intent preservation using:
+   - Intent label shift (classify original and rewritten query, check if label matches)
+   - BERTScore between original and rewrite
+   - Edit ratio (word-level Levenshtein distance / original length)
+   - NLI entailment (does original entail rewrite and vice versa?)
+
+#### Experiment 2: Metric Correlation Analysis
+1. For a subset of 100 examples, have the LLM also judge whether intent was preserved (LLM-as-judge)
+2. Correlate automated metrics with LLM-judge scores
+3. Identify which metric combination best predicts intent violations
+
+#### Experiment 3: Confidence-Aware Correction Strategy
+1. For each query, compute a confidence score using:
+   - Embedding similarity between original and top-k intent candidates
+   - LLM self-reported confidence
+2. Apply threshold-based decision:
+   - High confidence (&gt;0.8): Auto-correct
+   - Medium confidence (0.4-0.8): Generate clarifying question
+   - Low confidence (&lt;0.4): Abstain (leave as-is)
+3. Compare intent violation rates across strategies:
+   - Always-correct baseline
+   - Always-clarify baseline
+   - Confidence-aware strategy
+4. Measure &#34;annoyance&#34; via clarification rate (fraction of queries that trigger clarification)
+
+### Baselines
+1. **Always-correct**: Rewrite every query without asking
+2. **Always-clarify**: Ask a clarifying question for every query
+3. **No-action**: Leave every query as-is (oracle lower bound for violation rate)
+4. **Random-threshold**: Randomly decide whether to correct or clarify
+
+### Evaluation Metrics
+- **Intent Preservation Rate (IPR)**: % of rewrites that maintain the same intent label
+- **BERTScore**: Semantic similarity between original and rewrite (F1, using deberta-xlarge-mnli)
+- **Edit Ratio**: Normalized edit distance (lower = more conservative correction)
+- **NLI Score**: Bidirectional entailment score (original↔rewrite)
+- **Clarification Rate**: % of queries that trigger a clarification question
+- **Effective Accuracy**: IPR weighted by (1 - unnecessary_clarification_rate)
+
+### Statistical Analysis Plan
+- Paired t-tests or Wilcoxon signed-rank tests for within-model comparisons
+- Bootstrap confidence intervals (n=1000) for all metrics
+- Cohen&#39;s kappa for inter-metric agreement
+- Significance level: α = 0.05 with Bonferroni correction for multiple comparisons
+
+## Expected Outcomes
+- H1: We expect 15-30% intent violation rate for aggressive correction, lower for conservative prompts
+- H2: BERTScore + intent label shift should correlate well (r &gt; 0.6) with human/LLM judgments
+- H3: Confidence-aware strategy should reduce violations by 30-50% while only clarifying 20-40% of queries
+
+## Timeline and Milestones
+1. Environment setup and data prep: 15 min
+2. Core evaluation framework: 45 min
+3. Experiment 1 (API calls + analysis): 60 min
+4. Experiment 2 (metric validation): 30 min
+5. Experiment 3 (confidence-aware strategy): 45 min
+6. Analysis and visualization: 30 min
+7. Documentation: 30 min
+
+## Potential Challenges
+- API rate limits: mitigate with retry logic and batching
+- Model non-determinism: use temperature=0 where possible
+- Intent classifier accuracy: validate on original queries first to establish classifier baseline
+- Cost: ~400 queries × 3 conditions × 2 models = ~2400 API calls (~$20-50)
+
+## Success Criteria
+1. Clear quantification of intent violation rates across models and prompting strategies
+2. Validated evaluation framework with demonstrated metric-to-ground-truth correlation
+3. Evidence that confidence-aware strategy reduces violations while keeping clarification rate below 40%
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          LITERATURE REVIEW
+════════════════════════════════════════════════════════════════════════════════
+
+# Literature Review: &#34;Do You Mean...?&#34;: Fixing User Intent Without Annoying Them
+
+## Research Hypothesis
+
+Autocomplete and intent detection systems often incorrectly correct users in ways that alter their original intent. Evaluating whether model rewrites preserve user intent is necessary.
+
+## 1. Problem Definition &amp; Motivation
+
+The central tension in autocomplete and query correction systems is between **helpfulness** (correcting genuine errors) and **respecting user intent** (not changing what the user actually meant). When a user types a query with a typo, misspelling, or ambiguous phrasing, the system must decide: should it silently correct, ask for clarification, or leave the query as-is?
+
+This literature review synthesizes 25 papers across five research areas that collectively address this problem: (1) spelling/query correction, (2) clarification question generation, (3) intent detection and classification, (4) semantic preservation metrics, and (5) text rewriting with intent preservation.
+
+---
+
+## 2. Spelling &amp; Query Correction
+
+### 2.1 Neural Spelling Correction
+
+**NeuSpell** (Jayanthi et al., 2020) provides an open-source toolkit comprising 10 neural spell checkers evaluated on naturally occurring misspellings (BEA-60K benchmark). The key insight for our work is that neural correctors can be context-sensitive, using surrounding words to disambiguate corrections. However, even the best models make errors when domain-specific terminology or proper nouns are involved -- precisely the cases where &#34;correcting&#34; alters user intent.
+
+**Zhang et al. (2020)** address this directly in &#34;Correcting the Autocorrect,&#34; introducing the **Twitter Typo Corpus** of naturally occurring typos. Their approach uses visual similarity and phonetic features alongside contextual signals. The Twitter Typo Corpus is valuable because it captures real user behavior where autocorrect frequently &#34;fixes&#34; intentional non-standard spellings (slang, abbreviations, proper nouns).
+
+**Sharma et al. (2023)** describe a production-scale multilingual spell checker for search queries, highlighting the practical challenges: spell correction must handle code-switching, transliteration, and domain jargon. In production, aggressive correction rates lead to user frustration when the system overrides intentional queries.
+
+### 2.2 Key Takeaway for Our Project
+
+Spelling correction is the most common form of &#34;fixing&#34; user input, and also the most common source of intent violation. The literature shows a clear gap: existing systems optimize for correction accuracy (was the typo fixed?) rather than intent preservation (did the correction maintain what the user wanted?). Our project can fill this gap by framing spelling correction as an intent-preservation problem.
+
+---
+
+## 3. Clarification Question Generation
+
+### 3.1 When to Ask vs. When to Correct
+
+The clarification question literature addresses a fundamental design choice: when should a system ask &#34;Do you mean...?&#34; versus silently correcting?
+
+**Hu et al. (2020)** present an RL-based approach using Monte Carlo Tree Search (MCTS) for selecting clarification questions in task-oriented dialogue. Their system was deployed in production, achieving **66.36% CTR** (click-through rate on clarification suggestions). The key finding is that clarification is most effective when: (a) the system has moderate confidence, (b) the cost of misinterpretation is high, and (c) the user has shown willingness to engage. Their label-based clarification approach (presenting options rather than open-ended questions) is particularly relevant -- it bounds the cognitive load on users.
+
+**Dhole (2020)** tackles discriminative clarifying questions for intent disambiguation. The approach combines question generation with template-based fallbacks, finding that pure QG achieves only **34% coverage** -- meaning in 66% of ambiguous cases, the generated question fails to discriminate between candidate intents. This highlights a practical limitation: generating good clarifying questions is hard, and bad ones are worse than no question at all.
+
+**Lautraite (2021)** proposes the most directly relevant system: a multi-stage clarification pipeline with explicit confidence thresholds. The system operates in three stages:
+1. **High confidence (&gt;75%)**: Auto-correct without asking
+2. **Moderate confidence**: Present clarification question
+3. **Low confidence**: Escalate or ask open-ended question
+
+This threshold-based approach is exactly the kind of decision framework our project needs. The 75% threshold was empirically determined on CLINC150/SCOPE datasets.
+
+### 3.2 Zero-Shot and Recent Approaches
+
+**Wang et al. (2023)** show that zero-shot clarifying question generation (using constrained decoding via NeuroLogic Decoding) **outperforms supervised baselines** on naturalness (82.6% rated &#34;Good&#34;). This is significant because it means we can generate clarifying questions without task-specific training data, making the approach more generalizable.
+
+**Kebir et al. (2026)** introduce **RAC** (Retrieval-Augmented Clarification), which uses DPO (Direct Preference Optimization) to train models that generate faithful clarifying questions grounded in retrieved evidence. This addresses the hallucination problem in clarification -- asking about distinctions that don&#39;t actually exist.
+
+### 3.3 Key Takeaway for Our Project
+
+The clarification literature provides strong evidence that a confidence-threshold approach is effective: correct when confident, clarify when uncertain, escalate when very uncertain. The challenge is calibrating confidence appropriately and generating clarification questions that users find helpful rather than annoying. The 66.36% CTR from Hu et al. suggests that well-designed clarification is acceptable to users.
+
+---
+
+## 4. Intent Detection &amp; Classification
+
+### 4.1 Modern Intent Detection
+
+**Arora et al. (2024)** benchmark LLMs against traditional intent detection methods, finding that LLMs outperform SetFit by approximately **8%** on standard benchmarks. However, they also show that a **hybrid routing approach** (using a smaller model for confident predictions and routing uncertain cases to an LLM) achieves comparable accuracy with much lower latency. This hybrid approach maps well to our correction-vs-clarification decision.
+
+### 4.2 Conformal Prediction for Intent Classification
+
+**Den Hengst et al. (2024)** present **CICC** (Conformal Intent Classification and Clarification), the paper most directly aligned with our project&#39;s thesis. Their approach uses conformal prediction to produce **prediction sets with statistical coverage guarantees**:
+
+- Given a desired coverage level (e.g., 1-α = 0.95), the system produces a set of possible intents guaranteed to contain the true intent with probability ≥ 95%.
+- If the prediction set contains a single intent → answer directly
+- If the prediction set contains 2-7 intents → generate a clarifying question listing the candidates
+- If the prediction set contains &gt;7 intents → the query is too ambiguous; escalate
+
+Key results across 8 benchmarks (ACID, ATIS, B77, C150, HWU64, IND, MTOD):
+- CICC achieves target coverage while maintaining **highest single-answer rate** compared to baselines
+- On B77 with optimized α: 97% coverage, 92% single-answer rate, average CQ size of 2.32
+- Clarifying questions are generated using Vicuna-7B with few-shot prompting
+
+The cognitive load threshold of **7 options** (from Miller&#39;s 1956 &#34;magical number seven&#34;) provides a principled upper bound on clarification complexity.
+
+### 4.3 Handling Ambiguous Queries
+
+**Deng et al. (2025)** introduce **InteractComp**, a benchmark for search agent ambiguity recognition. Their key finding: models achieve only **13.73%** accuracy on ambiguous queries compared to **71.5%** when given contextual clarification. This dramatic gap quantifies the cost of NOT asking clarifying questions when queries are ambiguous.
+
+### 4.4 Key Takeaway for Our Project
+
+Conformal prediction provides the most principled framework for our problem. It gives statistical guarantees on coverage (the true intent is in the prediction set) while minimizing unnecessary clarification (keeping prediction sets small). The CICC framework directly implements the &#34;correct when confident, clarify when uncertain&#34; paradigm with rigorous statistical foundations.
+
+---
+
+## 5. Semantic Preservation Metrics
+
+### 5.1 Measuring Intent Preservation
+
+A critical component of our project is measuring whether a rewrite/correction preserves the original intent. Several metrics have been proposed:
+
+**BERTScore** (Zhang et al., 2019): Computes token-level similarity using contextual BERT embeddings. The recommended model (deberta-xlarge-mnli) achieves highest correlation with human judgments. Key advantage: robust to paraphrases and word-order changes.
+
+**BARTScore** (Yuan et al., 2021): Evaluates text as a generation problem using BART&#39;s log-likelihood. Can assess informativeness, fluency, and factuality independently. Outperforms other metrics in 16/22 evaluation settings.
+
+**ParaScore** (Shen et al., 2022): The most relevant metric for our work. Key findings:
+1. **Reference-free metrics outperform reference-based metrics** for paraphrase evaluation. This is critical because we typically don&#39;t have a &#34;gold reference&#34; correction.
+2. **Lexical divergence matters, but only up to a threshold** (γ=0.35 NED). Beyond that threshold, more divergence doesn&#39;t improve quality. This maps perfectly to our setting: small corrections (typo fixes) should have low divergence and are easier to evaluate.
+3. The ParaScore formula: `ParaScore = max(Sim(X,C), Sim(R,C)) + ω·DS(X,C)`, where DS is a sectional function that rewards divergence up to the threshold.
+
+On controlled experiments:
+- BERTScore achieves **0.785 Pearson correlation** with human judgments on semantic-preservation subsets
+- ParaScore achieves **0.522 Pearson** overall (vs. 0.491 for best existing metric)
+- On extended datasets with trivial copies: ParaScore **0.527** vs. BERTScore **0.316**
+
+### 5.2 The Edit Distance Insight
+
+DR GENRE (Li et al., 2025) introduces **edit ratio** as a conciseness metric: the relative word-level edit distance between original and rewritten text. Lower edit ratio means fewer unnecessary changes. This directly operationalizes the &#34;don&#39;t annoy the user&#34; part of our hypothesis -- excessive, unsolicited edits are annoying.
+
+### 5.3 Key Takeaway for Our Project
+
+For measuring intent preservation, we should use:
+1. **BERTScore (reference-free mode)** as the primary semantic preservation signal
+2. **ParaScore** for combined semantic + divergence evaluation
+3. **Edit ratio** to penalize excessive/unnecessary changes
+4. **Intent label shift** (using intent classifiers on BANKING77/CLINC150) as a proxy for intent violation
+
+Avoid BLEU and ROUGE -- they show poor correlation with human judgments of paraphrase quality.
+
+---
+
+## 6. Text Rewriting with Intent Preservation
+
+### 6.1 Decoupled Reward Optimization
+
+**DR GENRE** (Li et al., 2025) is the most sophisticated framework for intent-preserving text rewriting. The key innovation is **decoupled, task-weighted rewards** during RL fine-tuning:
+
+1. **Agreement reward**: Did the rewrite follow the instruction? (the &#34;fix&#34; part)
+2. **Coherence reward**: Is the result internally consistent? (broken coherence = annoying)
+3. **Conciseness reward (edit ratio)**: Were unnecessary parts left unchanged? (excessive editing = annoying)
+
+These three rewards map directly to our &#34;fix without annoying&#34; paradigm:
+- Agreement = making the necessary correction
+- Coherence = not breaking the surrounding context
+- Conciseness = not changing what doesn&#39;t need changing
+
+Task-specific weighting is critical: conversational rewrites need high agreement weight (9/16), while factual corrections need high coherence weight (6/16). The system uses PPO (not DPO) because PPO allows exploration beyond the initial policy.
+
+Results on three benchmarks:
+- Factuality: F1@13 = 0.8091, coherence = 0.6400
+- Stylistic: Agreement = 0.9641, edit ratio = 0.1541 (far lower than baseline 0.2499)
+- Conversational: Agreement = 0.9648, coherence = 0.8669
+
+### 6.2 Sequential Decision Making for Autocomplete
+
+The sequential decision-making paper (2024) frames inline autocomplete as an MDP (Markov Decision Process), where each suggestion is an action and the reward depends on whether the user accepts. This formalization is relevant because it treats autocomplete as an ongoing decision process rather than a one-shot correction.
+
+### 6.3 Key Takeaway for Our Project
+
+The DR GENRE framework demonstrates that a single reward signal is insufficient for intent-preserving correction. Decomposing the objective into orthogonal components (correctness, coherence, conciseness) with task-specific weighting provides fine-grained control. This architecture should be adapted for our &#34;Do You Mean...?&#34; system.
+
+---
+
+## 7. Synthesis: A Framework for Intent-Preserving Correction
+
+Drawing from all five research areas, we propose a unified framework:
+
+### Stage 1: Confidence Assessment
+- Use a calibrated intent classifier (conformal prediction for coverage guarantees)
+- Compute prediction set size as a measure of ambiguity
+
+### Stage 2: Decision
+| Prediction Set Size | Action | Rationale |
+|---------------------|--------|-----------|
+| 1 intent | Auto-correct silently | High confidence; correction is safe |
+| 2-7 intents | Ask clarifying question | Moderate ambiguity; user input needed |
+| &gt;7 intents | Ask open-ended question or skip | Too ambiguous; clarification would be overwhelming |
+
+### Stage 3: Correction (if proceeding)
+- Apply correction using a rewriting model with decoupled rewards
+- Optimize for agreement (fix what&#39;s asked), coherence (don&#39;t break context), and conciseness (minimal edits)
+
+### Stage 4: Evaluation
+- Measure intent preservation via BERTScore (reference-free)
+- Measure edit quality via ParaScore
+- Measure unnecessary changes via edit ratio
+- Validate via intent label stability (original and corrected text should map to same intent)
+
+---
+
+## 8. Open Questions &amp; Research Gaps
+
+1. **Threshold calibration**: The 75% confidence threshold (Lautraite 2021) and the 7-option limit (CICC) were determined empirically. How do these generalize across domains?
+
+2. **User preference modeling**: When should a system learn that a specific user always means X when they type Y (personalization)?
+
+3. **Multi-turn correction**: How should corrections compound across a conversation? The InteractComp benchmark shows that context dramatically improves understanding.
+
+4. **Cross-lingual intent preservation**: Sharma et al. (2023) highlights challenges with code-switching and transliteration. How do we measure intent preservation across languages?
+
+5. **Adversarial robustness**: PAWS demonstrates that small lexical changes can flip meaning. How robust are our metrics to adversarial edits?
+
+6. **Real-time evaluation**: Production systems need fast metrics. BERTScore and ParaScore require model inference. Can we build lightweight proxies?
+
+---
+
+## 9. Key Papers by Relevance
+
+### Tier 1: Directly Addresses Our Problem
+- **CICC** (den Hengst et al., 2024) -- Conformal prediction for intent classification with clarification
+- **DR GENRE** (Li et al., 2025) -- Decoupled rewards for intent-preserving rewriting
+- **ParaScore** (Shen et al., 2022) -- Reference-free evaluation of semantic preservation
+- **Multi-stage clarification** (Lautraite, 2021) -- Confidence threshold pipeline
+
+### Tier 2: Strongly Relevant Components
+- **Interactive clarification via RL** (Hu et al., 2020) -- Production-deployed clarification system
+- **Zero-shot clarifying questions** (Wang et al., 2023) -- No training data needed
+- **Intent Detection with LLMs** (Arora et al., 2024) -- LLM-based intent classification
+- **InteractComp** (Deng et al., 2025) -- Quantifies cost of not clarifying
+- **RAC** (Kebir et al., 2026) -- DPO for faithful clarification
+
+### Tier 3: Supporting Evidence &amp; Tools
+- **NeuSpell** (Jayanthi et al., 2020) -- Baseline spell correction
+- **Correcting the Autocorrect** (Zhang et al., 2020) -- Twitter Typo Corpus
+- **BERTScore** (Zhang et al., 2019) -- Semantic similarity metric
+- **BARTScore** (Yuan et al., 2021) -- Generative evaluation metric
+- **Resolving Intent Ambiguities** (Dhole, 2020) -- Discriminative questions
+
+---
+
+## 10. References
+
+1. Arora et al. &#34;Intent Detection in the Age of LLMs.&#34; 2024.
+2. Deng et al. &#34;InteractComp: Benchmark for Ambiguous Query Understanding.&#34; 2025.
+3. Den Hengst et al. &#34;Conformal Intent Classification and Clarification.&#34; 2024.
+4. Dhole. &#34;Resolving Intent Ambiguities by Retrieving Discriminative Clarifying Questions.&#34; 2020.
+5. Hu et al. &#34;Interactive Question Clarification in Dialogue via Reinforcement Learning.&#34; 2020.
+6. Jayanthi et al. &#34;NeuSpell: A Neural Spelling Correction Toolkit.&#34; EMNLP 2020.
+7. Kebir et al. &#34;RAC: Retrieval-Augmented Clarification.&#34; 2026.
+8. Lautraite. &#34;Multi-Stage Clarification for Intent Detection.&#34; 2021.
+9. Li et al. &#34;DR GENRE: RL from Decoupled LLM Feedback for Generic Text Rewriting.&#34; 2025.
+10. Sharma et al. &#34;Multilingual Spell Checker for Production Search.&#34; 2023.
+11. Shen et al. &#34;On the Evaluation Metrics for Paraphrase Generation.&#34; 2022.
+12. Wang et al. &#34;Zero-shot Clarifying Question Generation for Conversational Search.&#34; 2023.
+13. Yuan et al. &#34;BARTScore: Evaluating Generated Text as Text Generation.&#34; NeurIPS 2021.
+14. Zhang et al. &#34;BERTScore: Evaluating Text Generation with BERT.&#34; ICLR 2020.
+15. Zhang et al. &#34;Correcting the Autocorrect: Context-Aware Typographic Error Correction.&#34; 2020.
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          PAPER REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+Generate a complete academic paper with the following structure:
+
+1. TITLE
+   - Clear, specific, informative
+   - Should convey main finding or contribution
+
+2. ABSTRACT (150-250 words)
+   - Problem statement
+   - Approach
+   - Key results
+   - Significance
+
+3. INTRODUCTION
+   - Research problem and motivation
+   - Gap in existing work
+   - Our contribution (be specific)
+   - Paper organization
+
+4. RELATED WORK
+   - Organized by theme/approach
+   - Position our work relative to prior work
+   - Cite papers from literature review
+
+5. METHODOLOGY
+   - Clear description of approach
+   - Experimental setup
+   - Datasets used
+   - Evaluation metrics
+   - Baselines
+
+6. RESULTS
+   - Present results with tables and figures
+   - Statistical analysis
+   - Comparison to baselines
+   - Ablation studies (if applicable)
+
+7. DISCUSSION
+   - Interpretation of results
+   - Limitations
+   - Broader implications
+
+8. CONCLUSION
+   - Summary of contributions
+   - Key findings
+   - Future work
+
+9. REFERENCES
+   - BibTeX format
+   - All cited papers
+
+════════════════════════════════════════════════════════════════════════════════
+                          OUTPUT FORMAT
+════════════════════════════════════════════════════════════════════════════════
+
+Create a MODULAR LaTeX project with the following directory structure:
+
+paper_draft/
+├── main.tex              # Main file that imports all sections
+├── references.bib        # BibTeX references
+├── sections/
+│   ├── abstract.tex      # Abstract content
+│   ├── introduction.tex  # Introduction section
+│   ├── related_work.tex  # Related work section
+│   ├── methodology.tex   # Methodology section
+│   ├── results.tex       # Results section
+│   ├── discussion.tex    # Discussion section
+│   └── conclusion.tex    # Conclusion section
+├── figures/              # Directory for any generated figures
+├── tables/               # Directory for complex standalone tables
+└── appendix/             # Directory for appendix sections (if needed)
+
+INSTRUCTIONS:
+1. First, create the directory structure above (mkdir -p paper_draft/sections paper_draft/figures paper_draft/tables paper_draft/appendix)
+2. Write main.tex using the EXACT preamble for NEURIPS:
+
+   \documentclass{article}
+   \usepackage[final]{neurips_2025}  % NEURIPS style (neurips_2025.sty is in paper_draft/)
+   \usepackage[hidelinks]{hyperref}  % REQUIRED: clickable links
+   \usepackage{booktabs}  % REQUIRED: professional tables
+   \usepackage{graphicx}
+   \usepackage{amsmath,amssymb}
+
+   % Import command files
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+   % Use this bibliography style:
+   \bibliographystyle{plainnat}
+
+   - Use \input{sections/...} to include each section
+   - Use \bibliography{references} for references
+3. Write each section file with COMPLETE content (no placeholders)
+4. Each section file should include its \section{} command
+5. Write references.bib with all citations in BibTeX format
+6. After writing all files, compile the paper:
+   cd paper_draft && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+
+This modular structure allows humans to easily:
+- Edit individual sections without navigating a large file
+- Track changes per section
+- Reuse sections across different paper versions
+
+════════════════════════════════════════════════════════════════════════════════
+                          QUALITY REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+- Academic tone throughout
+- All claims must be supported by data from the experiment report
+- Proper citations using \cite{} commands
+- Clear figures and tables with proper captions
+- NO placeholder text - every section must have real content
+- The paper MUST compile without errors
+- If compilation fails, debug and fix the LaTeX errors
+
+════════════════════════════════════════════════════════════════════════════════
+                          LAB WRITING STYLE
+════════════════════════════════════════════════════════════════════════════════
+
+Follow these lab-specific conventions to match our paper style:
+
+1. LANGUAGE STYLE:
+   - Use active voice: "We propose", "We examine", "We focus on"
+   - Be direct and confident: "Our main question is...", "We hypothesize that..."
+   - State things clearly and simply - prefer plain language over jargon
+   - Use bold questions as paragraph organizers: {\bf what is X?}
+   - Include specific quantitative claims: "8.97% over baseline"
+   - Avoid fancy wording: "utilize" → "use", "facilitate" → "help"
+
+2. INTRODUCTION STRUCTURE:
+   - Engaging hook (get to the point quickly)
+   - Problem importance
+   - Gap identification
+   - Your approach with method figure reference
+   - Quantitative preview of results
+   - Contribution bullets (3-4 items, action verbs)
+
+3. CONTRIBUTION LISTS:
+   \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+       \item We propose...
+       \item We conduct...
+       \item We complement...
+   \end{itemize}
+
+4. MODULAR COMMANDS STRUCTURE:
+   Create paper_draft/commands/ directory with:
+   - math.tex: Math notation macros (copy from templates/paper_writing/commands/)
+   - general.tex: Formatting macros (copy from templates/paper_writing/commands/)
+   - macros.tex: Project-specific term definitions
+
+   In main.tex, include:
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+5. REFERENCE CONVENTIONS:
+   Use reference macros from math.tex:
+   - \figref{fig:name} for "figure 1" (lowercase, in-sentence)
+   - \Figref{fig:name} for "Figure 1" (capitalized, start of sentence)
+   - \secref{sec:name} for "section 2"
+
+6. TEXT FORMATTING:
+   - Use \para{Header text} for bold paragraph headers
+   - Define method/dataset names with \textsc and \xspace:
+     \newcommand{\methodname}{\textsc{MethodName}\xspace}
+
+7. TABLE FORMATTING:
+   - Use booktabs package (no vertical lines)
+   - Use \resizebox{\textwidth}{!}{...} for wide tables
+   - Use @{} to remove padding at table edges
+   - Use \cmidrule(lr){x-y} for sub-headers
+   - Use \textsc{} for dataset/method names in headers
+   - Bold best results with {\bf ...}
+
+8. FIGURE FORMATTING:
+   - Use 0.32\textwidth for 3-column subfigures
+   - Use 0.95\linewidth for full-width figures
+   - Use \input{figures/legend} for shared legends
+   - Write self-contained captions explaining key observations
+
+9. RESULTS PRESENTATION:
+   - Define \increase and \decrease for colored arrows (green up, red down)
+   - Bold best results in tables
+   - Report confidence intervals when available
+
+10. ALGORITHM STYLING:
+    - Use algpseudocode with [noend]
+    - Use \triangleright for comments
+
+11. HYPERLINKS (REQUIRED):
+    - Always use \usepackage[hidelinks]{hyperref} or with colored links
+    - All citations, section refs, figure refs, table refs must be clickable
+    - This is essential for reader navigation
+
+════════════════════════════════════════════════════════════════════════════════
+                          WORKFLOW: REVIEW AND REFLECT
+════════════════════════════════════════════════════════════════════════════════
+
+Before calling finish, you MUST complete these review steps:
+
+1. REVIEW RESOURCES (at the start):
+   - Read templates/skills/paper-writer/SKILL.md for detailed guidance
+   - Study templates/paper_writing/lab_style_guide.md for style conventions
+   - Browse paper_examples/ for formatting and language patterns
+
+2. SELF-REFLECTION (before finishing):
+   After writing all sections, review your work against these criteria:
+
+   LANGUAGE CHECK:
+   - [ ] Is the writing clear and jargon-free?
+   - [ ] Are claims specific with quantitative support?
+   - [ ] Is active voice used throughout?
+
+   FORMATTING CHECK:
+   - [ ] Does main.tex include \input{commands/math}, \input{commands/general}, \input{commands/macros}?
+   - [ ] Is hyperref package included for clickable references?
+   - [ ] Do tables use booktabs (no vertical lines)?
+   - [ ] Are best results bolded in tables?
+   - [ ] Are figures/tables properly captioned?
+
+   STRUCTURE CHECK:
+   - [ ] Does introduction follow: hook → importance → gap → approach → preview → contributions?
+   - [ ] Are contribution bullets specific with action verbs?
+   - [ ] Does the paper compile without errors?
+
+3. FIX ISSUES:
+   - Address any issues found in the self-reflection
+   - Re-compile and verify the PDF looks correct
+
+Only after completing this review should you consider the paper finished.

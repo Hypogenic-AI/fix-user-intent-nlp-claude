@@ -1,0 +1,2802 @@
+[
+  {
+    "dataset": "banking77",
+    "index": 650,
+    "text": "I topped up but it didn't complete",
+    "label_id": 47,
+    "label_name": "pending_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2195,
+    "text": "Can you help with a transfer to an account",
+    "label_id": 7,
+    "label_name": "beneficiary_not_allowed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 218,
+    "text": "Hi,I tried to get some money out but the machine was not working .The transaction still seems in progress! Can you please check what's going on.I don't want to be charged for money that I did not received.",
+    "label_id": 46,
+    "label_name": "pending_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1400,
+    "text": "I think someone is using my card to make transactions I don't remember.",
+    "label_id": 22,
+    "label_name": "compromised_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 117,
+    "text": "What is my foreign exchange rate?",
+    "label_id": 32,
+    "label_name": "exchange_rate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 849,
+    "text": "how long do money transfers take?",
+    "label_id": 66,
+    "label_name": "transfer_not_received_by_recipient"
+  },
+  {
+    "dataset": "banking77",
+    "index": 3031,
+    "text": "What do you need so I can verify my identity?",
+    "label_id": 69,
+    "label_name": "verify_my_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 3046,
+    "text": "I'm not in the UK, can I still get a card?",
+    "label_id": 24,
+    "label_name": "country_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1076,
+    "text": "I deposited cash this morning and I am still waiting",
+    "label_id": 6,
+    "label_name": "balance_not_updated_after_cheque_or_cash_deposit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2723,
+    "text": "I didn't get cash from an ATM, but the app says I did",
+    "label_id": 20,
+    "label_name": "cash_withdrawal_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1593,
+    "text": "I couldn't get cash at the atm",
+    "label_id": 26,
+    "label_name": "declined_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1071,
+    "text": "I submitted a cash deposit to my account but it hasn't posted yet.",
+    "label_id": 6,
+    "label_name": "balance_not_updated_after_cheque_or_cash_deposit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1304,
+    "text": "Do I get to choose between Visa and Mastercard?",
+    "label_id": 73,
+    "label_name": "visa_or_mastercard"
+  },
+  {
+    "dataset": "banking77",
+    "index": 8,
+    "text": "still waiting on that card",
+    "label_id": 11,
+    "label_name": "card_arrival"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2953,
+    "text": "My card is about to expire.",
+    "label_id": 9,
+    "label_name": "card_about_to_expire"
+  },
+  {
+    "dataset": "banking77",
+    "index": 613,
+    "text": "Will there be any charges for money received?",
+    "label_id": 56,
+    "label_name": "top_up_by_bank_transfer_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 198,
+    "text": "I'm quite confused as to what is going on. There is some odd extra pound charge on my statement in the app that's just listed as pending and doesn't go away since a couple days.",
+    "label_id": 34,
+    "label_name": "extra_charge_on_statement"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2699,
+    "text": "My bank transfer is still not showing up in my account.",
+    "label_id": 5,
+    "label_name": "balance_not_updated_after_bank_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2838,
+    "text": "What are the fees for top ups?",
+    "label_id": 57,
+    "label_name": "top_up_by_card_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 224,
+    "text": "I'm not quite understanding why my cash withdrawal is showing as pending.",
+    "label_id": 46,
+    "label_name": "pending_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1683,
+    "text": "Would I be able to get a refund for something I bought?",
+    "label_id": 52,
+    "label_name": "request_refund"
+  },
+  {
+    "dataset": "banking77",
+    "index": 774,
+    "text": "Why did I not get all the cash I asked for?",
+    "label_id": 75,
+    "label_name": "wrong_amount_of_cash_received"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2465,
+    "text": "How can I top up with this cheque I got?",
+    "label_id": 58,
+    "label_name": "top_up_by_cash_or_cheque"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1554,
+    "text": "My passcode doesn't work",
+    "label_id": 44,
+    "label_name": "passcode_forgotten"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2634,
+    "text": "Hello! I need to order a disposable virtual card. Where can I do that at?",
+    "label_id": 37,
+    "label_name": "get_disposable_virtual_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1696,
+    "text": "What do I need to do to get a refund?",
+    "label_id": 52,
+    "label_name": "request_refund"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1149,
+    "text": "I want to change my address.",
+    "label_id": 30,
+    "label_name": "edit_personal_details"
+  },
+  {
+    "dataset": "banking77",
+    "index": 74,
+    "text": "Where do I need to go in the app to enter my card info?",
+    "label_id": 13,
+    "label_name": "card_linking"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2232,
+    "text": "Why was I charged a fee for a transfer?",
+    "label_id": 64,
+    "label_name": "transfer_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2503,
+    "text": "can I have a non virtual card?",
+    "label_id": 43,
+    "label_name": "order_physical_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1767,
+    "text": "How long does it take for a refund?",
+    "label_id": 51,
+    "label_name": "Refund_not_showing_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1688,
+    "text": "Can I have a refund?",
+    "label_id": 52,
+    "label_name": "request_refund"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2330,
+    "text": "I NEED TO KNOW HOW TO TRANSFER MONEY INTO MY BANK ACCOUNT. PLEASE HELP",
+    "label_id": 65,
+    "label_name": "transfer_into_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2790,
+    "text": "Are there extra charges for exchanging currency?",
+    "label_id": 31,
+    "label_name": "exchange_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 821,
+    "text": "Can I check somewhere if there will be a fee on my payment or not? Seems you are charging in some cases, what's the pattern there?",
+    "label_id": 15,
+    "label_name": "card_payment_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 156,
+    "text": "How can I check the exchange rate applied to my transaction?",
+    "label_id": 17,
+    "label_name": "card_payment_wrong_exchange_rate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1031,
+    "text": "has my top-up has been cancelled",
+    "label_id": 61,
+    "label_name": "top_up_reverted"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1188,
+    "text": "I want to skip verification of my identity.",
+    "label_id": 74,
+    "label_name": "why_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1284,
+    "text": "Are both Visa and Mastercard accepted?",
+    "label_id": 73,
+    "label_name": "visa_or_mastercard"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1623,
+    "text": "what does pending mean?",
+    "label_id": 45,
+    "label_name": "pending_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1728,
+    "text": "My transfers are being declined. IT has always worked for me but now it's declining my card. I've tried several times.",
+    "label_id": 27,
+    "label_name": "declined_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2727,
+    "text": "I didn't get cash from an ATM, but according to the app a transaction was made when i didn't make it.",
+    "label_id": 20,
+    "label_name": "cash_withdrawal_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1396,
+    "text": "What are the limits for disposable virtual cards?",
+    "label_id": 29,
+    "label_name": "disposable_card_limits"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2365,
+    "text": "What are the benefits to verifying the top-up?",
+    "label_id": 71,
+    "label_name": "verify_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 494,
+    "text": "What is the age to open an account?",
+    "label_id": 1,
+    "label_name": "age_limit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 387,
+    "text": "I can't use my card.",
+    "label_id": 14,
+    "label_name": "card_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 963,
+    "text": "It will be fine to use at any establishment that accepts Mastercard.",
+    "label_id": 10,
+    "label_name": "card_acceptance"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1736,
+    "text": "Why was I unable to do a transfer?",
+    "label_id": 27,
+    "label_name": "declined_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1760,
+    "text": "The refund isn't showing up on my account.",
+    "label_id": 51,
+    "label_name": "Refund_not_showing_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 921,
+    "text": "How do you get a virtual card?",
+    "label_id": 40,
+    "label_name": "getting_virtual_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1757,
+    "text": "Are there any restrictions causing my transfer to be declined?",
+    "label_id": 27,
+    "label_name": "declined_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1107,
+    "text": "I have an unauthorized transaction on my statement",
+    "label_id": 16,
+    "label_name": "card_payment_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2528,
+    "text": "I was at the store earlier and my virtual card didn't work. What's the solution for this problem?",
+    "label_id": 72,
+    "label_name": "virtual_card_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 901,
+    "text": "Which forms of currency are accepted?",
+    "label_id": 54,
+    "label_name": "supported_cards_and_currencies"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2278,
+    "text": "Can I get paid in another currency?",
+    "label_id": 50,
+    "label_name": "receiving_money"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1467,
+    "text": "If I have this card, which ATMs can I go to?",
+    "label_id": 3,
+    "label_name": "atm_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 975,
+    "text": "Does this card work everywhere?",
+    "label_id": 10,
+    "label_name": "card_acceptance"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2151,
+    "text": "Where can I find instructions to change my PIN?",
+    "label_id": 21,
+    "label_name": "change_pin"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1018,
+    "text": "I topped up but the app reverted it",
+    "label_id": 61,
+    "label_name": "top_up_reverted"
+  },
+  {
+    "dataset": "banking77",
+    "index": 261,
+    "text": "Do you happen to do exchanges of EUR?",
+    "label_id": 36,
+    "label_name": "fiat_currency_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 452,
+    "text": "My card is gone I think it was stolen",
+    "label_id": 41,
+    "label_name": "lost_or_stolen_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 620,
+    "text": "What are the charges for receiving money?",
+    "label_id": 56,
+    "label_name": "top_up_by_bank_transfer_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1675,
+    "text": "I lost my phone!",
+    "label_id": 42,
+    "label_name": "lost_or_stolen_phone"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1773,
+    "text": "I requested a refund and it is missing.",
+    "label_id": 51,
+    "label_name": "Refund_not_showing_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1889,
+    "text": "I would like to delete my account.",
+    "label_id": 55,
+    "label_name": "terminate_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 252,
+    "text": "Can I exchange to EUR?",
+    "label_id": 36,
+    "label_name": "fiat_currency_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1967,
+    "text": "I have a duplicate payment showing up on the app. How do I stop myself being charged for the thing twice?",
+    "label_id": 63,
+    "label_name": "transaction_charged_twice"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1244,
+    "text": "I cannot seem to find my PIN. Where is it?",
+    "label_id": 38,
+    "label_name": "get_physical_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2075,
+    "text": "How long will it take for the transfer to reach my account?",
+    "label_id": 67,
+    "label_name": "transfer_timing"
+  },
+  {
+    "dataset": "banking77",
+    "index": 53,
+    "text": "How do I add a card to the app?",
+    "label_id": 13,
+    "label_name": "card_linking"
+  },
+  {
+    "dataset": "banking77",
+    "index": 826,
+    "text": "Is there a fee when you pay with your card?",
+    "label_id": 15,
+    "label_name": "card_payment_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1201,
+    "text": "I do not have what is required to prove my identity",
+    "label_id": 68,
+    "label_name": "unable_to_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 714,
+    "text": "Cancel my last transfer",
+    "label_id": 8,
+    "label_name": "cancel_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1416,
+    "text": "Can I use app to freeze account and dispute fraud?",
+    "label_id": 22,
+    "label_name": "compromised_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2785,
+    "text": "how much you charge for exhcange",
+    "label_id": 31,
+    "label_name": "exchange_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 217,
+    "text": "Why is my ATM cash withdrawal showing up as a pending transaction?",
+    "label_id": 46,
+    "label_name": "pending_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 459,
+    "text": "I need help with a lost card",
+    "label_id": 41,
+    "label_name": "lost_or_stolen_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1261,
+    "text": "Where can I find the card PIN?",
+    "label_id": 38,
+    "label_name": "get_physical_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 731,
+    "text": "How can I tell what the limit is to top-ups?",
+    "label_id": 60,
+    "label_name": "top_up_limits"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2059,
+    "text": "How many days does a transfer from the US take?",
+    "label_id": 67,
+    "label_name": "transfer_timing"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1230,
+    "text": "How long will it take for my ID to verify?",
+    "label_id": 68,
+    "label_name": "unable_to_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1656,
+    "text": "My phone is not with me at the moment so I will not be able to access the app.",
+    "label_id": 42,
+    "label_name": "lost_or_stolen_phone"
+  },
+  {
+    "dataset": "banking77",
+    "index": 425,
+    "text": "Change currency",
+    "label_id": 33,
+    "label_name": "exchange_via_app"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2391,
+    "text": "Can I verify a top-up and what card is used?",
+    "label_id": 71,
+    "label_name": "verify_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1355,
+    "text": "show me how to top up with my card",
+    "label_id": 62,
+    "label_name": "topping_up_by_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 940,
+    "text": "Where do I obtain my virtual card?",
+    "label_id": 40,
+    "label_name": "getting_virtual_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2911,
+    "text": "I have never been charged a fee for cash withdrawal before. When did that change?",
+    "label_id": 19,
+    "label_name": "cash_withdrawal_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 417,
+    "text": "If I receive foreign currencies, am I able to exchange them on the app?",
+    "label_id": 33,
+    "label_name": "exchange_via_app"
+  },
+  {
+    "dataset": "banking77",
+    "index": 695,
+    "text": "Can I cancel a transfer",
+    "label_id": 8,
+    "label_name": "cancel_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1827,
+    "text": "Please explain why my card was declined?",
+    "label_id": 25,
+    "label_name": "declined_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 717,
+    "text": "I don't want the transaction to go through now",
+    "label_id": 8,
+    "label_name": "cancel_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2604,
+    "text": "how do VR cards work",
+    "label_id": 37,
+    "label_name": "get_disposable_virtual_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 254,
+    "text": "Do you offer additional currency options?",
+    "label_id": 36,
+    "label_name": "fiat_currency_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1130,
+    "text": "Where can I change my personal information after I move?",
+    "label_id": 30,
+    "label_name": "edit_personal_details"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2674,
+    "text": "Problems with top up",
+    "label_id": 59,
+    "label_name": "top_up_failed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 324,
+    "text": "How do I use auto top up?",
+    "label_id": 4,
+    "label_name": "automatic_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1098,
+    "text": "I don't recognise a card payment",
+    "label_id": 16,
+    "label_name": "card_payment_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 308,
+    "text": "Can I get my card expedited?",
+    "label_id": 12,
+    "label_name": "card_delivery_estimate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2034,
+    "text": "Where do my funds come from?",
+    "label_id": 70,
+    "label_name": "verify_source_of_funds"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2121,
+    "text": "Where do I change my PIN?",
+    "label_id": 21,
+    "label_name": "change_pin"
+  },
+  {
+    "dataset": "banking77",
+    "index": 709,
+    "text": "How do i cancel my transaction?",
+    "label_id": 8,
+    "label_name": "cancel_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2885,
+    "text": "How come you charge for cash withdrawals? I withdrew cash after buying groceries today, and there seems to be a new fee",
+    "label_id": 19,
+    "label_name": "cash_withdrawal_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2055,
+    "text": "When does the money get transferred to my account",
+    "label_id": 67,
+    "label_name": "transfer_timing"
+  },
+  {
+    "dataset": "banking77",
+    "index": 869,
+    "text": "How long will it take for my transaction to be completed?",
+    "label_id": 66,
+    "label_name": "transfer_not_received_by_recipient"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1734,
+    "text": "How do I contact customer support about a transfer?",
+    "label_id": 27,
+    "label_name": "declined_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2477,
+    "text": "How can I top-up my card?",
+    "label_id": 58,
+    "label_name": "top_up_by_cash_or_cheque"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1837,
+    "text": "I tried using my card and it kept getting declined, Why?",
+    "label_id": 25,
+    "label_name": "declined_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2404,
+    "text": "Is there a fee for extra cards?",
+    "label_id": 39,
+    "label_name": "getting_spare_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 495,
+    "text": "How do I open up an account for my child?",
+    "label_id": 1,
+    "label_name": "age_limit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2845,
+    "text": "How long will it take to activate my new card?",
+    "label_id": 0,
+    "label_name": "activate_my_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 313,
+    "text": "I need my card as soon as possible.",
+    "label_id": 12,
+    "label_name": "card_delivery_estimate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 326,
+    "text": "If there isn't much money left can it automatically top-up?",
+    "label_id": 4,
+    "label_name": "automatic_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1961,
+    "text": "I've just come back from an eating holiday in the USA and Canada and have SO many pending and duplicated transactions on my account.  I think there is something wrong, can you look in to it please?",
+    "label_id": 63,
+    "label_name": "transaction_charged_twice"
+  },
+  {
+    "dataset": "banking77",
+    "index": 233,
+    "text": "Why does it say pending cash withdrawal on my statement?",
+    "label_id": 46,
+    "label_name": "pending_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 423,
+    "text": "I might need AUD instead of GBP, how to change?",
+    "label_id": 33,
+    "label_name": "exchange_via_app"
+  },
+  {
+    "dataset": "banking77",
+    "index": 523,
+    "text": "I accidentally blocked my PIN. How do I reset it?",
+    "label_id": 49,
+    "label_name": "pin_blocked"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1878,
+    "text": "I am confused as to why my transfer could still be pending.",
+    "label_id": 48,
+    "label_name": "pending_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1943,
+    "text": "I have a problem!  The ATM stole my card!",
+    "label_id": 18,
+    "label_name": "card_swallowed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 752,
+    "text": "Is there a limit to how high I can top-up?",
+    "label_id": 60,
+    "label_name": "top_up_limits"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1576,
+    "text": "I was declined when I tried to get cash.",
+    "label_id": 26,
+    "label_name": "declined_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1860,
+    "text": "Please explain why the transfers shows up as pending?",
+    "label_id": 48,
+    "label_name": "pending_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 404,
+    "text": "Will this app exchange currencies?",
+    "label_id": 33,
+    "label_name": "exchange_via_app"
+  },
+  {
+    "dataset": "banking77",
+    "index": 32,
+    "text": "How do I know when my card will arrive?",
+    "label_id": 11,
+    "label_name": "card_arrival"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2920,
+    "text": "Am I able to order a new card and have it sent to me in China?",
+    "label_id": 9,
+    "label_name": "card_about_to_expire"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2312,
+    "text": "I've now been trying to do a really standard transfer 5 times already. What's going on, is your system broken or something?!",
+    "label_id": 35,
+    "label_name": "failed_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2574,
+    "text": "When I got cash, my exchange rate was wrong.",
+    "label_id": 76,
+    "label_name": "wrong_exchange_rate_for_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2489,
+    "text": "Is there a charge for physical cards",
+    "label_id": 43,
+    "label_name": "order_physical_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1052,
+    "text": "I made a deposit this morning but it is still pending?",
+    "label_id": 6,
+    "label_name": "balance_not_updated_after_cheque_or_cash_deposit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1625,
+    "text": "My payment still hasn't processed!",
+    "label_id": 45,
+    "label_name": "pending_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1911,
+    "text": "How do I delete my account?",
+    "label_id": 55,
+    "label_name": "terminate_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 3072,
+    "text": "Am I able to get a card in EU?",
+    "label_id": 24,
+    "label_name": "country_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2876,
+    "text": "How do I activate a new card?",
+    "label_id": 0,
+    "label_name": "activate_my_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2981,
+    "text": "I don't know how to top up my Google pay.",
+    "label_id": 2,
+    "label_name": "apple_pay_or_google_pay"
+  },
+  {
+    "dataset": "banking77",
+    "index": 604,
+    "text": "Can I also transfer with SWIFT?",
+    "label_id": 56,
+    "label_name": "top_up_by_bank_transfer_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1983,
+    "text": "Please check payments on my card. There is a duplicate and I only bought it once.",
+    "label_id": 63,
+    "label_name": "transaction_charged_twice"
+  },
+  {
+    "dataset": "banking77",
+    "index": 471,
+    "text": "My card is lost! What do I do now?",
+    "label_id": 41,
+    "label_name": "lost_or_stolen_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1446,
+    "text": "Which ATM's accept my card?",
+    "label_id": 3,
+    "label_name": "atm_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1204,
+    "text": "what do i do if my verification failed",
+    "label_id": 68,
+    "label_name": "unable_to_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2349,
+    "text": "Are there ways to transfer money into my account?",
+    "label_id": 65,
+    "label_name": "transfer_into_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 15,
+    "text": "I have been waiting longer than expected for my bank card, could you provide information on when it will arrive?",
+    "label_id": 11,
+    "label_name": "card_arrival"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2903,
+    "text": "I thought cash withdrawals didn't have a fee",
+    "label_id": 19,
+    "label_name": "cash_withdrawal_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1025,
+    "text": "I tryed to make a top-up with cryptocurrency but the payment was referted.",
+    "label_id": 61,
+    "label_name": "top_up_reverted"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2775,
+    "text": "Will I be charged a fee for exchanging foreign currencies?",
+    "label_id": 31,
+    "label_name": "exchange_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 678,
+    "text": "The top-up has a definite problem! I regularly use your service and haven't had a problem before, but now the top-up just shows pending. Please tell my why it continues to show pending.",
+    "label_id": 47,
+    "label_name": "pending_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2417,
+    "text": "My daughter would like a card as well, how can we make this happen?",
+    "label_id": 39,
+    "label_name": "getting_spare_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1462,
+    "text": "Can someone please assist me with finding my nearest ATM?",
+    "label_id": 3,
+    "label_name": "atm_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1167,
+    "text": "Can I use my account without verifying my identity?",
+    "label_id": 74,
+    "label_name": "why_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1078,
+    "text": "I tired to deposit some cash into my account but it's not there",
+    "label_id": 6,
+    "label_name": "balance_not_updated_after_cheque_or_cash_deposit"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2656,
+    "text": "Why was my top-up unsuccessful?",
+    "label_id": 59,
+    "label_name": "top_up_failed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2550,
+    "text": "How do I get my disposable virtual card to work?",
+    "label_id": 72,
+    "label_name": "virtual_card_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2109,
+    "text": "What is the reason that my card payment was cancelled?",
+    "label_id": 53,
+    "label_name": "reverted_card_payment?"
+  },
+  {
+    "dataset": "banking77",
+    "index": 577,
+    "text": "How can I make my contactless work for the metro?",
+    "label_id": 23,
+    "label_name": "contactless_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2013,
+    "text": "My source of funds need verified.",
+    "label_id": 70,
+    "label_name": "verify_source_of_funds"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2824,
+    "text": "Will it cost anything to top up a US card?",
+    "label_id": 57,
+    "label_name": "top_up_by_card_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2090,
+    "text": "What do I do if it says my card payment has been cancelled?",
+    "label_id": 53,
+    "label_name": "reverted_card_payment?"
+  },
+  {
+    "dataset": "banking77",
+    "index": 402,
+    "text": "Can I change from one currency to another?",
+    "label_id": 33,
+    "label_name": "exchange_via_app"
+  },
+  {
+    "dataset": "banking77",
+    "index": 322,
+    "text": "Will it automatically top-up or do I need to do that manually if there isn't much cash left?",
+    "label_id": 4,
+    "label_name": "automatic_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1516,
+    "text": "Someone has taken my money and I don't know who",
+    "label_id": 28,
+    "label_name": "direct_debit_payment_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2811,
+    "text": "How much does it cost to top up by card?",
+    "label_id": 57,
+    "label_name": "top_up_by_card_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 187,
+    "text": "I am seeing an extra fee on my statement what is that for?",
+    "label_id": 34,
+    "label_name": "extra_charge_on_statement"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1994,
+    "text": "I have a transaction that shows several times",
+    "label_id": 63,
+    "label_name": "transaction_charged_twice"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2816,
+    "text": "What fee is included if I top up by card?",
+    "label_id": 57,
+    "label_name": "top_up_by_card_charge"
+  },
+  {
+    "dataset": "banking77",
+    "index": 275,
+    "text": "Besides USD what other currencies can I have?",
+    "label_id": 36,
+    "label_name": "fiat_currency_support"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1818,
+    "text": "Something is wrong with my payment account since it has been declined",
+    "label_id": 25,
+    "label_name": "declined_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1143,
+    "text": "Is it possible to edit my personal details on the app?",
+    "label_id": 30,
+    "label_name": "edit_personal_details"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2967,
+    "text": "Is it possible to top up with Apple Pay?",
+    "label_id": 2,
+    "label_name": "apple_pay_or_google_pay"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1510,
+    "text": "I understand that this is extremely late. After going over my transactions for the last couple of months I noticed a large charge that I'm sure I did not make. Is there anyway I can still dispute this?",
+    "label_id": 28,
+    "label_name": "direct_debit_payment_not_recognised"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2175,
+    "text": "Can I transfer money to a beneficiery?",
+    "label_id": 7,
+    "label_name": "beneficiary_not_allowed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1330,
+    "text": "I followed the instructions to transfer money using my card, but then the money disappeared and I don't know what happened.",
+    "label_id": 62,
+    "label_name": "topping_up_by_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 594,
+    "text": "How can I fix a problem where contactless isn't working?",
+    "label_id": 23,
+    "label_name": "contactless_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 791,
+    "text": "I tried to take out cash but the amount isn't right, so what do I do?",
+    "label_id": 75,
+    "label_name": "wrong_amount_of_cash_received"
+  },
+  {
+    "dataset": "banking77",
+    "index": 382,
+    "text": "I broke my card",
+    "label_id": 14,
+    "label_name": "card_not_working"
+  },
+  {
+    "dataset": "banking77",
+    "index": 945,
+    "text": "Can I get a copy of the card by email?",
+    "label_id": 40,
+    "label_name": "getting_virtual_card"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1890,
+    "text": "I am highly unsatisfied with this company and want to delete my account!",
+    "label_id": 55,
+    "label_name": "terminate_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1373,
+    "text": "If I have more than one disposable card, can I make five payments on each of them?",
+    "label_id": 29,
+    "label_name": "disposable_card_limits"
+  },
+  {
+    "dataset": "banking77",
+    "index": 763,
+    "text": "Why did I not get my cash back after I withdrew?",
+    "label_id": 75,
+    "label_name": "wrong_amount_of_cash_received"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1634,
+    "text": "How long does it take to authorise a payment?",
+    "label_id": 45,
+    "label_name": "pending_card_payment"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2208,
+    "text": "I am being charged a transfer fee aren't they free?",
+    "label_id": 64,
+    "label_name": "transfer_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 884,
+    "text": "What currencies are accepted for adding money?",
+    "label_id": 54,
+    "label_name": "supported_cards_and_currencies"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1200,
+    "text": "I cannot verify my identity",
+    "label_id": 68,
+    "label_name": "unable_to_verify_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 81,
+    "text": "What exchange rates do you offer?",
+    "label_id": 32,
+    "label_name": "exchange_rate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2292,
+    "text": "I transferred my funds, why did it not go through?",
+    "label_id": 35,
+    "label_name": "failed_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 540,
+    "text": "How can I unlock my pin from too many tries?",
+    "label_id": 49,
+    "label_name": "pin_blocked"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2094,
+    "text": "why did the app refuse to make an approved payment",
+    "label_id": 53,
+    "label_name": "reverted_card_payment?"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2010,
+    "text": "How can I tell where my funds came from?",
+    "label_id": 70,
+    "label_name": "verify_source_of_funds"
+  },
+  {
+    "dataset": "banking77",
+    "index": 802,
+    "text": "Is there a reason I was charged a fee for using my card as payment? I've never had an extra fee before.",
+    "label_id": 15,
+    "label_name": "card_payment_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 3017,
+    "text": "Let me know the steps for the identity checks",
+    "label_id": 69,
+    "label_name": "verify_my_identity"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2306,
+    "text": "Hi, I'm buying a flat and I'm trying to get my mortgage to go though. Every time I check I simply get an error message. Is there any way you can help me get this money transferred over. Thanks!",
+    "label_id": 35,
+    "label_name": "failed_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 814,
+    "text": "When would my card be charged an extra fee for a transaction?",
+    "label_id": 15,
+    "label_name": "card_payment_fee_charged"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2353,
+    "text": "I want to use bank transfer for topping up my account. How is it handled?",
+    "label_id": 65,
+    "label_name": "transfer_into_account"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2712,
+    "text": "Hey, I try to make a bank transfer from my UK account a few hours ago, but it haven't show up yet. Please check my account to make sure everything alright with it?",
+    "label_id": 5,
+    "label_name": "balance_not_updated_after_bank_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2267,
+    "text": "Can I use this account to receive my salary?",
+    "label_id": 50,
+    "label_name": "receiving_money"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1934,
+    "text": "My ATM got stuck and I'm not sure what to do.",
+    "label_id": 18,
+    "label_name": "card_swallowed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2595,
+    "text": "I used an ATM in a foreign currency but the rate applied is wrong!",
+    "label_id": 76,
+    "label_name": "wrong_exchange_rate_for_cash_withdrawal"
+  },
+  {
+    "dataset": "banking77",
+    "index": 63,
+    "text": "How do I link this new card?",
+    "label_id": 13,
+    "label_name": "card_linking"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1933,
+    "text": "The ATM at Metro bank on High St. Kensington swallowed my card. How do I get it back?",
+    "label_id": 18,
+    "label_name": "card_swallowed"
+  },
+  {
+    "dataset": "banking77",
+    "index": 128,
+    "text": "I bought something in a foreign currency but the rate applied is wrong!",
+    "label_id": 17,
+    "label_name": "card_payment_wrong_exchange_rate"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1751,
+    "text": "Double check your funds may be declined",
+    "label_id": 27,
+    "label_name": "declined_transfer"
+  },
+  {
+    "dataset": "banking77",
+    "index": 2373,
+    "text": "Is it normal to have to verify my top-up or is something wrong?",
+    "label_id": 71,
+    "label_name": "verify_top_up"
+  },
+  {
+    "dataset": "banking77",
+    "index": 1533,
+    "text": "I no longer have my passcode.",
+    "label_id": 44,
+    "label_name": "passcode_forgotten"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1248,
+    "text": "is it possible for me to get a better credit card",
+    "label_id": 91,
+    "label_name": "new_card"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1766,
+    "text": "i spent 34 dollars for 12 gallons of paint what is the average price for each gallon",
+    "label_id": 138,
+    "label_name": "calculator"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3001,
+    "text": "was my car in the shop this past week",
+    "label_id": 37,
+    "label_name": "last_maintenance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 574,
+    "text": "so, where do you come from",
+    "label_id": 77,
+    "label_name": "where_are_you_from"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3736,
+    "text": "what kind of hobbies does the ai have",
+    "label_id": 15,
+    "label_name": "what_are_your_hobbies"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1729,
+    "text": "we'd like an uber for 4 to take us to the olive garden",
+    "label_id": 39,
+    "label_name": "uber"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2827,
+    "text": "tell me where my package is currently",
+    "label_id": 84,
+    "label_name": "order_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 130,
+    "text": "let me know what the point of life is",
+    "label_id": 22,
+    "label_name": "meaning_of_life"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 630,
+    "text": "can you tell me what you can help with",
+    "label_id": 115,
+    "label_name": "what_can_i_ask_you"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4449,
+    "text": "is there a way to order checkbooks for a chase account",
+    "label_id": 127,
+    "label_name": "order_checks"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1352,
+    "text": "when is my car due for its next oil change",
+    "label_id": 123,
+    "label_name": "oil_change_when"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 5019,
+    "text": "where can i have a black and white photo blown up to poster size",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1661,
+    "text": "what are the nutrition facts for greek yogurt",
+    "label_id": 1,
+    "label_name": "nutrition_info"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4322,
+    "text": "how do i get started making homemade pizza dough",
+    "label_id": 104,
+    "label_name": "recipe"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4243,
+    "text": "book me a car rental in wichita",
+    "label_id": 40,
+    "label_name": "car_rental"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4049,
+    "text": "how much gas do i have in my tank",
+    "label_id": 110,
+    "label_name": "gas"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 55,
+    "text": "please transfer $5000 to money market from checking account",
+    "label_id": 133,
+    "label_name": "transfer"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1139,
+    "text": "i'd like to pay $4735 to my water bill",
+    "label_id": 111,
+    "label_name": "pay_bill"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4297,
+    "text": "can you give me a meal suggestion from the south",
+    "label_id": 46,
+    "label_name": "meal_suggestion"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1260,
+    "text": "is my luggage lost",
+    "label_id": 113,
+    "label_name": "lost_luggage"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3422,
+    "text": "do i need to get any shots before i travel to zimbabwe",
+    "label_id": 52,
+    "label_name": "vaccines"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3972,
+    "text": "please take off my calendar on saturday the 6th birthday party for john",
+    "label_id": 105,
+    "label_name": "calendar_update"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 527,
+    "text": "flip a coin into the air",
+    "label_id": 33,
+    "label_name": "flip_coin"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 115,
+    "text": "what's the meaning of naff",
+    "label_id": 139,
+    "label_name": "definition"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4268,
+    "text": "tell me how to jump start my car",
+    "label_id": 17,
+    "label_name": "jump_start"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1312,
+    "text": "can you phrase that question again",
+    "label_id": 13,
+    "label_name": "repeat"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2707,
+    "text": "are you my insubordinate",
+    "label_id": 57,
+    "label_name": "who_do_you_work_for"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1464,
+    "text": "what are the benefits associated with my insurance",
+    "label_id": 74,
+    "label_name": "insurance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 508,
+    "text": "when is boarding scheduled for my flight",
+    "label_id": 80,
+    "label_name": "flight_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3211,
+    "text": "where am i currently",
+    "label_id": 136,
+    "label_name": "current_location"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3584,
+    "text": "could you please reset your factory settings",
+    "label_id": 88,
+    "label_name": "reset_settings"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3043,
+    "text": "is there a meeting with sam today",
+    "label_id": 19,
+    "label_name": "meeting_schedule"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3653,
+    "text": "what is the process of setting up direct deposit",
+    "label_id": 108,
+    "label_name": "direct_deposit"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 428,
+    "text": "what time is it in the eastern timezone",
+    "label_id": 4,
+    "label_name": "time"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3865,
+    "text": "tell me my water bill please",
+    "label_id": 27,
+    "label_name": "bill_balance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1027,
+    "text": "are you able to find my recent transactions for me",
+    "label_id": 68,
+    "label_name": "transactions"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1606,
+    "text": "it is false",
+    "label_id": 30,
+    "label_name": "no"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3497,
+    "text": "let me know the nearest gas station to glendale",
+    "label_id": 72,
+    "label_name": "directions"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4430,
+    "text": "is there traffic right now on my route to work",
+    "label_id": 24,
+    "label_name": "traffic"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1523,
+    "text": "what were the things i want to recall",
+    "label_id": 76,
+    "label_name": "reminder"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3329,
+    "text": "if i wanted to spend the lowest for my electric bill, then how much would it be",
+    "label_id": 143,
+    "label_name": "min_payment"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2871,
+    "text": "please give me the pin number for my checking account",
+    "label_id": 89,
+    "label_name": "pin_change"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3547,
+    "text": "hello, how is it going",
+    "label_id": 82,
+    "label_name": "greeting"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1007,
+    "text": "maybe we can go to the next song",
+    "label_id": 118,
+    "label_name": "next_song"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4500,
+    "text": "how much has the dow changed today",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2376,
+    "text": "what do i do about a card that's too messed up to be properly scanned",
+    "label_id": 87,
+    "label_name": "damaged_card"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 284,
+    "text": "give me some ideas of how to avoid my credit score lowering",
+    "label_id": 28,
+    "label_name": "improve_credit_score"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2285,
+    "text": "what steps do i need to take to obtain my w2 for taxes",
+    "label_id": 122,
+    "label_name": "w2"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4123,
+    "text": "please cancel my reservation for 5 at red robin",
+    "label_id": 67,
+    "label_name": "cancel_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 496,
+    "text": "i need for you to get me the status of my american airlines flight",
+    "label_id": 80,
+    "label_name": "flight_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 124,
+    "text": "i want to know the meaning of life",
+    "label_id": 22,
+    "label_name": "meaning_of_life"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3160,
+    "text": "oven set it to 350",
+    "label_id": 10,
+    "label_name": "smart_home"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2324,
+    "text": "i need to know when my water bill is due",
+    "label_id": 56,
+    "label_name": "bill_due"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3855,
+    "text": "what are my bills this month",
+    "label_id": 27,
+    "label_name": "bill_balance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1704,
+    "text": "check my calendar for me, please",
+    "label_id": 60,
+    "label_name": "calendar"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1844,
+    "text": "how much of my pto is left",
+    "label_id": 148,
+    "label_name": "pto_used"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1948,
+    "text": "disconnect from my device please",
+    "label_id": 130,
+    "label_name": "sync_device"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1407,
+    "text": "ya",
+    "label_id": 107,
+    "label_name": "yes"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3410,
+    "text": "can i get to cuba with this visa",
+    "label_id": 59,
+    "label_name": "international_visa"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3755,
+    "text": "i need a flight on delta from los angeles to seattle",
+    "label_id": 63,
+    "label_name": "book_flight"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2642,
+    "text": "what day is our next day off",
+    "label_id": 140,
+    "label_name": "next_holiday"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2409,
+    "text": "yum, pulled pork tacos at the buffet",
+    "label_id": 0,
+    "label_name": "restaurant_reviews"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4115,
+    "text": "please cancel my reservation for tim at jb's",
+    "label_id": 67,
+    "label_name": "cancel_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 516,
+    "text": "ai, flip a coin for me",
+    "label_id": 33,
+    "label_name": "flip_coin"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3511,
+    "text": "how do you spell aaron",
+    "label_id": 73,
+    "label_name": "spelling"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 176,
+    "text": "is there a way to get a new insurance plan",
+    "label_id": 64,
+    "label_name": "insurance_change"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 187,
+    "text": "can you assist me with finding my phone",
+    "label_id": 81,
+    "label_name": "find_phone"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2532,
+    "text": "what fuel do i put in this car",
+    "label_id": 8,
+    "label_name": "gas_type"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 723,
+    "text": "will you reserve a table at olive garden for 3 people at 7",
+    "label_id": 23,
+    "label_name": "restaurant_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3937,
+    "text": "pull up the songs under slow",
+    "label_id": 106,
+    "label_name": "play_music"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1056,
+    "text": "where can i get some good food",
+    "label_id": 145,
+    "label_name": "restaurant_suggestion"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2458,
+    "text": "tell me what my savings account routing number is",
+    "label_id": 45,
+    "label_name": "routing"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2810,
+    "text": "does applebees take reservations",
+    "label_id": 9,
+    "label_name": "accept_reservations"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3998,
+    "text": "is this a bot",
+    "label_id": 117,
+    "label_name": "are_you_a_bot"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2596,
+    "text": "my tires are 29 months old should u change them",
+    "label_id": 47,
+    "label_name": "tire_change"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2087,
+    "text": "can you remind me to finish a task",
+    "label_id": 53,
+    "label_name": "reminder_update"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 456,
+    "text": "i want to know if my credit card application has been processed",
+    "label_id": 103,
+    "label_name": "application_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4894,
+    "text": "whats the best rated lipstick",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4109,
+    "text": "put what i'm listening to on my workout playlist",
+    "label_id": 141,
+    "label_name": "update_playlist"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2359,
+    "text": "how many calories are in a cheeseburger",
+    "label_id": 135,
+    "label_name": "calories"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4591,
+    "text": "when is the next full moon",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3700,
+    "text": "can my credit limit be increased by 500 dollars",
+    "label_id": 109,
+    "label_name": "credit_limit_change"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1346,
+    "text": "what kind of mileage does this car get",
+    "label_id": 142,
+    "label_name": "mpg"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1980,
+    "text": "how much do you get when you roll an eight sided die",
+    "label_id": 92,
+    "label_name": "roll_dice"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 830,
+    "text": "put a freeze on my account",
+    "label_id": 20,
+    "label_name": "freeze_account"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1622,
+    "text": "i need to know the apr on my wells fargo credit card",
+    "label_id": 132,
+    "label_name": "apr"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1188,
+    "text": "when will i hear back about my days off",
+    "label_id": 101,
+    "label_name": "pto_request_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4403,
+    "text": "i'm out of milk so you will order me some more",
+    "label_id": 16,
+    "label_name": "order"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1411,
+    "text": "can you help me pick some fun things to do in london during my trip",
+    "label_id": 149,
+    "label_name": "travel_suggestion"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3783,
+    "text": "iterate over the items on my grocery list",
+    "label_id": 43,
+    "label_name": "shopping_list"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 495,
+    "text": "tell me what the status is for my aa flight",
+    "label_id": 80,
+    "label_name": "flight_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 921,
+    "text": "what time will i get to the beach taking the bus",
+    "label_id": 78,
+    "label_name": "distance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 639,
+    "text": "what subjects do you like",
+    "label_id": 115,
+    "label_name": "what_can_i_ask_you"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1297,
+    "text": "repeat please",
+    "label_id": 13,
+    "label_name": "repeat"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2961,
+    "text": "what is the information on this song",
+    "label_id": 21,
+    "label_name": "what_song"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4039,
+    "text": "how many more miles can i drive on my current tank",
+    "label_id": 110,
+    "label_name": "gas"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4126,
+    "text": "please delete the reservation for roberts at village tavern",
+    "label_id": 67,
+    "label_name": "cancel_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3308,
+    "text": "what is my minimum payment and when is it due",
+    "label_id": 143,
+    "label_name": "min_payment"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2051,
+    "text": "how many minutes should i set an alarm for this bake",
+    "label_id": 86,
+    "label_name": "cook_time"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2777,
+    "text": "how busy is red robin around 5 pm",
+    "label_id": 102,
+    "label_name": "how_busy"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1173,
+    "text": "can you let me know if my vacation was approved",
+    "label_id": 101,
+    "label_name": "pto_request_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1333,
+    "text": "how many mpg does this car get in the city",
+    "label_id": 142,
+    "label_name": "mpg"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2158,
+    "text": "can i use red onions instead of white",
+    "label_id": 134,
+    "label_name": "ingredient_substitution"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4222,
+    "text": "when's your birthday",
+    "label_id": 99,
+    "label_name": "how_old_are_you"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1975,
+    "text": "thanks for that answer",
+    "label_id": 124,
+    "label_name": "thank_you"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 348,
+    "text": "i'd like the language to be in spanish",
+    "label_id": 29,
+    "label_name": "change_language"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3216,
+    "text": "i want to see my location on the map",
+    "label_id": 136,
+    "label_name": "current_location"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4155,
+    "text": "i would like to hear a joke",
+    "label_id": 36,
+    "label_name": "tell_joke"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2514,
+    "text": "check meeting rooms available between one and three pm",
+    "label_id": 18,
+    "label_name": "schedule_meeting"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4702,
+    "text": "what is the best way for dealing with the airport",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1609,
+    "text": "that is so false",
+    "label_id": 30,
+    "label_name": "no"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 255,
+    "text": "can i take pto from the end of the month to the 5th of the next month",
+    "label_id": 97,
+    "label_name": "pto_request"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4489,
+    "text": "i could not buy food using my card when i was in vietnam",
+    "label_id": 49,
+    "label_name": "card_declined"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 362,
+    "text": "what was the date when i last go paid",
+    "label_id": 79,
+    "label_name": "payday"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 898,
+    "text": "for this design, what company did it",
+    "label_id": 96,
+    "label_name": "who_made_you"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1493,
+    "text": "insert mowing on the chore list",
+    "label_id": 65,
+    "label_name": "todo_list_update"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2634,
+    "text": "20 yen equals how many dollars",
+    "label_id": 38,
+    "label_name": "exchange_rate"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3358,
+    "text": "whisper mode, stop",
+    "label_id": 14,
+    "label_name": "whisper_mode"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3878,
+    "text": "can you indicate my location to my friend",
+    "label_id": 58,
+    "label_name": "share_location"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3920,
+    "text": "help me redeem my reward points",
+    "label_id": 6,
+    "label_name": "redeem_rewards"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2553,
+    "text": "does france use a socket converter",
+    "label_id": 120,
+    "label_name": "plug_type"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3590,
+    "text": "please rely on your original settings",
+    "label_id": 88,
+    "label_name": "reset_settings"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2495,
+    "text": "i need to know how to schedule a meeting",
+    "label_id": 18,
+    "label_name": "schedule_meeting"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3255,
+    "text": "how is the weather",
+    "label_id": 5,
+    "label_name": "weather"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2238,
+    "text": "what's on my todo list for today",
+    "label_id": 48,
+    "label_name": "todo_list"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2118,
+    "text": "my capital one visa was taken without permission",
+    "label_id": 12,
+    "label_name": "report_lost_card"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3363,
+    "text": "that was a mistake, undo that",
+    "label_id": 147,
+    "label_name": "cancel"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2013,
+    "text": "what is expire of milk",
+    "label_id": 54,
+    "label_name": "food_last"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2116,
+    "text": "who do i call to report my card as lost",
+    "label_id": 12,
+    "label_name": "report_lost_card"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1394,
+    "text": "sure",
+    "label_id": 107,
+    "label_name": "yes"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3288,
+    "text": "how much do i pay the irs",
+    "label_id": 94,
+    "label_name": "taxes"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1894,
+    "text": "i'm going to be in mexico from thursday to friday, so can you let my bank know",
+    "label_id": 146,
+    "label_name": "travel_notification"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1806,
+    "text": "can i bring suntan lotion in my carry on",
+    "label_id": 62,
+    "label_name": "carry_on"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 802,
+    "text": "confirm the john reservation at applebee's",
+    "label_id": 85,
+    "label_name": "confirm_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 667,
+    "text": "either one might be",
+    "label_id": 121,
+    "label_name": "maybe"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 690,
+    "text": "help me change my oil",
+    "label_id": 3,
+    "label_name": "oil_change_how"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 220,
+    "text": "i want to know if i will be safe if i travel to europe",
+    "label_id": 128,
+    "label_name": "travel_alert"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1555,
+    "text": "double the speaking speed please",
+    "label_id": 119,
+    "label_name": "change_speed"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2981,
+    "text": "how many transaction fees are there when i use my discover card in rome",
+    "label_id": 137,
+    "label_name": "international_fees"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2219,
+    "text": "i need an alarm",
+    "label_id": 83,
+    "label_name": "alarm"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2003,
+    "text": "can you roll a ten sided die and tell me the number",
+    "label_id": 92,
+    "label_name": "roll_dice"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 5493,
+    "text": "can you detect where i placed my wallet",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 321,
+    "text": "i want a fun fact about london",
+    "label_id": 129,
+    "label_name": "fun_fact"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 554,
+    "text": "can you call me a different name, please",
+    "label_id": 144,
+    "label_name": "change_user_name"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3661,
+    "text": "where do i see what interest my mortgage has",
+    "label_id": 7,
+    "label_name": "interest_rate"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4073,
+    "text": "what month does my credit card expire",
+    "label_id": 44,
+    "label_name": "expiration_date"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3451,
+    "text": "give me vacation days remaining, please",
+    "label_id": 126,
+    "label_name": "pto_balance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3129,
+    "text": "can you assist me to convert kilos to pounds",
+    "label_id": 31,
+    "label_name": "measurement_conversion"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 412,
+    "text": "how long before the replacement card is mailed to me",
+    "label_id": 90,
+    "label_name": "replacement_card_duration"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2269,
+    "text": "please switch to the girl voice",
+    "label_id": 51,
+    "label_name": "change_accent"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 484,
+    "text": "what's the status of my american airlines flight",
+    "label_id": 80,
+    "label_name": "flight_status"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 847,
+    "text": "i want help to transfer my 401k",
+    "label_id": 100,
+    "label_name": "rollover_401k"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2417,
+    "text": "does cielo have good reviews",
+    "label_id": 0,
+    "label_name": "restaurant_reviews"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4079,
+    "text": "when will my credit card no longer be good",
+    "label_id": 44,
+    "label_name": "expiration_date"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1153,
+    "text": "what is the total amount i spent last week",
+    "label_id": 71,
+    "label_name": "spending_history"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4,
+    "text": "what's the word for trees in norway",
+    "label_id": 61,
+    "label_name": "translate"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4190,
+    "text": "i'm changing your name to joe",
+    "label_id": 55,
+    "label_name": "change_ai_name"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4578,
+    "text": "which stocks gained the most today",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 616,
+    "text": "can you add eggs to my shopping list",
+    "label_id": 125,
+    "label_name": "shopping_list_update"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2247,
+    "text": "what must i do today",
+    "label_id": 48,
+    "label_name": "todo_list"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4658,
+    "text": "how hard is it to close a bank account at wells fargo",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1409,
+    "text": "great",
+    "label_id": 107,
+    "label_name": "yes"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1583,
+    "text": "are my tires filled properly",
+    "label_id": 98,
+    "label_name": "tire_pressure"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1864,
+    "text": "what is the next date for which i can get an oil change appointment",
+    "label_id": 131,
+    "label_name": "schedule_maintenance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2658,
+    "text": "tell me the next holiday",
+    "label_id": 140,
+    "label_name": "next_holiday"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 945,
+    "text": "what did i tell you to call me",
+    "label_id": 11,
+    "label_name": "user_name"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2471,
+    "text": "are you a pet owner and what kind",
+    "label_id": 34,
+    "label_name": "do_you_have_pets"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 790,
+    "text": "please confirm that i have a reservation for 2/20 at 6:00 pm",
+    "label_id": 85,
+    "label_name": "confirm_reservation"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 89,
+    "text": "can you set the timer to 20 minutes",
+    "label_id": 32,
+    "label_name": "timer"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1857,
+    "text": "so far how much pto have i used",
+    "label_id": 148,
+    "label_name": "pto_used"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2694,
+    "text": "volume 4 set",
+    "label_id": 150,
+    "label_name": "change_volume"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2367,
+    "text": "hoq many calories does pasta have",
+    "label_id": 135,
+    "label_name": "calories"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 18,
+    "text": "how might i say hello if i were scottish",
+    "label_id": 61,
+    "label_name": "translate"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1812,
+    "text": "what is the carry-on policy for flights on lufthansa",
+    "label_id": 62,
+    "label_name": "carry_on"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 984,
+    "text": "what's the timezone in valencia",
+    "label_id": 66,
+    "label_name": "timezone"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2747,
+    "text": "what's my discover credit limit",
+    "label_id": 41,
+    "label_name": "credit_limit"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 824,
+    "text": "please put a block on my citi account immediately",
+    "label_id": 20,
+    "label_name": "freeze_account"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1103,
+    "text": "have i earned points with my venture card, and how many",
+    "label_id": 50,
+    "label_name": "rewards_balance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3837,
+    "text": "can you text dave and tell him i like his paper",
+    "label_id": 26,
+    "label_name": "text"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3917,
+    "text": "how can i get my rewards for my master card",
+    "label_id": 6,
+    "label_name": "redeem_rewards"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3444,
+    "text": "vaccines for my trip to cuba",
+    "label_id": 52,
+    "label_name": "vaccines"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4371,
+    "text": "how much am i paid a year",
+    "label_id": 93,
+    "label_name": "income"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4261,
+    "text": "what do i need to do to get my car jump started",
+    "label_id": 17,
+    "label_name": "jump_start"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3756,
+    "text": "i need to book a flight on jet blue to boston from new york",
+    "label_id": 63,
+    "label_name": "book_flight"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1227,
+    "text": "let me know what my credit score is today",
+    "label_id": 69,
+    "label_name": "credit_score"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 424,
+    "text": "please give me the time in tanzania at this moment",
+    "label_id": 4,
+    "label_name": "time"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3096,
+    "text": "my online bill has some items that i didn't purchase from penneys",
+    "label_id": 70,
+    "label_name": "report_fraud"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 433,
+    "text": "what is the current time in dallas",
+    "label_id": 4,
+    "label_name": "time"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 753,
+    "text": "how much do i have in my bank accounts",
+    "label_id": 35,
+    "label_name": "balance"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1785,
+    "text": "what is the date in 5 days",
+    "label_id": 95,
+    "label_name": "date"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3182,
+    "text": "i wanna find a hotel with good reviews in phoenix",
+    "label_id": 116,
+    "label_name": "book_hotel"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2176,
+    "text": "i would like to make a call to sal",
+    "label_id": 25,
+    "label_name": "make_call"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3398,
+    "text": "is a visa necessary for traveling to south africa",
+    "label_id": 59,
+    "label_name": "international_visa"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 4935,
+    "text": "what are the new player rankings for the nhl",
+    "label_id": 42,
+    "label_name": "oos"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3575,
+    "text": "change all setting to original ones",
+    "label_id": 88,
+    "label_name": "reset_settings"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 1536,
+    "text": "try to speak slowly",
+    "label_id": 119,
+    "label_name": "change_speed"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3615,
+    "text": "what name do you go by",
+    "label_id": 75,
+    "label_name": "what_is_your_name"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2934,
+    "text": "there seems to be an issue with my account",
+    "label_id": 2,
+    "label_name": "account_blocked"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 2893,
+    "text": "see you later",
+    "label_id": 114,
+    "label_name": "goodbye"
+  },
+  {
+    "dataset": "clinc150",
+    "index": 3080,
+    "text": "what do i need to buy for spaghetti",
+    "label_id": 112,
+    "label_name": "ingredients_list"
+  }
+]

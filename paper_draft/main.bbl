@@ -1,0 +1,124 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arora et~al.(2024)Arora, Gupta, and Gupta]{arora2024intent}
+Gaurav Arora, Shreya Gupta, and Abhay Gupta.
+\newblock Intent detection in the age of {LLMs}.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing}, 2024.
+
+\bibitem[Casanueva et~al.(2020)Casanueva, Tem\v{c}inas, Gerber, Gasic, and
+  Mrk\v{s}i\'{c}]{casanueva2020banking77}
+I\~{n}igo Casanueva, Tadas Tem\v{c}inas, Daniela Gerber, Milica Gasic, and
+  Nikola Mrk\v{s}i\'{c}.
+\newblock Efficient intent detection with dual sentence encoders.
+\newblock \emph{Proceedings of the 2nd Workshop on Natural Language Processing
+  for Conversational AI}, 2020.
+
+\bibitem[den Hengst et~al.(2024)den Hengst, Bloem, and
+  de~Rijke]{denhengst2024conformal}
+Floris den Hengst, Tom Bloem, Rens and";~Heskes, and Maarten de~Rijke.
+\newblock Conformal intent classification and clarification for fast and
+  accurate intent recognition.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2024}, 2024.
+
+\bibitem[Deng et~al.(2025)Deng, Li, and Chen]{deng2025interactcomp}
+Yusen Deng, Bowen Li, and Zheng Chen.
+\newblock {InteractComp}: A benchmark for evaluating search agents on ambiguous
+  queries.
+\newblock In \emph{Proceedings of the ACM Web Conference}, 2025.
+
+\bibitem[Dhole(2020)]{dhole2020resolving}
+Kaustubh~D. Dhole.
+\newblock Resolving intent ambiguities by retrieving discriminative clarifying
+  questions.
+\newblock \emph{arXiv preprint arXiv:2008.07559}, 2020.
+
+\bibitem[He et~al.(2021)He, Liu, Gao, and Chen]{he2021deberta}
+Pengcheng He, Xiaodong Liu, Jianfeng Gao, and Weizhu Chen.
+\newblock {DeBERTa}: Decoding-enhanced {BERT} with disentangled attention.
+\newblock In \emph{International Conference on Learning Representations}, 2021.
+
+\bibitem[Hu et~al.(2020)Hu, Li, Zhang, and Xu]{hu2020interactive}
+Xiang Hu, Zujie Li, Jian Zhang, and Jiwei Xu.
+\newblock Interactive question clarification in dialogue via reinforcement
+  learning.
+\newblock In \emph{Proceedings of the 43rd International ACM SIGIR Conference
+  on Research and Development in Information Retrieval}, 2020.
+
+\bibitem[Jayanthi et~al.(2020)Jayanthi, Pruthi, and
+  Neubig]{jayanthi2020neuspell}
+Sai~Muralidhar Jayanthi, Danish Pruthi, and Graham Neubig.
+\newblock {NeuSpell}: A neural spelling correction toolkit.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}, 2020.
+
+\bibitem[Kebir et~al.(2026)]{kebir2026rac}
+Ahmed Kebir et~al.
+\newblock {RAC}: Retrieval-augmented clarification for conversational search.
+\newblock \emph{arXiv preprint}, 2026.
+
+\bibitem[Larson et~al.(2019)Larson, Mahendran, Peper, Clarke, Lee, Hill,
+  Kummerfeld, Leach, Laurenzano, Tang, and Mars]{larson2019clinc150}
+Stefan Larson, Anish Mahendran, Joseph~J. Peper, Christopher Clarke, Andrew
+  Lee, Parker Hill, Jonathan~K. Kummerfeld, Kevin Leach, Michael~A. Laurenzano,
+  Lingjia Tang, and Jason Mars.
+\newblock An evaluation dataset for intent classification and out-of-scope
+  prediction.
+\newblock \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing}, 2019.
+
+\bibitem[Li et~al.(2025)Li, Wang, and Peng]{li2025drgenre}
+Haozhe Li, Yiwei Wang, and Nanyun Peng.
+\newblock {DR GENRE}: Reinforcement learning from decoupled {LLM} feedback for
+  generic text rewriting.
+\newblock \emph{arXiv preprint arXiv:2502.00000}, 2025.
+
+\bibitem[Reimers and Gurevych(2019)]{reimers2019sbert}
+Nils Reimers and Iryna Gurevych.
+\newblock Sentence-{BERT}: Sentence embeddings using siamese {BERT}-networks.
+\newblock \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing}, 2019.
+
+\bibitem[Sharma et~al.(2023)]{sharma2023multilingual}
+Prateek Sharma et~al.
+\newblock Multilingual spell checker for production search queries.
+\newblock \emph{Proceedings of the ACM Web Conference}, 2023.
+
+\bibitem[Shen et~al.(2022)Shen, Liu, Jiang, and Shi]{shen2022parascore}
+Lingfeng Shen, Lemao Liu, Haiyun Jiang, and Shuming Shi.
+\newblock On the evaluation metrics for paraphrase generation.
+\newblock \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2022}, 2022.
+
+\bibitem[Wang et~al.(2023)Wang, Ai, Wu, and Liu]{wang2023zeroshot}
+Zhichao Wang, Qingyao Ai, Zhaoting Wu, and Yiqun Liu.
+\newblock Zero-shot clarifying question generation for conversational search.
+\newblock In \emph{Proceedings of the ACM Web Conference}, 2023.
+
+\bibitem[Yuan et~al.(2021)Yuan, Neubig, and Liu]{yuan2021bartscore}
+Weizhe Yuan, Graham Neubig, and Pengfei Liu.
+\newblock {BARTScore}: Evaluating generated text as text generation.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2021.
+
+\bibitem[Zhang et~al.(2020{\natexlab{a}})Zhang, Hashimoto, Gao, and
+  Zhang]{zhang2020correcting}
+Tao Zhang, Kazuma Hashimoto, Yinfei Gao, and Yi~Zhang.
+\newblock Correcting the autocorrect: Context-aware typographic error
+  correction via training data augmentation.
+\newblock In \emph{Proceedings of the Twelfth Language Resources and Evaluation
+  Conference}, 2020{\natexlab{a}}.
+
+\bibitem[Zhang et~al.(2020{\natexlab{b}})Zhang, Kishore, Wu, Weinberger, and
+  Artzi]{zhang2020bertscore}
+Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian~Q. Weinberger, and Yoav Artzi.
+\newblock {BERTScore}: Evaluating text generation with {BERT}.
+\newblock In \emph{International Conference on Learning Representations},
+  2020{\natexlab{b}}.
+
+\end{thebibliography}

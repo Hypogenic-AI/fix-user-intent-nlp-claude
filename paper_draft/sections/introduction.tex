@@ -1,0 +1,33 @@
+\section{Introduction}
+\label{sec:intro}
+
+When a user types ``How long with my cash withdrawal stay pending for?'' into a banking chatbot, a helpful system might correct the typo and return the right answer.
+But when the same system rewrites ``Can you help with a transfer to an account'' as ``Can you assist me with transferring funds to another account?,'' it may silently shift the user's intent from \emph{beneficiary\_not\_allowed} to \emph{transfer\_into\_account}---returning an answer to a question the user never asked.
+This tension between helpfulness and intent fidelity is at the heart of every query correction system deployed today.
+
+\para{The problem is widespread.}
+Query correction powers search engines, virtual assistants, chatbots, and autocomplete systems used by billions of people daily.
+Modern systems increasingly rely on large language models (LLMs) to rewrite user queries for clarity, correct spelling errors, or ``improve'' phrasing before passing the query to downstream components~\citep{arora2024intent}.
+While these rewrites often help, they can also alter the user's original intent in subtle ways that are difficult to detect and costly to recover from.
+Despite extensive work on spelling correction~\citep{jayanthi2020neuspell, zhang2020correcting}, clarification question generation~\citep{hu2020interactive, wang2023zeroshot}, and text rewriting~\citep{li2025drgenre}, no systematic evaluation exists for how often LLMs change user intent during query correction.
+
+\para{Our contribution.}
+We conduct the first systematic study of intent preservation in LLM-based query correction.
+We evaluate two state-of-the-art LLMs (\gptfour and \claude) across three prompting strategies of increasing aggressiveness on 400 queries drawn from established intent classification benchmarks (\banking~\citep{casanueva2020banking77} and \clinc~\citep{larson2019clinc150}).
+Our main finding is striking: the choice of prompt instruction---not the choice of model---is the dominant factor in determining intent preservation.
+Conservative correction (``fix errors'') preserves intent 98.5\% of the time, while aggressive rewriting (``improve'') causes intent shifts in up to 15\% of cases.
+
+We validate our automated metrics against an LLM-as-judge protocol, finding that bidirectional natural language inference (NLI) entailment is the strongest predictor of intent change ($r = -0.408$, $p < 0.0001$), outperforming semantic similarity and intent classifier agreement.
+We then propose \confcorrect, a confidence-aware correction strategy that uses classifier confidence to decide when to auto-correct, when to ask a clarifying question, and when to abstain.
+\confcorrect eliminates intent violations entirely while requesting clarification for only 9.3\% of queries.
+
+\Figref{fig:overview} summarizes our experimental findings.
+Conservative correction is safe across both models, while aggressive strategies introduce intent drift that scales with edit aggressiveness.
+
+Our contributions are:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We quantify LLM intent violation rates across two models and three correction strategies, finding a 6--10$\times$ increase in violations when moving from conservative to aggressive prompts (\secref{sec:results}).
+    \item We validate automated intent preservation metrics against LLM-as-judge labels, identifying bidirectional NLI entailment as the most reliable predictor (\secref{sec:metric_validation}).
+    \item We propose \confcorrect, a confidence-aware strategy that achieves zero intent violations with only 9.3\% clarification rate (\secref{sec:confidence}).
+    \item We release our evaluation framework and annotated dataset to enable reproducible research on intent-preserving correction.\footnote{Code and data available at the project repository.}
+\end{itemize}

@@ -1,0 +1,41 @@
+\section{Related Work}
+\label{sec:related}
+
+Our work sits at the intersection of query correction, clarification question generation, intent detection, and semantic preservation evaluation.
+We review each area and position our contribution relative to prior work.
+
+\para{Spelling and query correction.}
+Neural spelling correction has advanced rapidly with toolkits like NeuSpell~\citep{jayanthi2020neuspell}, which provides context-sensitive correction using surrounding words for disambiguation.
+\citet{zhang2020correcting} introduced the Twitter Typo Corpus capturing naturally occurring autocorrect errors, where systems frequently override intentional non-standard spellings.
+Production-scale systems face additional challenges with code-switching, transliteration, and domain jargon~\citep{sharma2023multilingual}.
+These works optimize for \emph{correction accuracy}---whether the typo was fixed---rather than \emph{intent preservation}---whether the correction maintained what the user wanted.
+Our work reframes spelling correction as an intent-preservation problem, quantifying how often LLM-based correction alters the underlying query intent.
+
+\para{Clarification question generation.}
+When a system is uncertain about user intent, asking a clarifying question can be more appropriate than guessing.
+\citet{hu2020interactive} deployed an RL-based clarification system in production, achieving 66.4\% click-through rate on clarification suggestions using Monte Carlo Tree Search for question selection.
+\citet{dhole2020resolving} found that purely generative approaches achieve only 34\% coverage for intent-discriminating questions, motivating template-based fallbacks.
+\citet{wang2023zeroshot} showed that zero-shot clarifying question generation using constrained decoding outperforms supervised baselines on naturalness (82.6\% rated ``Good''), enabling clarification without task-specific training data.
+More recently, \citet{kebir2026rac} proposed retrieval-augmented clarification using DPO to ground clarifying questions in retrieved evidence.
+Our confidence-aware strategy builds on this literature by establishing principled thresholds for when to correct versus when to clarify.
+
+\para{Intent detection and classification.}
+Intent classification provides the evaluation backbone for our study.
+\citet{arora2024intent} benchmarked LLMs against traditional intent detection methods, finding that LLMs outperform smaller models by approximately 8\% while a hybrid routing approach achieves comparable accuracy at lower cost.
+Most relevant to our work, \citet{denhengst2024conformal} proposed Conformal Intent Classification and Clarification (CICC), which uses conformal prediction to produce prediction sets with statistical coverage guarantees.
+Their framework decides between answering directly (single-intent prediction set), asking a clarifying question (2--7 intents), or escalating (more than 7 intents).
+On \banking with optimized confidence levels, CICC achieves 97\% coverage with a 92\% single-answer rate.
+\citet{deng2025interactcomp} quantified the cost of not clarifying: models achieve only 13.7\% accuracy on ambiguous queries compared to 71.5\% with contextual clarification.
+We adopt the CICC framework's confidence-threshold paradigm but apply it to the correction decision rather than the classification decision.
+
+\para{Semantic preservation metrics.}
+Measuring whether a rewrite preserves the original meaning requires appropriate metrics.
+BERTScore~\citep{zhang2020bertscore} computes token-level similarity using contextual embeddings and achieves 0.785 Pearson correlation with human judgments on semantic preservation tasks.
+BARTScore~\citep{yuan2021bartscore} evaluates text as a generation problem using BART's log-likelihood, independently assessing informativeness, fluency, and factuality.
+ParaScore~\citep{shen2022parascore} combines semantic similarity with lexical divergence, finding that reference-free metrics outperform reference-based ones for paraphrase evaluation.
+\citet{li2025drgenre} introduced decoupled rewards for text rewriting---agreement, coherence, and conciseness---where the conciseness reward directly penalizes unnecessary edits via \editratio.
+We adopt \editratio and bidirectional NLI entailment as our primary metrics, finding that NLI bidirectional entailment correlates most strongly with intent preservation judgments.
+
+\para{Positioning our work.}
+While prior work has studied each component in isolation---correction accuracy, clarification timing, intent classification, and semantic metrics---no study has measured how often modern LLMs alter user intent during correction or whether automated metrics can reliably detect such shifts.
+Our work fills this gap by combining intent classification benchmarks with LLM-based correction, multi-metric evaluation, and a confidence-aware decision framework.

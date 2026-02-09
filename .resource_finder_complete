@@ -1,0 +1,17 @@
+Resource gathering complete.
+Topic: "Do You Mean...?": Fixing User Intent Without Annoying Them
+Date: 2026-02-08
+
+Summary:
+- 25 papers downloaded and analyzed (5 categories: query correction, clarification, intent detection, paraphrase evaluation, text rewriting)
+- 14 datasets cataloged, 7 downloaded (BANKING77, CLINC150, PAWS, STS-B, ClariQ, Qulac, + amazon_qac placeholder)
+- 8 code repositories cloned (NeuSpell, Few-Shot-Intent-Detection, BERTScore, ParaScore, BARTScore, conformal-prediction, InfoCQR, sentence-transformers)
+- literature_review.md: Comprehensive synthesis across all research areas
+- resources.md: Complete catalog of all papers, datasets, code repos, and pre-trained models
+
+Key findings:
+1. Conformal prediction (CICC) provides the most principled framework for deciding when to correct vs. clarify
+2. DR GENRE's decoupled rewards (agreement, coherence, conciseness) operationalize "fix without annoying"
+3. ParaScore's reference-free evaluation and sectional divergence function are ideal for measuring intent preservation
+4. Multi-stage confidence thresholds (>75% = auto-correct, moderate = clarify, low = escalate) align with empirical results
+5. Zero-shot clarifying question generation outperforms supervised baselines, enabling generalizable clarification

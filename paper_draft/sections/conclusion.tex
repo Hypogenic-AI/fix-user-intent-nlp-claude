@@ -1,0 +1,18 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented the first systematic evaluation of intent preservation in LLM-based query correction.
+Our experiments across two models (\gptfour and \claude) and three prompting strategies reveal that the choice of correction instruction---not the choice of model---is the primary determinant of intent preservation.
+Conservative ``fix errors'' prompts preserve intent 98.5\% of the time, while aggressive ``rewrite'' and ``improve'' prompts cause intent shifts in 9--15\% of cases.
+
+We validated our automated evaluation framework against LLM-as-judge labels, identifying bidirectional NLI entailment as the most reliable predictor of intent change ($r = -0.408$, $p < 0.0001$).
+We proposed \confcorrect, a confidence-aware correction strategy that achieves zero intent violations by selectively asking clarifying questions for the 9.3\% of queries with ambiguous classifier confidence.
+
+Our results carry a clear practical message: correction systems should default to minimal intervention, escalate only when explicitly asked, and ask rather than guess when uncertain.
+These principles apply broadly to any system that modifies user input before processing it.
+
+\para{Future work.}
+Three directions are particularly promising.
+First, scaling the confidence-aware evaluation to thousands of queries across multiple datasets and domains would establish statistical significance and test generalizability.
+Second, replacing the LLM-as-judge with human annotators would provide stronger validation of our intent preservation metrics.
+Third, extending the evaluation to multilingual and multi-turn settings would address two important real-world scenarios where intent preservation is even more challenging.

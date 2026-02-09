@@ -1,0 +1,191 @@
+{
+  "survey_date": "2026-02-08",
+  "research_project": "Do You Mean...?: Fixing User Intent Without Annoying Them",
+  "total_repositories": 10,
+  "repositories": [
+    {
+      "name": "NeuSpell",
+      "github_url": "https://github.com/neuspell/neuspell",
+      "stars_estimate": "200+",
+      "description": "Open-source toolkit for context-sensitive spelling correction in English. Comprises 10 spell checkers with evaluations on naturally occurring misspellings from multiple sources.",
+      "relevance": "Direct baseline for our query autocorrection pipeline. Provides neural spelling correction models that can be compared against our intent-preserving correction approach.",
+      "key_files": [
+        "neuspell/corrector.py",
+        "scripts/huggingface/",
+        "data/"
+      ],
+      "pretrained_models": true,
+      "pretrained_model_details": "BERT pretrained model available on HuggingFace as murali1996/bert-base-cased-spell-correction. Multiple models downloadable via neuspell.seq_modeling.downloads.download_pretrained_model()",
+      "datasets_included": true,
+      "dataset_details": "Naturally occurring misspelling datasets from multiple public sources, plus 3 synthetic noising strategies",
+      "research_topics": ["query_autocorrection", "spelling_correction"]
+    },
+    {
+      "name": "Few-Shot-Intent-Detection",
+      "github_url": "https://github.com/jianguoz/Few-Shot-Intent-Detection",
+      "stars_estimate": "300+",
+      "description": "Collection of popular challenging intent detection datasets with/without OOS (out-of-scope) queries and state-of-the-art baselines and results.",
+      "relevance": "Primary source of intent detection benchmarks. Contains BANKING77, CLINC150, HWU64, SNIPS, ATIS datasets that can be used to evaluate whether our corrections preserve intent labels.",
+      "key_files": [
+        "Datasets/BANKING77/",
+        "Datasets/CLINC150/",
+        "Datasets/HWU64/",
+        "Datasets/SNIPS/",
+        "Datasets/ATIS/",
+        "Datasets/BANKING77-OOS/",
+        "Datasets/CLINC-Single-Domain-OOS/"
+      ],
+      "pretrained_models": false,
+      "datasets_included": true,
+      "dataset_details": "BANKING77, CLINC150, HWU64, SNIPS, ATIS with train/valid/test splits plus 5-shot and 10-shot variants. OOS variants for out-of-scope detection.",
+      "research_topics": ["intent_detection", "intent_classification"]
+    },
+    {
+      "name": "ClariQ",
+      "github_url": "https://github.com/aliannejadi/ClariQ",
+      "stars_estimate": "100+",
+      "description": "Dataset for studying clarifying questions in conversational search. Contains ~18K single-turn and ~1.8M multi-turn conversations with queries, facets, clarifying questions, answers, and clarification need labels.",
+      "relevance": "Core dataset for our clarification question generation experiments. Provides labeled examples of when clarification is needed and what good clarifying questions look like.",
+      "key_files": [
+        "data/train.tsv",
+        "data/dev.tsv",
+        "data/test.tsv"
+      ],
+      "pretrained_models": false,
+      "datasets_included": true,
+      "dataset_details": "TSV files with topics, facets, clarifying questions, user answers, and clarification need labels. Part of ConvAI3/SCAI challenge.",
+      "research_topics": ["clarification_question_generation", "conversational_search"]
+    },
+    {
+      "name": "Qulac",
+      "github_url": "https://github.com/aliannejadi/qulac",
+      "stars_estimate": "50+",
+      "description": "First dataset and offline evaluation framework for studying clarifying questions in open-domain information-seeking conversational search. Built on TREC Web Track 2009-2012 data.",
+      "relevance": "Complementary clarification dataset to ClariQ. Contains 10K+ question-answer pairs for 198 TREC topics with 762 facets, providing real ambiguous queries where clarification is needed.",
+      "key_files": [
+        "data/"
+      ],
+      "pretrained_models": false,
+      "datasets_included": true,
+      "dataset_details": "10,277 single-turn conversations (query, clarifying question, answer) for 198 TREC topics with 762 facets. Crowdsourced clarifying questions with relevance assessments.",
+      "research_topics": ["clarification_question_generation", "ambiguous_queries"]
+    },
+    {
+      "name": "BERTScore",
+      "github_url": "https://github.com/Tiiiger/bert_score",
+      "stars_estimate": "1500+",
+      "description": "Official implementation of BERTScore, an automatic evaluation metric for text generation that computes token-level similarity using contextual BERT embeddings.",
+      "relevance": "Essential evaluation metric for measuring semantic preservation in our text rewriting and autocorrection experiments. Robust to paraphrases compared to n-gram metrics.",
+      "key_files": [
+        "bert_score/score.py",
+        "bert_score/scorer.py",
+        "example/"
+      ],
+      "pretrained_models": true,
+      "pretrained_model_details": "Supports ~130 models. Recommended: microsoft/deberta-xlarge-mnli for best correlation with human judgments. Also available via HuggingFace evaluate library.",
+      "datasets_included": false,
+      "research_topics": ["paraphrase_evaluation", "semantic_similarity"]
+    },
+    {
+      "name": "ParaScore",
+      "github_url": "https://github.com/shadowkiller33/ParaScore",
+      "stars_estimate": "30+",
+      "description": "Evaluation metric for paraphrase generation that combines reference-based and reference-free approaches while explicitly modeling lexical divergence. Published at EMNLP 2022.",
+      "relevance": "Directly addresses paraphrase quality evaluation with both reference-based and reference-free variants. Can be used alongside BERTScore for evaluating semantic preservation in our rewriting pipeline.",
+      "key_files": [
+        "parascore.py",
+        "data/"
+      ],
+      "pretrained_models": false,
+      "datasets_included": true,
+      "dataset_details": "Includes BQ-Para (first Chinese paraphrase evaluation benchmark) and Twitter-Para evaluation datasets.",
+      "research_topics": ["paraphrase_evaluation", "text_rewriting"]
+    },
+    {
+      "name": "BARTScore",
+      "github_url": "https://github.com/neulab/BARTScore",
+      "stars_estimate": "400+",
+      "description": "Evaluates generated text as a text generation problem using pretrained BART. Supports evaluation from informativeness, fluency, and factuality perspectives.",
+      "relevance": "Complementary evaluation metric to BERTScore. Generative scoring approach can evaluate whether rewritten queries maintain the same informational content. Outperforms other metrics in 16/22 test settings.",
+      "key_files": [
+        "bart_score.py",
+        "score.py"
+      ],
+      "pretrained_models": true,
+      "pretrained_model_details": "Uses facebook/bart-large and fine-tuned variants. Can be applied in unsupervised fashion.",
+      "datasets_included": false,
+      "research_topics": ["text_generation_evaluation", "semantic_preservation"]
+    },
+    {
+      "name": "Conformal Prediction (Angelopoulos)",
+      "github_url": "https://github.com/aangelopoulos/conformal-prediction",
+      "stars_estimate": "500+",
+      "description": "Lightweight, practical implementation of conformal prediction on real data. Includes tutorial notebooks for classification, regression, outlier detection, and NLP tasks.",
+      "relevance": "Provides the conformal prediction framework referenced in our research for building intent classifiers with coverage guarantees. The conformal_classification wrapper can be adapted for intent classification with prediction sets.",
+      "key_files": [
+        "notebooks/imagenet-raps.ipynb",
+        "notebooks/meps-cqr.ipynb",
+        "notebooks/imagenet-selective-classification.ipynb"
+      ],
+      "pretrained_models": false,
+      "datasets_included": true,
+      "dataset_details": "Notebooks auto-download required datasets (ImageNet, MEPS, MS-COCO, etc.)",
+      "related_repos": [
+        "https://github.com/aangelopoulos/conformal_classification",
+        "https://github.com/aangelopoulos/conformal-risk"
+      ],
+      "research_topics": ["conformal_prediction", "uncertainty_quantification", "intent_classification"]
+    },
+    {
+      "name": "InfoCQR",
+      "github_url": "https://github.com/smartyfh/InfoCQR",
+      "stars_estimate": "50+",
+      "description": "Informative Conversational Query Rewriting using LLMs. Implements a rewrite-then-edit process with four properties: correctness, clarity, informativeness, and nonredundancy.",
+      "relevance": "Directly relevant to our query rewriting pipeline. Formalizes the properties a good rewrite must have (especially correctness = intent preservation and clarity = disambiguation), and uses LLMs as rewrite editors.",
+      "key_files": [
+        "README.md"
+      ],
+      "pretrained_models": false,
+      "datasets_included": false,
+      "dataset_details": "Uses conversational search datasets (TREC CAsT)",
+      "research_topics": ["query_rewriting", "intent_preservation", "conversational_search"]
+    },
+    {
+      "name": "Sentence-Transformers",
+      "github_url": "https://github.com/huggingface/sentence-transformers",
+      "stars_estimate": "16000+",
+      "description": "State-of-the-art text embedding framework. Supports semantic search, semantic textual similarity, paraphrase mining, with 10,000+ pre-trained models on HuggingFace.",
+      "relevance": "Backbone library for computing semantic similarity between original and rewritten queries. Essential for implementing our intent preservation checks and semantic similarity-based evaluation metrics.",
+      "key_files": [
+        "sentence_transformers/SentenceTransformer.py",
+        "sentence_transformers/losses/",
+        "examples/applications/semantic-search/",
+        "examples/applications/paraphrase-mining/"
+      ],
+      "pretrained_models": true,
+      "pretrained_model_details": "10,000+ pre-trained models on HuggingFace including all-MiniLM-L6-v2, all-mpnet-base-v2, and MTEB leaderboard models.",
+      "datasets_included": false,
+      "research_topics": ["semantic_similarity", "paraphrase_evaluation", "text_embeddings"]
+    }
+  ],
+  "supplementary_resources": [
+    {
+      "name": "ACQSurvey",
+      "github_url": "https://github.com/rahmanidashti/ACQSurvey",
+      "description": "Official repo for 'A Survey on Asking Clarification Questions Datasets in Conversational Systems' (ACL 2023). Comprehensive comparison of all ACQ datasets and evaluation metrics.",
+      "relevance": "Meta-resource listing all clarification question datasets and benchmarks. Useful for identifying additional datasets and understanding evaluation best practices."
+    },
+    {
+      "name": "Conformal Prediction for NLP Sentiment Classification",
+      "github_url": "https://github.com/PatrikDurdevic/Conformal-Prediction-for-NLP-Sentiment-Classification",
+      "description": "BSc thesis implementing conformal prediction on top of BERT for text classification with uncertainty quantification.",
+      "relevance": "Provides a concrete implementation of conformal prediction applied to NLP text classification, which can be adapted for intent classification."
+    },
+    {
+      "name": "CAsT BART Query Rewriting",
+      "github_url": "https://github.com/carlos-gemmell/CAsT_BART_query_rewriting",
+      "description": "BART-based query rewriting for the TREC Conversational Assistance Track (CAsT).",
+      "relevance": "Example of using BART for query rewriting in conversational search, preserving entities and intent across turns."
+    }
+  ]
+}
